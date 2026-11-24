@@ -8,7 +8,7 @@ export function Reply({ token, student }: { token: string; student: string }) {
   const [note, setNote] = useState("");
   const [done, setDone] = useState(false);
   const [pending, start] = useTransition();
-  if (done) return <p role="status" className="text-lg font-medium">{t("publicThanks", { student })}</p>;
+  if (done) return <p role="status" className="text-lg font-bold">{t("publicThanks", { student })}</p>;
   const send = (st: "in_progress" | "sent") => start(async () => { await recommenderReply(token, st, note); setDone(true); });
   return (
     <div className="grid gap-3">

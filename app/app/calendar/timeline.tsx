@@ -21,7 +21,7 @@ export function Timeline({ rows, from, months, today, onOpen, onlyList, toggleHr
   return (
     <div className="grid gap-3">
       <div className="flex flex-wrap items-center gap-3">
-        <Link href={toggleHref} aria-pressed={onlyList} className={`inline-flex min-h-10 items-center rounded-full border px-4 text-sm font-medium ${onlyList ? "border-[var(--ink)] bg-paper-2" : "border-line"}`}>{onlyList ? `✓ ${t("onlyList")}` : t("onlyList")}</Link>
+        <Link href={toggleHref} aria-pressed={onlyList} className={`inline-flex min-h-10 items-center rounded-full border px-4 text-sm font-bold ${onlyList ? "border-[var(--ink)] bg-paper-2" : "border-line"}`}>{onlyList ? `✓ ${t("onlyList")}` : t("onlyList")}</Link>
         <p className="text-sm text-mute">{t("legend")}</p>
       </div>
       {rows.length === 0 ? <p className="rounded-2xl border border-line bg-card p-6 text-ink-2">{t("empty")}</p> : (
@@ -30,7 +30,7 @@ export function Timeline({ rows, from, months, today, onOpen, onlyList, toggleHr
             <div className="grid grid-cols-[220px_1fr] border-b border-line">
               <div />
               <div className="relative h-9">
-                {ms.map((m) => <span key={m} className="absolute top-0 flex h-full items-center border-l border-line pl-2 text-xs font-medium uppercase tracking-wide text-mute" style={{ left: pct(m) }}>{fmtM(m)}</span>)}
+                {ms.map((m) => <span key={m} className="absolute top-0 flex h-full items-center border-l border-line pl-2 text-xs font-bold uppercase tracking-wide text-mute" style={{ left: pct(m) }}>{fmtM(m)}</span>)}
               </div>
             </div>
             {rows.map((r) => {
@@ -43,8 +43,8 @@ export function Timeline({ rows, from, months, today, onOpen, onlyList, toggleHr
               return (
                 <div key={r.key} className="grid grid-cols-[220px_1fr] border-b border-line last:border-0">
                   <Link href={r.href} className="grid content-center gap-0.5 border-r border-line px-3 py-2 hover:bg-paper-2">
-                    <span className="truncate text-sm font-medium">{r.name}</span>
-                    <span className={`text-xs ${r.stage === "pursuing" ? "font-medium text-[var(--lacquer)]" : "text-mute"}`}>{tl(`stages.${r.stage}` as "stages.shortlist")}</span>
+                    <span className="truncate text-sm font-bold">{r.name}</span>
+                    <span className={`text-xs ${r.stage === "pursuing" ? "font-bold text-[var(--lacquer)]" : "text-mute"}`}>{tl(`stages.${r.stage}` as "stages.shortlist")}</span>
                   </Link>
                   <div className="relative h-14">
                     {ms.map((m) => <span key={m} className="absolute inset-y-0 border-l border-line/70" style={{ left: pct(m) }} aria-hidden />)}

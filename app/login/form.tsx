@@ -45,12 +45,12 @@ export function LoginForm({ next, initialMode = "signin" }: { next: string; init
         <div className="relative">
           <input id="password" name="password" type={show ? "text" : "password"} autoComplete={mode === "signup" ? "new-password" : "current-password"} required minLength={8}
             value={password} onChange={(e) => setPassword(e.target.value)} className={`${inputCls} pr-24`} aria-invalid={error?.field === "password"} aria-describedby={error?.field === "password" ? "password-err" : undefined} />
-          <button type="button" onClick={() => setShow((v) => !v)} className="absolute right-1 top-1/2 min-h-11 -translate-y-1/2 rounded-lg px-3 text-sm font-medium text-ink-2 hover:bg-paper-2">{show ? t("hidePassword") : t("showPassword")}</button>
+          <button type="button" onClick={() => setShow((v) => !v)} className="absolute right-1 top-1/2 min-h-11 -translate-y-1/2 rounded-lg px-3 text-sm font-bold text-ink-2 hover:bg-paper-2">{show ? t("hidePassword") : t("showPassword")}</button>
         </div>
       </Field>
       {error?.field === "form" ? <p role="alert" className="text-[var(--lacquer)]">{error.msg}</p> : null}
       <Button type="submit" size="lg" disabled={busy}>{busy ? tc("loading") : mode === "signup" ? t("signUp") : t("signIn")}</Button>
-      <button type="button" className="min-h-11 justify-self-center font-medium text-ink-2 underline underline-offset-4" onClick={() => { setMode(mode === "signup" ? "signin" : "signup"); setError(null); }}>
+      <button type="button" className="min-h-11 justify-self-center font-bold text-ink-2 underline underline-offset-4" onClick={() => { setMode(mode === "signup" ? "signin" : "signup"); setError(null); }}>
         {mode === "signup" ? t("toSignIn") : t("toSignUp")}
       </button>
     </form>

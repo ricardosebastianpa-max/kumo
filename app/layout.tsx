@@ -5,9 +5,9 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import "./globals.css";
 
-const fraunces = localFont({
-  src: [{ path: "./fonts/fraunces-latin-opsz-normal.woff2", weight: "300 800", style: "normal" }, { path: "./fonts/fraunces-latin-ext-opsz-normal.woff2", weight: "300 800", style: "normal" }],
-  variable: "--font-fraunces",
+const nunito = localFont({
+  src: [{ path: "./fonts/nunito-latin-wght-normal.woff2", weight: "200 1000", style: "normal" }, { path: "./fonts/nunito-latin-ext-wght-normal.woff2", weight: "200 1000", style: "normal" }],
+  variable: "--font-nunito",
   display: "swap",
 });
 
@@ -24,7 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const locale = await getLocale();
   const t = await getTranslations("common");
   return (
-    <html lang={locale} className={`${GeistSans.variable} ${fraunces.variable}`}>
+    <html lang={locale} className={`${GeistSans.variable} ${nunito.variable}`}>
       <body className="min-h-dvh">
         <a href="#main" className="skip-link">{t("skipToContent")}</a>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>

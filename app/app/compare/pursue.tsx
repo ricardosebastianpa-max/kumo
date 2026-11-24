@@ -9,7 +9,7 @@ export function PursueButton({ kind, refId, pursuing, label, done }: { kind: "in
   const router = useRouter();
   return (
     <button type="button" aria-pressed={on} onClick={() => start(async () => { setOn(!on); await setStage(kind, refId, on ? "shortlist" : "pursuing"); router.refresh(); })}
-      className={`min-h-11 rounded-xl px-4 font-medium transition-colors ${on ? "bg-[var(--lacquer)] text-white" : "border border-line bg-card hover:bg-paper-2"}`}>
+      className={`min-h-11 rounded-xl px-4 font-bold transition-colors ${on ? "bg-[var(--lacquer)] text-white" : "border border-line bg-card hover:bg-paper-2"}`}>
       {on ? `✓ ${done}` : label}
     </button>
   );

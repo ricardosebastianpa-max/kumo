@@ -21,8 +21,8 @@ export default async function RecommenderPage({ params }: { params: Promise<{ to
     <main id="main" className="mx-auto grid min-h-dvh max-w-md content-center gap-5 px-4 py-10">
       <Kumo state="cheering" size={90} className="text-ink" />
       <h1 className="text-3xl">{t("publicTitle", { student })}</h1>
-      {r.r.ask && <section className="grid gap-1"><h2 className="font-sans text-sm font-medium text-mute">{t("publicWhat")}</h2><p className="text-lg">{r.r.ask}</p></section>}
-      {r.r.dueOn && <p className="font-medium">{t("publicDue", { date: r.r.dueOn })}</p>}
+      {r.r.ask && <section className="grid gap-1"><h2 className="font-sans text-sm font-bold text-mute">{t("publicWhat")}</h2><p className="text-lg">{r.r.ask}</p></section>}
+      {r.r.dueOn && <p className="font-bold">{t("publicDue", { date: r.r.dueOn })}</p>}
       <Reply token={token} student={student} />
     </main>
   );

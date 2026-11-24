@@ -13,7 +13,7 @@ export default function Design() {
   return (
     <main id="main" className="mx-auto grid max-w-5xl gap-12 px-4 py-10 sm:px-6">
       <header className="grid gap-2">
-        <p className="text-sm font-medium text-[var(--lacquer)]">Kumo</p>
+        <p className="text-sm font-bold text-[var(--lacquer)]">Kumo</p>
         <h1 className="text-5xl">Design system</h1>
         <p className="max-w-[60ch] text-lg text-ink-2">Warm paper, deep ink, one lacquer accent. Calm by default; colour carries meaning, never decoration.</p>
       </header>
@@ -40,7 +40,7 @@ export default function Design() {
 
       <section className="grid gap-4"><h2 className="text-3xl">Kumo states</h2>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
-          {STATES.map((s) => <Card key={s} className="grid justify-items-center gap-2 p-4"><Kumo state={s} size={110} className="text-ink" /><p className="text-sm font-medium">{s}</p></Card>)}
+          {STATES.map((s) => <Card key={s} className="grid justify-items-center gap-2 p-4"><Kumo state={s} size={110} className="text-ink" /><p className="text-sm font-bold">{s}</p></Card>)}
         </div>
       </section>
 

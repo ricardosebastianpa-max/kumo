@@ -29,7 +29,7 @@ export function ProgressClient({ goals, done, tests, owner, overload, today, can
           {canEdit && <Button disabled={pending} onClick={() => start(async () => { const n = await planMyWeek(); toast({ text: t("planned", { n }) }); })}>{t("planWeek")}</Button>}</div>
         <p className="text-sm text-mute">{t("planHint")}</p>
         <ul className="grid gap-3">{subjects.map((k) => { const g = goals[k] ?? 0, d = Math.round((done[k] ?? 0) * 10) / 10; return (
-          <li key={k} className="grid gap-1"><div className="flex justify-between text-sm"><span className="font-medium">{label(k)}</span><span className="tabular-nums text-ink-2">{d} / {g} h</span></div>
+          <li key={k} className="grid gap-1"><div className="flex justify-between text-sm"><span className="font-bold">{label(k)}</span><span className="tabular-nums text-ink-2">{d} / {g} h</span></div>
             <div className="h-2 overflow-hidden rounded-full bg-paper-2"><div className="h-full rounded-full bg-[var(--ink)]" style={{ width: `${g ? Math.min(100, (d / g) * 100) : d ? 100 : 0}%` }} /></div></li>); })}</ul>
       </Card>
 
@@ -40,7 +40,7 @@ export function ProgressClient({ goals, done, tests, owner, overload, today, can
           const W = 220, H = 48, pts = pct.map((p, i) => `${(i / Math.max(1, pct.length - 1)) * W},${H - (p / 100) * H}`).join(" ");
           return (
             <div key={g} className="grid gap-1 sm:grid-cols-[1fr_auto] sm:items-center">
-              <div><p className="font-medium">{g}</p><p className="text-sm text-mute">{xs.map((x) => `${x.score}/${x.maxScore}`).join(" → ")} · {t("trend", { d: sl })}</p></div>
+              <div><p className="font-bold">{g}</p><p className="text-sm text-mute">{xs.map((x) => `${x.score}/${x.maxScore}`).join(" → ")} · {t("trend", { d: sl })}</p></div>
               <svg viewBox={`-4 -4 ${W + 8} ${H + 8}`} width={W} height={H} aria-hidden><polyline points={pts} fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />{pct.map((p, i) => <circle key={i} cx={(i / Math.max(1, pct.length - 1)) * W} cy={H - (p / 100) * H} r="3.5" fill="var(--lacquer)" />)}</svg>
             </div>);
         })}
@@ -56,8 +56,8 @@ export function ProgressClient({ goals, done, tests, owner, overload, today, can
       {owner && <Card className="grid gap-3 p-5">
         <div><h2 className="text-2xl">{t("checkin")}</h2><p className="text-sm text-mute">{t("private")}</p></div>
         {(["energy", "mood", "sleep", "stress"] as const).map((k) => (
-          <div key={k} className="flex flex-wrap items-center gap-2"><span className="w-20 text-sm font-medium">{t(k)}</span>
-            <div role="radiogroup" aria-label={t(k)} className="flex gap-1">{[1, 2, 3, 4, 5].map((v) => <button key={v} type="button" role="radio" aria-checked={ci[k] === v} onClick={() => setCi({ ...ci, [k]: v })} className={`size-11 rounded-xl border font-medium ${ci[k] === v ? "border-[var(--ink)] bg-brand text-brand-ink" : "border-line"}`}>{v}</button>)}</div></div>
+          <div key={k} className="flex flex-wrap items-center gap-2"><span className="w-20 text-sm font-bold">{t(k)}</span>
+            <div role="radiogroup" aria-label={t(k)} className="flex gap-1">{[1, 2, 3, 4, 5].map((v) => <button key={v} type="button" role="radio" aria-checked={ci[k] === v} onClick={() => setCi({ ...ci, [k]: v })} className={`size-11 rounded-xl border font-bold ${ci[k] === v ? "border-[var(--ink)] bg-brand text-brand-ink" : "border-line"}`}>{v}</button>)}</div></div>
         ))}
         <Button className="justify-self-start" disabled={pending} onClick={() => start(async () => { await saveCheckin(Object.fromEntries(Object.entries(ci).filter(([, v]) => v > 0))); toast({ text: t("saved") }); })}>OK</Button>
       </Card>}

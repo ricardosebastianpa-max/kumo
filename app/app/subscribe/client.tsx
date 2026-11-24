@@ -12,7 +12,7 @@ export function SubscribeClient({ url }: { url: string }) {
   const [pending, start] = useTransition();
   const webcal = url.replace(/^https?:/, "webcal:");
   const google = `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(webcal)}`;
-  const a = "inline-flex min-h-11 items-center justify-center rounded-xl px-4 text-[0.9375rem] font-medium";
+  const a = "inline-flex min-h-11 items-center justify-center rounded-xl px-4 text-[0.9375rem] font-bold";
   return (
     <>
       <input readOnly value={url} onFocus={(e) => e.currentTarget.select()} aria-label="ICS" className={`${inputCls} font-mono text-sm`} data-testid="ics-url" />

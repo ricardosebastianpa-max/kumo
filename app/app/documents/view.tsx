@@ -17,17 +17,17 @@ export function DocsView({ docs, canEdit, today }: { docs: Doc[]; canEdit: boole
   const ready = docs.filter((d) => d.status !== "missing" && d.status !== "in_progress").length;
   return (
     <div className="grid max-w-3xl gap-6 pt-2">
-      <div className="grid gap-2"><h1 className="text-4xl">{t("title")}</h1><p className="text-lg text-ink-2">{t("lead")}</p>{docs.length > 0 && <p className="font-medium">{ready}/{docs.length}</p>}</div>
+      <div className="grid gap-2"><h1 className="text-4xl">{t("title")}</h1><p className="text-lg text-ink-2">{t("lead")}</p>{docs.length > 0 && <p className="font-bold">{ready}/{docs.length}</p>}</div>
       {canEdit && docs.length === 0 && <Button onClick={() => start(() => seedDocuments())} className="justify-self-start">{t("seed")}</Button>}
       <ul className="grid gap-2">
         {docs.map((d) => {
           const left = d.expiresOn ? daysBetween(today, d.expiresOn) : null;
           return (
             <li key={d.id}><Card className="grid gap-2 p-4 sm:grid-cols-[1fr_auto_auto] sm:items-center">
-              <div className="grid gap-0.5"><span className="font-medium">{d.name}</span>
-                {left !== null && left < 0 ? <span className="text-sm font-medium text-[var(--lacquer)]">{t("expired")}</span> : left !== null && left <= 183 ? <span className="text-sm text-[var(--conf-estimated)]">{t("expiring", { n: left })}</span> : null}
+              <div className="grid gap-0.5"><span className="font-bold">{d.name}</span>
+                {left !== null && left < 0 ? <span className="text-sm font-bold text-[var(--lacquer)]">{t("expired")}</span> : left !== null && left <= 183 ? <span className="text-sm text-[var(--conf-estimated)]">{t("expiring", { n: left })}</span> : null}
               </div>
-              <select disabled={!canEdit} defaultValue={d.status} onChange={(e) => save(d, { status: e.target.value })} aria-label={`${t("status")}: ${d.name}`} className={`${inputCls} min-h-11 w-auto text-sm font-medium`} style={{ color: COLOR[d.status] }}>
+              <select disabled={!canEdit} defaultValue={d.status} onChange={(e) => save(d, { status: e.target.value })} aria-label={`${t("status")}: ${d.name}`} className={`${inputCls} min-h-11 w-auto text-sm font-bold`} style={{ color: COLOR[d.status] }}>
                 {ST.map((st) => <option key={st} value={st}>{t(`statuses.${st}`)}</option>)}
               </select>
               <label className="flex items-center gap-2 text-sm text-mute">{t("expires")}<input type="date" disabled={!canEdit} defaultValue={d.expiresOn ?? ""} onChange={(e) => save(d, { expiresOn: e.target.value || null })} className={`${inputCls} min-h-11 w-auto text-sm`} /></label>

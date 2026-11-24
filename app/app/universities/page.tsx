@@ -11,7 +11,8 @@ import * as s from "@/db/schema";
 import { and, eq, isNull } from "drizzle-orm";
 
 export async function generateMetadata() { return { title: (await getTranslations("catalog"))("uniTitle") }; }
-export default async function Universities() {
+export default async function Universities({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
+  const sp = await searchParams;
   const ctx = await requireWorkspace();
   if (!can(ctx.actor, "view", { workspaceId: ctx.workspace.id, module: "catalog" })) redirect("/app");
   const t = await getTranslations("catalog");
@@ -33,7 +34,7 @@ export default async function Universities() {
     <div className="grid gap-6 pt-2">
       <ExploreTabs active="unis" />
       <div className="grid gap-2"><h1 className="text-4xl">{t("uniTitle")}</h1><p className="max-w-[60ch] text-lg text-ink-2">{t("uniLead", { n: rows.length })}</p></div>
-      <UniTable rows={rows} canList={can(ctx.actor, "edit", { workspaceId: ws, module: "list" })} />
+      <UniTable key={JSON.stringify(sp)} initial={{ q: sp.q, cat: sp.cat, sort: sp.sort, mode: sp.mode }} rows={rows} canList={can(ctx.actor, "edit", { workspaceId: ws, module: "list" })} />
     </div>
   );
 }

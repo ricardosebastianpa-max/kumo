@@ -64,7 +64,7 @@ export function CalendarView(p: { timeline?: { rows: TlRow[]; from: string; mont
   const Chip = ({ e, compact = false }: { e: CalEvent; compact?: boolean }) => (
     <button type="button" draggable={p.canEdit} onDragStart={(ev) => { ev.dataTransfer.setData("text/plain", e.id); ev.dataTransfer.effectAllowed = "move"; setDragId(e.id); }} onDragEnd={() => setDragId(null)}
       onClick={() => setOpenId(e.id)} title={`${e.title}${e.original ? ` · ${e.original}` : ""}`}
-      className={`group flex w-full min-w-0 items-center gap-1.5 rounded-lg px-1.5 text-left text-xs font-medium leading-tight transition-opacity ${compact ? "min-h-6 py-0.5" : "min-h-9 py-1.5 text-sm"} ${dragId === e.id ? "opacity-40" : ""} ${e.done ? "line-through opacity-60" : ""}`}
+      className={`group flex w-full min-w-0 items-center gap-1.5 rounded-lg px-1.5 text-left text-xs font-bold leading-tight transition-opacity ${compact ? "min-h-6 py-0.5" : "min-h-9 py-1.5 text-sm"} ${dragId === e.id ? "opacity-40" : ""} ${e.done ? "line-through opacity-60" : ""}`}
       style={{ background: `color-mix(in srgb, ${color(e.kind)} 12%, transparent)`, color: "var(--ink)", outline: e.confidence !== "confirmed" ? `1.5px dashed color-mix(in srgb, ${color(e.kind)} 70%, transparent)` : undefined, outlineOffset: "-1.5px" }}
       data-testid="cal-event">
       <span className="size-2 shrink-0 rounded-full" style={{ background: color(e.kind) }} aria-hidden />
@@ -89,24 +89,24 @@ export function CalendarView(p: { timeline?: { rows: TlRow[]; from: string; mont
           <h1 className="mr-2 text-3xl sm:text-4xl">{heading}</h1>
           <Link href={href({ d: prev })} aria-label={t("prev")} className="grid size-11 place-items-center rounded-xl hover:bg-paper-2"><ChevronLeft size={20} aria-hidden /></Link>
           <Link href={href({ d: next })} aria-label={t("next")} className="grid size-11 place-items-center rounded-xl hover:bg-paper-2"><ChevronRight size={20} aria-hidden /></Link>
-          <Link href={href({ d: null })} className="min-h-11 content-center rounded-xl px-3 text-sm font-medium hover:bg-paper-2">{t("today")}</Link>
+          <Link href={href({ d: null })} className="min-h-11 content-center rounded-xl px-3 text-sm font-bold hover:bg-paper-2">{t("today")}</Link>
         </div>
         <div role="tablist" aria-label={t("title")} className="flex rounded-xl border border-line bg-card p-1">
           {(["month", "week", "agenda", "timeline", "year"] as const).map((v) => (
             <Link key={v} role="tab" aria-selected={p.view === v} href={href({ view: v === "month" ? null : v })}
-              className={`min-h-10 content-center rounded-lg px-3 text-sm font-medium ${p.view === v ? "bg-brand text-brand-ink" : "text-ink-2 hover:bg-paper-2"}`}>{t(v)}</Link>
+              className={`min-h-10 content-center rounded-lg px-3 text-sm font-bold ${p.view === v ? "bg-brand text-brand-ink" : "text-ink-2 hover:bg-paper-2"}`}>{t(v)}</Link>
           ))}
         </div>
       </div>
 
       {p.view !== "timeline" && <details className="rounded-2xl border border-line bg-card px-4 py-2 open:pb-4">
-        <summary className="min-h-10 cursor-pointer content-center text-sm font-medium">{t("layers")} <span className="font-normal text-mute">· {t("estimatedLegend")}</span></summary>
+        <summary className="min-h-10 cursor-pointer content-center text-sm font-bold">{t("layers")} <span className="font-normal text-mute">· {t("estimatedLegend")}</span></summary>
         <div className="mt-2 flex flex-wrap gap-2">
           {LAYERS.map((k) => {
             const on = !hidden.has(k);
             const nextHidden = on ? [...hidden, k] : [...hidden].filter((x) => x !== k);
             return (
-              <Link key={k} href={href({ hide: nextHidden.join(",") })} aria-pressed={on} className={`inline-flex min-h-10 items-center gap-2 rounded-full border px-3 text-sm font-medium ${on ? "border-line bg-paper-2" : "border-dashed border-line text-mute"}`}>
+              <Link key={k} href={href({ hide: nextHidden.join(",") })} aria-pressed={on} className={`inline-flex min-h-10 items-center gap-2 rounded-full border px-3 text-sm font-bold ${on ? "border-line bg-paper-2" : "border-dashed border-line text-mute"}`}>
                 <span className="size-2.5 rounded-full" style={{ background: on ? color(k) : "transparent", border: `1.5px solid ${color(k)}` }} aria-hidden />{tk(k)}
               </Link>
             );
@@ -116,7 +116,7 @@ export function CalendarView(p: { timeline?: { rows: TlRow[]; from: string; mont
 
       {p.view === "month" && (
         <div className="overflow-hidden rounded-[var(--radius-card)] border border-line bg-card">
-          <div className="grid grid-cols-7 border-b border-line text-center text-xs font-medium uppercase tracking-wide text-mute">{dows.map((d) => <div key={d} className="py-2">{d}</div>)}</div>
+          <div className="grid grid-cols-7 border-b border-line text-center text-xs font-bold uppercase tracking-wide text-mute">{dows.map((d) => <div key={d} className="py-2">{d}</div>)}</div>
           <div className="grid grid-cols-7">
             {monthGrid(p.anchor).map((d) => {
               const list = byDay.get(d) ?? [];
@@ -124,11 +124,11 @@ export function CalendarView(p: { timeline?: { rows: TlRow[]; from: string; mont
               return (
                 <div key={d} {...dropProps(d)} className={`relative min-h-14 border-b border-r border-line p-1 sm:min-h-28 ${inMonth ? "" : "bg-paper-2/60"} ${overDay === d ? "bg-lacquer-soft" : ""} ${sel === d ? "max-sm:bg-paper-2" : ""}`}>
                   <button type="button" onClick={() => setSel(d)} aria-label={`${fmt(d, { weekday: "long", day: "numeric", month: "long" })}: ${list.length}`} aria-pressed={sel === d} className="absolute inset-0 sm:hidden" />
-                  <Link href={href({ view: "week", d })} className={`mb-1 inline-grid size-7 place-items-center rounded-full text-xs font-medium max-sm:pointer-events-none ${d === p.today ? "bg-[var(--lacquer)] text-white" : inMonth ? "text-ink-2" : "text-mute"}`}>{+d.slice(8)}</Link>
+                  <Link href={href({ view: "week", d })} className={`mb-1 inline-grid size-7 place-items-center rounded-full text-xs font-bold max-sm:pointer-events-none ${d === p.today ? "bg-[var(--lacquer)] text-white" : inMonth ? "text-ink-2" : "text-mute"}`}>{+d.slice(8)}</Link>
                   <div className="flex flex-wrap gap-0.5 px-1 sm:hidden" aria-hidden>{list.slice(0, 4).map((e) => <span key={e.id} className="size-1.5 rounded-full" style={{ background: color(e.kind) }} />)}</div>
                   <div className="hidden gap-0.5 sm:grid">
                     {list.slice(0, 3).map((e) => <Chip key={e.id} e={e} compact />)}
-                    {list.length > 3 && <Link href={href({ view: "week", d })} className="px-1.5 text-xs font-medium text-mute hover:underline">{t("more", { n: list.length - 3 })}</Link>}
+                    {list.length > 3 && <Link href={href({ view: "week", d })} className="px-1.5 text-xs font-bold text-mute hover:underline">{t("more", { n: list.length - 3 })}</Link>}
                   </div>
                 </div>
               );
@@ -139,7 +139,7 @@ export function CalendarView(p: { timeline?: { rows: TlRow[]; from: string; mont
 
       {p.view === "month" && (
         <section className="grid gap-1.5 sm:hidden" aria-live="polite">
-          <h2 className="font-sans text-sm font-medium text-ink-2">{cap(fmt(sel, { weekday: "long", day: "numeric", month: "long" }))}</h2>
+          <h2 className="font-sans text-sm font-bold text-ink-2">{cap(fmt(sel, { weekday: "long", day: "numeric", month: "long" }))}</h2>
           {(byDay.get(sel) ?? []).length ? (byDay.get(sel) ?? []).map((e) => <Chip key={e.id} e={e} />) : <p className="text-sm text-mute">{t("noEvents")}</p>}
         </section>
       )}
@@ -149,7 +149,7 @@ export function CalendarView(p: { timeline?: { rows: TlRow[]; from: string; mont
           {weekDays(p.anchor).map((d) => (
             <section key={d} {...dropProps(d)} aria-label={fmt(d, { weekday: "long", day: "numeric", month: "long" })}
               className={`grid min-h-32 content-start gap-1.5 rounded-2xl border border-line bg-card p-2 ${overDay === d ? "bg-lacquer-soft" : ""}`}>
-              <p className={`text-sm font-medium ${d === p.today ? "text-[var(--lacquer)]" : "text-ink-2"}`}>{fmt(d, { weekday: "short", day: "numeric" })}</p>
+              <p className={`text-sm font-bold ${d === p.today ? "text-[var(--lacquer)]" : "text-ink-2"}`}>{fmt(d, { weekday: "short", day: "numeric" })}</p>
               {(byDay.get(d) ?? []).map((e) => <Chip key={e.id} e={e} />)}
             </section>
           ))}
@@ -161,7 +161,7 @@ export function CalendarView(p: { timeline?: { rows: TlRow[]; from: string; mont
           <div className="grid gap-4">
             {[...byDay.entries()].map(([d, list]) => (
               <section key={d} className="grid gap-2 sm:grid-cols-[140px_1fr]">
-                <h2 className={`pt-2 font-sans text-sm font-medium ${d === p.today ? "text-[var(--lacquer)]" : "text-ink-2"}`}>{fmt(d, { weekday: "long", day: "numeric", month: "short" })}</h2>
+                <h2 className={`pt-2 font-sans text-sm font-bold ${d === p.today ? "text-[var(--lacquer)]" : "text-ink-2"}`}>{fmt(d, { weekday: "long", day: "numeric", month: "short" })}</h2>
                 <div className="grid gap-1.5">{list.map((e) => (
                   <div key={e.id} className="grid gap-0.5"><Chip e={e} />{e.original ? <p className="pl-6 text-xs text-mute">{e.original}</p> : null}</div>
                 ))}</div>
@@ -179,14 +179,14 @@ export function CalendarView(p: { timeline?: { rows: TlRow[]; from: string; mont
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 12 }, (_, m) => `${p.anchor.slice(0, 4)}-${String(m + 1).padStart(2, "0")}-01`).map((ms) => (
             <section key={ms} className="rounded-2xl border border-line bg-card p-3">
-              <Link href={href({ view: null, d: ms })} className="mb-2 block min-h-8 text-sm font-medium capitalize hover:underline">{fmt(ms, { month: "long" })}</Link>
+              <Link href={href({ view: null, d: ms })} className="mb-2 block min-h-8 text-sm font-bold capitalize hover:underline">{fmt(ms, { month: "long" })}</Link>
               <div className="grid grid-cols-7 gap-0.5">
                 {monthGrid(ms).map((d) => {
                   const n = d.slice(0, 7) === ms.slice(0, 7) ? (byDay.get(d)?.length ?? 0) : -1;
                   const crit = (byDay.get(d) ?? []).some((e) => e.priority === "critical");
                   return n < 0 ? <span key={d} /> : (
                     <Link key={d} href={href({ view: "week", d })} aria-label={`${fmt(d, { day: "numeric", month: "long" })}: ${n}`}
-                      className="grid aspect-square place-items-center rounded-md text-[10px] font-medium"
+                      className="grid aspect-square place-items-center rounded-md text-[10px] font-bold"
                       style={{ background: n ? `color-mix(in srgb, var(--lacquer) ${Math.min(14 + n * 18, 80)}%, transparent)` : "var(--paper-2)", color: n > 2 ? "white" : "var(--ink-2)", outline: crit ? "1.5px solid var(--lacquer)" : undefined, outlineOffset: crit ? "1px" : undefined }}>
                       {+d.slice(8)}
                     </Link>

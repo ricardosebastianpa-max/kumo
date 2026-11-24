@@ -24,7 +24,7 @@ export default async function Compare({ searchParams }: { searchParams: Promise<
   const cards = await boardCards(ws, tz);
   const chosen = keys.map((k) => cards.find((c) => `${c.kind}:${c.refId}` === k)).filter(Boolean) as typeof cards;
   if (chosen.length < 2) return (
-    <div className="grid max-w-xl gap-4 pt-6"><h1 className="text-4xl">{t("title")}</h1><p className="text-lg text-ink-2">{t("pick")}</p><Link href="/app/list" className="font-medium underline">{t("back")}</Link></div>
+    <div className="grid max-w-xl gap-4 pt-6"><h1 className="text-4xl">{t("title")}</h1><p className="text-lg text-ink-2">{t("pick")}</p><Link href="/app/list" className="font-bold underline">{t("back")}</Link></div>
   );
   const scored = new Map((await institutionsScored(ws)).map((x) => [x.i.id, x]));
   const schIds = chosen.filter((c) => c.kind === "scholarship").map((c) => c.refId);
@@ -52,7 +52,7 @@ export default async function Compare({ searchParams }: { searchParams: Promise<
     row("climate", (c) => (inst(c)?.score ? { text: inst(c)!.score!.parts.climate_city.toFixed(1), v: inst(c)!.score!.parts.climate_city } : dash), "max"),
     row("janLow", (c) => { const j = (inst(c)?.i.climate as { janLowC?: number } | null)?.janLowC; return j != null ? { text: `${j} °C` } : dash; }),
     row("coverage", (c) => { const x = c.kind === "scholarship" ? schs.get(c.refId) : undefined; const cov = x?.coverage as { text?: string; summary?: string } | null; return cov ? { text: <span className="text-sm">{cov.summary ?? cov.text}</span> } : dash; }),
-    row("next", (c) => (c.nextDate ? { text: <span className="text-sm"><span className="font-medium">{fmtD(c.nextDate)}</span> · {c.nextTitle}</span> } : dash)),
+    row("next", (c) => (c.nextDate ? { text: <span className="text-sm"><span className="font-bold">{fmtD(c.nextDate)}</span> · {c.nextTitle}</span> } : dash)),
     row("gut", (c) => (c.gut ? { text: <Gut value={c.gut} size={16} />, v: c.gut } : dash), "max"),
     row("pros", (c) => (c.pros.length ? { text: <ul className="grid gap-1 text-sm">{c.pros.map((p) => <li key={p}>+ {p}</li>)}</ul>, v: c.pros.length } : dash), "max"),
     row("cons", (c) => (c.cons.length ? { text: <ul className="grid gap-1 text-sm">{c.cons.map((p) => <li key={p}>− {p}</li>)}</ul> } : dash)),
@@ -62,7 +62,7 @@ export default async function Compare({ searchParams }: { searchParams: Promise<
 
   return (
     <div className="grid gap-6 pt-2">
-      <Link href="/app/list" className="min-h-11 content-center text-sm font-medium text-ink-2 hover:underline">← {t("back")}</Link>
+      <Link href="/app/list" className="min-h-11 content-center text-sm font-bold text-ink-2 hover:underline">← {t("back")}</Link>
       <div className="grid gap-2"><h1 className="text-4xl">{t("title")}</h1><p className="text-lg text-ink-2">{t("lead")}</p></div>
       <div className="-mx-4 overflow-x-auto px-4 pb-2">
         <div className="grid min-w-max gap-x-3" style={{ gridTemplateColumns: cols }} role="table" aria-label={t("title")}>
@@ -79,12 +79,12 @@ export default async function Compare({ searchParams }: { searchParams: Promise<
           </div>
           {rows.map((r) => (
             <div key={r.key} role="row" className="contents">
-              <div role="rowheader" className="sticky left-0 z-10 border-t border-line bg-paper py-3 pr-2 text-sm font-medium text-ink-2">{t(`rows.${r.key}` as "rows.score")}</div>
+              <div role="rowheader" className="sticky left-0 z-10 border-t border-line bg-paper py-3 pr-2 text-sm font-bold text-ink-2">{t(`rows.${r.key}` as "rows.score")}</div>
               {r.cells.map((c, i) => {
                 const best = r.best !== null && c.v === r.best;
                 return (
                   <div key={i} role="cell" className={`border-t border-line px-3 py-3 ${best ? "rounded-xl bg-[color-mix(in_srgb,var(--conf-confirmed)_12%,transparent)]" : ""}`}>
-                    {c.text}{best ? <span className="ml-2 text-xs font-medium text-[var(--conf-confirmed)]">{t("best")}</span> : null}
+                    {c.text}{best ? <span className="ml-2 text-xs font-bold text-[var(--conf-confirmed)]">{t("best")}</span> : null}
                   </div>
                 );
               })}

@@ -10,7 +10,7 @@ export function LocaleSwitch() {
   const next = locale === "es" ? "en" : "es";
   return (
     <button type="button" onClick={() => start(() => setLocale(next))} disabled={pending} aria-label={`${t("language")}: ${next === "en" ? "English" : "Español"}`}
-      className="min-h-11 min-w-11 rounded-xl px-3 text-sm font-medium text-ink-2 hover:bg-paper-2">
+      className="min-h-11 min-w-11 rounded-xl px-3 text-sm font-bold text-ink-2 hover:bg-paper-2">
       {next.toUpperCase()}
     </button>
   );

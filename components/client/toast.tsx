@@ -20,8 +20,8 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
       <div aria-live="polite" className="pointer-events-none fixed inset-x-0 bottom-20 z-50 flex justify-center px-4 lg:bottom-6">
         {toast && (
           <div key={toast.id} className="enter pointer-events-auto flex items-center gap-3 rounded-2xl bg-brand px-4 py-3 text-brand-ink shadow-[var(--shadow-2)]">
-            <span className="font-medium">{toast.text}</span>
-            {toast.action && <button type="button" className="min-h-10 rounded-lg px-3 font-medium underline underline-offset-4" onClick={() => { toast.action!.run(); setToast(null); }}>{toast.action.label}</button>}
+            <span className="font-bold">{toast.text}</span>
+            {toast.action && <button type="button" className="min-h-10 rounded-lg px-3 font-bold underline underline-offset-4" onClick={() => { toast.action!.run(); setToast(null); }}>{toast.action.label}</button>}
           </div>
         )}
       </div>

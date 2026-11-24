@@ -13,7 +13,7 @@ export default function Outbox() {
         <article key={i} className="grid gap-2 rounded-2xl border border-line bg-card p-4" data-testid="mail">
           <p className="text-sm text-mute">{m.at} · {m.to}</p>
           <h2 className="text-xl">{m.subject}</h2>
-          {[...m.text.matchAll(/https?:\/\/\S+/g)].map(([u]) => <a key={u} href={u} className="break-all font-medium underline" data-testid="mail-link">{u}</a>)}
+          {[...m.text.matchAll(/https?:\/\/\S+/g)].map(([u]) => <a key={u} href={u} className="break-all font-bold underline" data-testid="mail-link">{u}</a>)}
         </article>
       ))}
     </main>

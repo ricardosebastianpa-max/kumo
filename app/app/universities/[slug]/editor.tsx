@@ -16,7 +16,7 @@ export function InstitutionEditor({ slug, currency, initial }: { slug: string; c
   const [f, setF] = useState(initial);
   const [pending, start] = useTransition();
   const n = (v: string) => (v === "" ? null : Number(v));
-  const lbl = "grid gap-1 text-sm font-medium text-ink-2";
+  const lbl = "grid gap-1 text-sm font-bold text-ink-2";
   return (
     <Card className="p-6">
       <details>

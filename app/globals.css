@@ -2,18 +2,26 @@
 
 /* Kumo design tokens. Colors are CSS variables so a workspace can override them at runtime. */
 :root {
-  --paper: #F7F4EE;
-  --paper-2: #EFE9DF;
-  --card: #FDFBF7;
-  --ink: #1F1B16;
-  --ink-2: #5E554A;
-  --mute: #736A5E;
-  --line: rgba(31, 27, 22, .09);
-  --brand: #1F1B16;
-  --brand-ink: #FDFBF7;
-  --lacquer: #B4392B;
-  --lacquer-soft: #F6E4DE;
-  --focus: #2F6FED;
+  --paper: #FBFAF8;
+  --paper-2: #F1EEE9;
+  --card: #FFFFFF;
+  --ink: #2B2A33;
+  --ink-2: #5B5966;
+  --mute: #6F6C7A;
+  --line: #E6E2DC;
+  --line-strong: #D8D3CB;
+  --brand: #D64232;
+  --brand-ink: #FFFFFF;
+  --brand-deep: #A92E21;
+  --sky: #3FA9F5;
+  --sky-deep: #1E86D1;
+  --sky-soft: #E3F3FE;
+  --leaf: #3DBE6B;
+  --leaf-deep: #2A9A51;
+  --sun: #FFC93C;
+  --lacquer: #E5533F;
+  --lacquer-soft: #FFE9E4;
+  --focus: #3FA9F5;
 
   /* Semantic categories (editable per workspace) */
   --cat-dream: #9A6B00;
@@ -36,14 +44,15 @@
   --dur-in: 220ms;
   --dur-out: 160ms;
 
-  --shadow-1: 0 1px 2px rgba(31, 27, 22, .04);
-  --shadow-2: 0 1px 2px rgba(31, 27, 22, .05), 0 12px 32px -16px rgba(31, 27, 22, .22);
+  --shadow-1: 0 3px 0 var(--line-strong);
+  --shadow-2: 0 4px 0 var(--line-strong);
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #161513; --paper-2: #1F1D1A; --card: #1C1A18; --ink: #EFE9DE; --ink-2: #AAA398; --mute: #8A847A;
-    --line: rgba(239, 233, 222, .09); --brand: #EFE9DE; --brand-ink: #161513; --lacquer: #E2725F; --lacquer-soft: #33211C; --focus: #7AA2FF;
+    --paper: #17161C; --paper-2: #211F28; --card: #1D1C23; --ink: #F3F1F7; --ink-2: #C3C0CE; --mute: #9C99A8;
+    --line: #33313D; --line-strong: #403D4B; --brand: #FF7A66; --brand-ink: #1A0E0B; --brand-deep: #C9483A; --sky: #5DB8F7; --sky-deep: #2C8ACB; --sky-soft: #1C2A38;
+    --leaf: #4FD07D; --leaf-deep: #2E9C57; --sun: #FFD25C; --lacquer: #FF7A66; --lacquer-soft: #3A2320; --focus: #5DB8F7;
     --cat-dream: #E0B44A; --cat-reach: #F08A5D; --cat-target: #7AA2FF; --cat-safety: #4FC1B0;
     --conf-confirmed: #4FC1B0; --conf-estimated: #F0B45D; --conf-unverified: #F08A5D;
     --k-deadline: #F08080; --k-exam: #B69CFF; --k-registration: #7AA2FF; --k-window: #4FC1B0; --k-task: #F2EEE6;
@@ -56,8 +65,9 @@
 :root[data-theme="dark"] {
   --k-deadline: #F08080; --k-exam: #B69CFF; --k-registration: #7AA2FF; --k-window: #4FC1B0; --k-task: #F2EEE6;
   --k-milestone: #E0B44A; --k-interview: #F0B45D; --k-study_block: #5FC6DA; --k-personal: #9AA0AE; --k-event: #B8C0CF;
-  --paper: #161513; --paper-2: #1F1D1A; --card: #1C1A18; --ink: #EFE9DE; --ink-2: #AAA398; --mute: #8A847A;
-    --line: rgba(239, 233, 222, .09); --brand: #EFE9DE; --brand-ink: #161513; --lacquer: #E2725F; --lacquer-soft: #33211C; --focus: #7AA2FF;
+  --paper: #17161C; --paper-2: #211F28; --card: #1D1C23; --ink: #F3F1F7; --ink-2: #C3C0CE; --mute: #9C99A8;
+    --line: #33313D; --line-strong: #403D4B; --brand: #FF7A66; --brand-ink: #1A0E0B; --brand-deep: #C9483A; --sky: #5DB8F7; --sky-deep: #2C8ACB; --sky-soft: #1C2A38;
+    --leaf: #4FD07D; --leaf-deep: #2E9C57; --sun: #FFD25C; --lacquer: #FF7A66; --lacquer-soft: #3A2320; --focus: #5DB8F7;
   --cat-dream: #E0B44A; --cat-reach: #F08A5D; --cat-target: #7AA2FF; --cat-safety: #4FC1B0;
   --conf-confirmed: #4FC1B0; --conf-estimated: #F0B45D; --conf-unverified: #F08A5D;
   --shadow-1: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.6);
@@ -77,9 +87,9 @@
   --color-brand-ink: var(--brand-ink);
   --color-lacquer: var(--lacquer);
   --color-lacquer-soft: var(--lacquer-soft);
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
-  --radius-card: 16px;
+  --font-sans: var(--font-nunito), ui-rounded, system-ui, sans-serif;
+  --font-serif: var(--font-nunito), ui-rounded, system-ui, sans-serif;
+  --radius-card: 20px;
 }
 
 html { -webkit-text-size-adjust: 100%; }
@@ -92,7 +102,8 @@ body {
 }
 @layer base { body > * { position: relative; z-index: 1; } }
 
-h1, h2, h3, .font-display { font-family: var(--font-serif); font-optical-sizing: auto; letter-spacing: -0.015em; font-weight: 500; }
+h1, h2, h3, .font-display { font-family: var(--font-sans); letter-spacing: -0.01em; font-weight: 850; }
+body { font-weight: 550; }
 :focus-visible { outline: 2.5px solid var(--focus); outline-offset: 2px; }
 ::selection { background: var(--lacquer-soft); color: var(--ink); }
 
@@ -116,3 +127,12 @@ h1, h2, h3, .font-display { font-family: var(--font-serif); font-optical-sizing:
   background: linear-gradient(225deg, var(--paper) 50%, var(--paper-2) 50%); box-shadow: -1px 1px 0 var(--line); }
 /* Boarding-pass perforation */
 .perf { background-image: radial-gradient(circle, var(--line) 1.5px, transparent 1.6px); background-size: 10px 4px; background-repeat: repeat-x; background-position: center; height: 4px; }
+
+/* Friendly 3D: cards and controls sit on a solid bottom edge; pressing pushes them down */
+.rounded-2xl.border, .rounded-\[var\(--radius-card\)\].border, .rounded-\[20px\].border, .rounded-\[22px\].border { border-width: 2px; box-shadow: 0 3px 0 var(--line-strong); }
+.btn3d { box-shadow: 0 4px 0 var(--edge, var(--line-strong)); transition: transform .08s ease-out, box-shadow .08s ease-out, background-color .15s; }
+.btn3d:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 1px 0 var(--edge, var(--line-strong)); }
+@keyframes kumo-bob { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
+.bob { animation: kumo-bob 3.2s ease-in-out infinite; }
+@keyframes kumo-blink { 0%, 92%, 100% { transform: scaleY(1) } 95% { transform: scaleY(.1) } }
+.blink { transform-origin: center; transform-box: fill-box; animation: kumo-blink 4.5s infinite; }

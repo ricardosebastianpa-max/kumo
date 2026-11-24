@@ -71,11 +71,11 @@ export function Board({ cards: initial, today, canEdit }: { cards: ListCard[]; t
             {c.category && <CategoryChip category={c.category} label={tcat(c.category as "dream")} />}
             {c.gut ? <Gut value={c.gut} size={15} /> : null}
           </div>
-          <p className="text-sm">{d !== null ? <><span className="font-medium">{t("inDays", { n: Math.max(d, 0) })}</span> <span className="text-mute">· {c.nextTitle}</span></> : <span className="text-mute">{t("noNext")}</span>}</p>
+          <p className="text-sm">{d !== null ? <><span className="font-bold">{t("inDays", { n: Math.max(d, 0) })}</span> <span className="text-mute">· {c.nextTitle}</span></> : <span className="text-mute">{t("noNext")}</span>}</p>
           {canEdit && (
             <div className="mt-1 flex items-center justify-between border-t border-line pt-2">
               <button type="button" disabled={idx <= 0} onClick={() => move(k, COLS[idx - 1])} aria-label={idx > 0 ? t("moveTo", { stage: t(`stages.${COLS[idx - 1]}`) }) : undefined} className="grid size-11 place-items-center rounded-xl text-ink-2 hover:bg-paper-2 disabled:invisible"><ChevronLeft size={18} aria-hidden /></button>
-              <span className="text-xs font-medium text-mute">{t(`stages.${c.stage}`)}</span>
+              <span className="text-xs font-bold text-mute">{t(`stages.${c.stage}`)}</span>
               <button type="button" disabled={idx >= COLS.length - 1} onClick={() => move(k, COLS[idx + 1])} aria-label={idx < COLS.length - 1 ? t("moveTo", { stage: t(`stages.${COLS[idx + 1]}`) }) : undefined} className="grid size-11 place-items-center rounded-xl text-ink-2 hover:bg-paper-2 disabled:invisible"><ChevronRight size={18} aria-hidden /></button>
             </div>
           )}
@@ -89,9 +89,9 @@ export function Board({ cards: initial, today, canEdit }: { cards: ListCard[]; t
       <div className="grid gap-2">
         <h1 className="text-4xl">{t("title")}</h1>
         <p className="max-w-[62ch] text-lg text-ink-2">{t("lead")}</p>
-        {byStage.pursuing.length > 0 && <p className="font-medium text-[var(--lacquer)]">{t("pursuingCount", { n: byStage.pursuing.length })}</p>}
+        {byStage.pursuing.length > 0 && <p className="font-bold text-[var(--lacquer)]">{t("pursuingCount", { n: byStage.pursuing.length })}</p>}
         {byStage.pursuing.length > 0 && (() => { const c = (k: string) => byStage.pursuing.filter((x) => x.category === k).length; return (
-          <p className="text-sm text-ink-2">{tm("balance", { safety: c("safety"), target: c("target"), reach: c("reach"), dream: c("dream") })}{c("safety") === 0 ? <span className="ml-2 font-medium text-[var(--conf-estimated)]">{tm("noSafety")}</span> : null}</p>); })()}
+          <p className="text-sm text-ink-2">{tm("balance", { safety: c("safety"), target: c("target"), reach: c("reach"), dream: c("dream") })}{c("safety") === 0 ? <span className="ml-2 font-bold text-[var(--conf-estimated)]">{tm("noSafety")}</span> : null}</p>); })()}
       </div>
       <div className="grid gap-5 xl:grid-cols-[1fr_1fr_.7fr] lg:grid-cols-2">
         {COLS.map((col) => (
@@ -100,7 +100,7 @@ export function Board({ cards: initial, today, canEdit }: { cards: ListCard[]; t
             onDrop={(e) => { e.preventDefault(); setOver(null); const k = e.dataTransfer.getData("text/plain"); if (k) move(k, col); }}
             className={`grid content-start gap-3 rounded-[24px] p-3 transition-colors ${over === col ? "bg-lacquer-soft" : col === "pursuing" ? "bg-[color-mix(in_srgb,var(--lacquer)_6%,transparent)]" : "bg-paper-2/70"} ${col === "discarded" ? "lg:col-span-2 xl:col-span-1" : ""}`}>
             <header className="grid gap-0.5 px-1 pt-1">
-              <h2 id={`col-${col}`} className="flex items-baseline justify-between text-xl">{t(`stages.${col}`)}<span className="font-sans text-sm font-medium text-mute">{t("count", { n: byStage[col].length })}</span></h2>
+              <h2 id={`col-${col}`} className="flex items-baseline justify-between text-xl">{t(`stages.${col}`)}<span className="font-sans text-sm font-bold text-mute">{t("count", { n: byStage[col].length })}</span></h2>
               <p className="text-sm text-mute">{t(`stageHelp.${col}` as "stageHelp.shortlist")}</p>
             </header>
             {byStage[col].length === 0 ? <p className="grid min-h-24 place-items-center rounded-2xl border-2 border-dashed border-line text-sm text-mute">{t("dropHere")}</p> : (
@@ -111,9 +111,9 @@ export function Board({ cards: initial, today, canEdit }: { cards: ListCard[]; t
       </div>
       {sel.length > 0 && (
         <div className="sticky bottom-20 z-30 mx-auto flex w-full max-w-lg items-center gap-3 rounded-2xl bg-brand p-2 pl-4 text-brand-ink shadow-[var(--shadow-2)] lg:bottom-6">
-          <span className="flex-1 text-sm font-medium">{sel.length < 2 ? t("selectHint") : t("compare", { n: sel.length })}</span>
-          <button type="button" onClick={() => setSel([])} className="min-h-11 rounded-xl px-3 text-sm font-medium underline underline-offset-4">{t("clearSel")}</button>
-          <Link href={`/app/compare?ids=${sel.join(",")}`} aria-disabled={sel.length < 2} className={`inline-flex min-h-11 items-center gap-2 rounded-xl bg-brand-ink px-4 font-medium text-brand ${sel.length < 2 ? "pointer-events-none opacity-40" : ""}`} data-testid="compare-go"><GitCompare size={18} aria-hidden />{t("compare", { n: sel.length })}</Link>
+          <span className="flex-1 text-sm font-bold">{sel.length < 2 ? t("selectHint") : t("compare", { n: sel.length })}</span>
+          <button type="button" onClick={() => setSel([])} className="min-h-11 rounded-xl px-3 text-sm font-bold underline underline-offset-4">{t("clearSel")}</button>
+          <Link href={`/app/compare?ids=${sel.join(",")}`} aria-disabled={sel.length < 2} className={`inline-flex min-h-11 items-center gap-2 rounded-xl bg-brand-ink px-4 font-bold text-brand ${sel.length < 2 ? "pointer-events-none opacity-40" : ""}`} data-testid="compare-go"><GitCompare size={18} aria-hidden />{t("compare", { n: sel.length })}</Link>
         </div>
       )}
     </div>

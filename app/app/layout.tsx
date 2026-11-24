@@ -6,6 +6,8 @@ import { AppNav } from "@/components/client/app-nav";
 import { Capture } from "@/components/client/capture";
 import { ToastProvider } from "@/components/client/toast";
 import { Kumo } from "@/components/kumo";
+import { CopilotBubble } from "@/components/client/copilot-bubble";
+import { aiStatus } from "@/lib/server/ai";
 
 /** App shell: a real sidebar on desktop (logo, space, navigation), a compact top bar + bottom tabs on phones. */
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
@@ -38,6 +40,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       </div>
       <AppNav part="mobile" />
       {canEdit ? <Capture timezone={tz} /> : null}
+      <CopilotBubble aiOn={(await aiStatus(ctx.workspace.id)).on} timezone={tz} />
     </ToastProvider>
   );
 }

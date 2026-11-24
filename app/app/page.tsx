@@ -66,7 +66,7 @@ export default async function Today() {
       <div className="flex items-center gap-3">
         {canEdit && isTask(i.kind) ? <DoneButton id={i.id} done={i.done} /> : null}
         <Link href={`/app/calendar?e=${i.id}`} className="grid min-w-0 flex-1 gap-0.5 py-1">
-          <span className="font-medium leading-snug">{i.title}</span>
+          <span className="font-bold leading-snug">{i.title}</span>
           <span className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-mute">
             <span>{tk(i.kind as "deadline")}</span><span aria-hidden>·</span><span>{w.main}</span>
             {w.original ? <span>({w.original})</span> : null}
@@ -91,18 +91,18 @@ export default async function Today() {
             <section aria-labelledby="main-label" className="fold enter overflow-hidden rounded-2xl border border-line bg-card shadow-[var(--shadow-2)]">
               <div className="grid gap-6 p-6 sm:grid-cols-[1fr_auto] sm:items-end sm:p-8">
                 <div className="grid gap-3">
-                  <p id="main-label" className="text-sm font-medium text-[var(--lacquer)]">{t("mainLabel")}</p>
+                  <p id="main-label" className="w-fit rounded-full bg-[var(--sun)] px-3 py-1 text-sm font-extrabold text-[#5A3E00]">{t("mainLabel")}</p>
                   <Link href={`/app/calendar?e=${m.id}`} className="font-display text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.15] hover:underline decoration-1 underline-offset-4">{m.title}</Link>
                 </div>
                 <div className="text-left sm:text-right">
-                  <p className="font-display text-[clamp(3.5rem,8vw,5.5rem)] leading-none tabular-nums">{Math.max(mDays, 0)}</p>
+                  <p className="font-display text-[clamp(3.5rem,8vw,5.5rem)] leading-none tabular-nums text-[var(--brand)]">{Math.max(mDays, 0)}</p>
                   <p className="text-sm text-mute">{mDays < 0 ? t("overdue", { n: -mDays }) : th("daysLeft", { n: Math.max(mDays, 0) })}</p>
                 </div>
               </div>
               <div className="perf mx-6 sm:mx-8" aria-hidden />
               <div className="flex flex-wrap items-center gap-x-8 gap-y-3 px-6 py-5 sm:px-8">
-                <div className="grid"><span className="text-xs text-mute">{t("ticketType")}</span><span className="font-medium">{tk(m.kind as "deadline")} · {tp(m.priority)}</span></div>
-                <div className="grid"><span className="text-xs text-mute">{t("ticketWhen")}</span><span className="font-medium tabular-nums">{mWhen!.main}{mWhen!.original ? ` · ${mWhen!.original}` : ""}</span></div>
+                <div className="grid"><span className="text-xs text-mute">{t("ticketType")}</span><span className="font-bold">{tk(m.kind as "deadline")} · {tp(m.priority)}</span></div>
+                <div className="grid"><span className="text-xs text-mute">{t("ticketWhen")}</span><span className="font-bold tabular-nums">{mWhen!.main}{mWhen!.original ? ` · ${mWhen!.original}` : ""}</span></div>
                 {m.confidence !== "confirmed" && <ConfidenceBadge level={m.confidence} label={tc(`confidence.${m.confidence}`)} />}
                 <div className="ml-auto flex items-center gap-3">
                   {canEdit && isTask(m.kind) ? <DoneButton id={m.id} done={m.done} /> : null}
@@ -125,7 +125,7 @@ export default async function Today() {
 
           {next30.length > 0 && (
             <section className="grid gap-3" aria-labelledby="n30">
-              <div className="flex items-baseline justify-between gap-3"><h2 id="n30" className="text-xl">{t("nextTitle")}</h2><Link href="/app/calendar?view=agenda" className="min-h-11 content-center text-sm font-medium text-ink-2 hover:text-ink">{t("viewCalendar")}</Link></div>
+              <div className="flex items-baseline justify-between gap-3"><h2 id="n30" className="text-xl">{t("nextTitle")}</h2><Link href="/app/calendar?view=agenda" className="min-h-11 content-center text-sm font-bold text-ink-2 hover:text-ink">{t("viewCalendar")}</Link></div>
               <Card className="divide-y divide-[var(--line)]">
                 {next30.slice(0, 12).map((i) => {
                   const d = daysUntil(i, now, tz);
@@ -133,7 +133,7 @@ export default async function Today() {
                     <div key={i.id} className="flex items-center gap-4 px-5 py-3">
                       <span className="w-10 shrink-0 text-right font-display text-xl leading-none tabular-nums text-ink-2">{d}</span>
                       <div className="min-w-0 flex-1"><Row i={i} /></div>
-                      {i.priority === "critical" ? <span className="shrink-0 text-xs font-medium text-[var(--lacquer)]">{tp("critical")}</span> : null}
+                      {i.priority === "critical" ? <span className="shrink-0 text-xs font-bold text-[var(--lacquer)]">{tp("critical")}</span> : null}
                     </div>
                   );
                 })}
@@ -148,14 +148,14 @@ export default async function Today() {
             {plan.agenda.length || todayBlocks.length ? (
               <Card className="divide-y divide-[var(--line)]">
                 {plan.agenda.map((i) => <div key={i.id} className="px-4 py-2"><Row i={i} /></div>)}
-                {todayBlocks.map((b) => <Link key={b.id} href={`/app/focus?s=${encodeURIComponent(b.title)}`} className="flex items-center justify-between gap-3 px-4 py-3 hover:bg-paper-2/60"><span className="font-medium">{b.title}</span><span className="text-sm tabular-nums text-mute">{new Intl.DateTimeFormat(locale, { hour: "numeric", minute: "2-digit", timeZone: tz }).format(b.startsAt)}</span></Link>)}
+                {todayBlocks.map((b) => <Link key={b.id} href={`/app/focus?s=${encodeURIComponent(b.title)}`} className="flex items-center justify-between gap-3 px-4 py-3 hover:bg-paper-2/60"><span className="font-bold">{b.title}</span><span className="text-sm tabular-nums text-mute">{new Intl.DateTimeFormat(locale, { hour: "numeric", minute: "2-digit", timeZone: tz }).format(b.startsAt)}</span></Link>)}
               </Card>
             ) : <p className="text-ink-2">{t("agendaEmpty")}</p>}
           </section>
           {routeNext && (
             <Link href="/app/study" className="grid gap-1 rounded-2xl border border-line bg-card p-5 transition-colors hover:bg-paper-2/60" data-testid="today-study">
-              <span className="flex items-center gap-2 text-sm font-medium text-ink-2"><BookOpen size={16} strokeWidth={1.5} aria-hidden />{ts("next")}</span>
-              <span className="font-medium">#{routeNext.position} · {routeNext.topic ?? routeNext.title}</span>
+              <span className="flex items-center gap-2 text-sm font-bold text-ink-2"><BookOpen size={16} strokeWidth={1.5} aria-hidden />{ts("next")}</span>
+              <span className="font-bold">#{routeNext.position} · {routeNext.topic ?? routeNext.title}</span>
               <span className="truncate text-sm text-mute">{routeNext.title}{routeNext.source ? ` · ${routeNext.source}` : ""}</span>
             </Link>
           )}

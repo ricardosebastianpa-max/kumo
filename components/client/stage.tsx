@@ -19,7 +19,7 @@ export function ShortlistToggle({ kind, refId, stage, compact = false }: { kind:
   };
   return (
     <button type="button" onClick={toggle} aria-pressed={on} aria-label={on ? t("remove") : t("add")} title={on ? t("added") : t("add")}
-      className={`inline-flex min-h-11 items-center gap-1.5 rounded-full font-medium transition-all active:scale-95 ${compact ? "size-11 justify-center bg-card/90 shadow-[var(--shadow-1)] backdrop-blur" : "border px-4 " + (on ? "border-[var(--lacquer)] bg-lacquer-soft text-[var(--lacquer)]" : "border-line bg-card")}`}>
+      className={`inline-flex min-h-11 items-center gap-1.5 rounded-full font-bold transition-all active:scale-95 ${compact ? "size-11 justify-center bg-card/90 shadow-[var(--shadow-1)] backdrop-blur" : "border px-4 " + (on ? "border-[var(--lacquer)] bg-lacquer-soft text-[var(--lacquer)]" : "border-line bg-card")}`}>
       <Cloud size={compact ? 22 : 18} aria-hidden className={on ? "fill-[var(--lacquer)] text-[var(--lacquer)]" : "text-ink-2"} />
       {compact ? null : on ? t("added") : t("add")}
     </button>
@@ -36,7 +36,7 @@ export function StagePicker({ kind, refId, stage }: { kind: "institution" | "sch
     <div role="radiogroup" aria-label={t("title")} className="grid grid-cols-2 gap-1 rounded-2xl border border-line bg-card p-1 sm:grid-cols-4">
       {stages.map((st) => (
         <button key={st} type="button" role="radio" aria-checked={opt === st} onClick={() => start(async () => { setOpt(st); await setStage(kind, refId, st); })}
-          className={`min-h-11 rounded-xl px-3 text-sm font-medium transition-colors ${opt === st ? (st === "pursuing" ? "bg-[var(--lacquer)] text-white" : "bg-brand text-brand-ink") : "text-ink-2 hover:bg-paper-2"}`}>
+          className={`min-h-11 rounded-xl px-3 text-sm font-bold transition-colors ${opt === st ? (st === "pursuing" ? "bg-[var(--lacquer)] text-white" : "bg-brand text-brand-ink") : "text-ink-2 hover:bg-paper-2"}`}>
           {t(`stages.${st}`)}
         </button>
       ))}

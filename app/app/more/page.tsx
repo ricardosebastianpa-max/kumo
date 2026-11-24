@@ -30,10 +30,10 @@ export default async function More() {
       <h1 className="text-4xl">{(await getTranslations("more"))("title")}</h1>
       <Card className="divide-y divide-[var(--line)]">
         {links.map(({ href, label, icon: Icon }) => (
-          <Link key={href} href={href} className="flex min-h-14 items-center gap-3 px-4 font-medium hover:bg-paper-2"><Icon size={20} aria-hidden className="text-ink-2" />{label}</Link>
+          <Link key={href} href={href} className="flex min-h-14 items-center gap-3 px-4 font-bold hover:bg-paper-2"><Icon size={20} aria-hidden className="text-ink-2" />{label}</Link>
         ))}
       </Card>
-      <Card className="flex items-center justify-between gap-3 p-4"><span className="font-medium">{tc("language")}</span><LocaleSwitch /></Card>
+      <Card className="flex items-center justify-between gap-3 p-4"><span className="font-bold">{tc("language")}</span><LocaleSwitch /></Card>
       <Card className="flex items-center justify-between gap-3 p-4"><span className="text-sm text-mute">{ctx.user.email}</span><SignOut label={tc("signOut")} /></Card>
     </div>
   );

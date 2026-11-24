@@ -10,7 +10,8 @@ import { ExploreTabs } from "@/components/explore-tabs";
 import { stagesFor } from "@/lib/server/list";
 
 export async function generateMetadata() { return { title: (await getTranslations("catalog"))("schTitle") }; }
-export default async function Scholarships() {
+export default async function Scholarships({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
+  const sp = await searchParams;
   const ctx = await requireWorkspace();
   const ws = ctx.workspace.id;
   if (!can(ctx.actor, "view", { workspaceId: ws, module: "catalog" })) redirect("/app");
@@ -31,7 +32,7 @@ export default async function Scholarships() {
     <div className="grid gap-6 pt-2">
       <ExploreTabs active="schs" />
       <div className="grid gap-2"><h1 className="text-4xl">{t("schTitle")}</h1><p className="max-w-[60ch] text-lg text-ink-2">{t("schLead", { n: list.length })}</p></div>
-      <SchTable rows={list} canList={can(ctx.actor, "edit", { workspaceId: ws, module: "list" })} />
+      <SchTable key={JSON.stringify(sp)} initial={{ q: sp.q, country: sp.country, scope: sp.scope, upcoming: sp.upcoming }} rows={list} canList={can(ctx.actor, "edit", { workspaceId: ws, module: "list" })} />
     </div>
   );
 }

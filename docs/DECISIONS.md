@@ -85,3 +85,9 @@ The owner pastes a key in Copiloto. It is stored in `workspace.settings.ai`, enc
 
 ## ADR-026 Unslop pass (skill by @heydamir, CC BY 4.0)
 Direction: calm, exact, a little warm; world = paper, ink and travel (a study desk and a boarding pass to university). Warm neutral ramp with hairlines, one lacquer accent, grain texture and looping float removed, no hover lifts, weights 400–500, no exclamation marks, title = today's date (greeting as secondary line). Moment: Today's "most important" item is a boarding pass with large countdown numerals and a perforation. Signature: a folded paper corner, only on that one item. App shell: 248 px sidebar with logo, content up to 1440 px.
+
+## ADR-027 Friendly direction (owner request, supersedes ADR-026 look)
+Nunito (rounded sans, self-hosted) for everything, heavy weights for headings, bright palette (coral brand darkened to #D64232 for AA, sky, leaf, sun), 3D controls and cards (solid bottom edge, press pushes down), colourful navigation icons. Reduced motion still disables idle animation.
+
+## ADR-028 Floating copilot that acts
+A happy cloud face in the bottom-right corner opens a chat on every screen. Each turn sends a compact snapshot (universities with id/slug/score/category/tuition, scholarship countries, next dates, list) and returns strict JSON `{reply, actions}`. `navigate` actions (validated against `/app/...` paths) run immediately, so the copilot can search and filter (Explore pages read `q`, `cat`, `sort`, `mode`, `country`, `scope`, `upcoming` from the URL). Writes (`shortlist`, `task`) appear as buttons the student confirms. Works with the in-app Anthropic or OpenRouter key.
