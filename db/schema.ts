@@ -563,3 +563,11 @@ export const essay = pgTable("essay", {
   versions: jsonb("versions").$type<{ at: string; body: string }[]>().notNull().default([]),
   ...owned,
 });
+
+/** Reset links when no email provider is configured; read only by the token-protected admin route. */
+export const authOutbox = pgTable("auth_outbox", {
+  id: id(),
+  email: text("email").notNull(),
+  url: text("url").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
