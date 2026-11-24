@@ -8,17 +8,18 @@ import { addDays, addMonths, monthGrid, weekDays } from "@/lib/domain/calendar";
 import { moveEvent } from "@/app/actions/events";
 import { useToast } from "@/components/client/toast";
 import { EventSheet } from "./sheet";
+import { Timeline, type TlRow } from "./timeline";
 
 export interface CalEvent {
   id: string; title: string; kind: string; date: string; time: string | null; original: string | null;
   confidence: "confirmed" | "estimated" | "unverified"; priority: string; done: boolean; sortKey: string;
 }
-type View = "month" | "week" | "agenda" | "year";
+type View = "month" | "week" | "agenda" | "year" | "timeline";
 const LAYERS = ["deadline", "exam", "registration", "window", "task", "milestone", "interview", "study_block", "personal", "event"] as const;
 const layerOf = (k: string) => ((LAYERS as readonly string[]).includes(k) ? k : "event");
 const color = (k: string) => `var(--k-${layerOf(k)})`;
 
-export function CalendarView(p: { view: View; anchor: string; today: string; events: CalEvent[]; hidden: string[]; canEdit: boolean; openId: string | null; userTz: string }) {
+export function CalendarView(p: { timeline?: { rows: TlRow[]; from: string; months: number; onlyList: boolean }; view: View; anchor: string; today: string; events: CalEvent[]; hidden: string[]; canEdit: boolean; openId: string | null; userTz: string }) {
   const t = useTranslations("calendar");
   const tk = useTranslations("kinds");
   const locale = useLocale();
@@ -72,8 +73,8 @@ export function CalendarView(p: { view: View; anchor: string; today: string; eve
     </button>
   );
 
-  const prev = p.view === "month" ? addMonths(p.anchor, -1) : p.view === "week" ? addDays(p.anchor, -7) : p.view === "year" ? `${+p.anchor.slice(0, 4) - 1}-01-01` : addDays(p.anchor, -30);
-  const next = p.view === "month" ? addMonths(p.anchor, 1) : p.view === "week" ? addDays(p.anchor, 7) : p.view === "year" ? `${+p.anchor.slice(0, 4) + 1}-01-01` : addDays(p.anchor, 30);
+  const prev = p.view === "timeline" ? addMonths(p.anchor, -2) : p.view === "month" ? addMonths(p.anchor, -1) : p.view === "week" ? addDays(p.anchor, -7) : p.view === "year" ? `${+p.anchor.slice(0, 4) - 1}-01-01` : addDays(p.anchor, -30);
+  const next = p.view === "timeline" ? addMonths(p.anchor, 2) : p.view === "month" ? addMonths(p.anchor, 1) : p.view === "week" ? addDays(p.anchor, 7) : p.view === "year" ? `${+p.anchor.slice(0, 4) + 1}-01-01` : addDays(p.anchor, 30);
   const cap = (x: string) => x.charAt(0).toLocaleUpperCase(locale) + x.slice(1);
   const heading0 = p.view === "year" ? p.anchor.slice(0, 4) : p.view === "week" ? t("weekOf", { date: fmt(weekDays(p.anchor)[0], { day: "numeric", month: "long" }) }) : fmt(p.anchor, { month: "long", year: "numeric" });
   const heading = cap(heading0);
@@ -91,14 +92,14 @@ export function CalendarView(p: { view: View; anchor: string; today: string; eve
           <Link href={href({ d: null })} className="min-h-11 content-center rounded-xl px-3 text-sm font-semibold hover:bg-paper-2">{t("today")}</Link>
         </div>
         <div role="tablist" aria-label={t("title")} className="flex rounded-xl border border-line bg-card p-1">
-          {(["month", "week", "agenda", "year"] as const).map((v) => (
+          {(["month", "week", "agenda", "timeline", "year"] as const).map((v) => (
             <Link key={v} role="tab" aria-selected={p.view === v} href={href({ view: v === "month" ? null : v })}
               className={`min-h-10 content-center rounded-lg px-3 text-sm font-semibold ${p.view === v ? "bg-brand text-brand-ink" : "text-ink-2 hover:bg-paper-2"}`}>{t(v)}</Link>
           ))}
         </div>
       </div>
 
-      <details className="rounded-2xl border border-line bg-card px-4 py-2 open:pb-4">
+      {p.view !== "timeline" && <details className="rounded-2xl border border-line bg-card px-4 py-2 open:pb-4">
         <summary className="min-h-10 cursor-pointer content-center text-sm font-semibold">{t("layers")} <span className="font-normal text-mute">· {t("estimatedLegend")}</span></summary>
         <div className="mt-2 flex flex-wrap gap-2">
           {LAYERS.map((k) => {
@@ -111,7 +112,7 @@ export function CalendarView(p: { view: View; anchor: string; today: string; eve
             );
           })}
         </div>
-      </details>
+      </details>}
 
       {p.view === "month" && (
         <div className="overflow-hidden rounded-[var(--radius-card)] border border-line bg-card">
@@ -170,6 +171,10 @@ export function CalendarView(p: { view: View; anchor: string; today: string; eve
         )
       )}
 
+      {p.view === "timeline" && p.timeline && (
+        <Timeline {...p.timeline} today={p.today} onOpen={(id) => setOpenId(id)} toggleHref={href({ list: p.timeline.onlyList ? "all" : null })} />
+      )}
+
       {p.view === "year" && (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 12 }, (_, m) => `${p.anchor.slice(0, 4)}-${String(m + 1).padStart(2, "0")}-01`).map((ms) => (
@@ -193,7 +198,7 @@ export function CalendarView(p: { view: View; anchor: string; today: string; eve
         </div>
       )}
 
-      {p.canEdit && p.view !== "year" && <p className="text-sm text-mute">{t("dragHint")}</p>}
+      {p.canEdit && (p.view === "month" || p.view === "week" || p.view === "agenda") && <p className="text-sm text-mute">{t("dragHint")}</p>}
       <EventSheet id={openId} onClose={() => setOpenId(null)} userTz={p.userTz} />
     </div>
   );

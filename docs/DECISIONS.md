@@ -55,3 +55,15 @@ Urgency = priority weight (8/4/2/1) ÷ (1 + days/3); overdue open items count do
 
 ## ADR-018 ICS feed by secret token
 `/api/ics/{token}.ics` per workspace, rotatable by the owner. All-day items use `VALUE=DATE` in their own zone; estimated dates are `STATUS:TENTATIVE` with a prefix. Google Calendar polls subscribed feeds on its own schedule (typically hours).
+
+## ADR-019 Shortlist lives on `target_list_item` (stages + reflection)
+Stages: exploring → shortlist ("Me interesa") → pursuing ("Voy por ella") or discarded. Gut feeling (1–5 clouds), pros, cons and notes live on the same row and are audited. Seed re-imports merge by institution/label and never overwrite the student's stage or reflection.
+
+## ADR-020 Photos stored in Postgres after client-side compression
+No extra storage service: images are resized in the browser (≤1600 px, WebP, ≤ 440 KB) and stored as `bytea` in `media`, served by `/api/media/{id}` only to members who can view the catalog (`Cache-Control: private, immutable`). One cover per item. Move to object storage if a workspace passes ~200 MB.
+
+## ADR-021 Generated covers
+Without a photo, each option gets a deterministic folded-paper composition (seeded by slug, tinted by category) so the board is visual from day one and never shows a grey placeholder.
+
+## ADR-022 Timeline view
+Calendar "Línea": one row per institution/scholarship with dated items, 8 months across; window→deadline bars, diamonds for deadlines/registrations, circles for tasks/exams, dashed when estimated. Defaults to the shortlist ("Solo mi lista").

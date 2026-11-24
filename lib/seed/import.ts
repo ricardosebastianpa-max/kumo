@@ -139,18 +139,19 @@ export async function importSeedPack(db: DB, workspaceId: string, raw: unknown, 
     for (const r of pack.requirementTemplates) await upsert("requirement_template", s.requirementTemplate, "slug", r.slug, { name: r.name, items: r.items });
     for (const g of pack.studyGoals) await upsert("study_goal", s.studyGoal, "externalKey", g.key, { subject: g.subject, target: g.target ?? null, deadline: g.deadline ?? null, deadlineText: g.deadlineText ?? null, notes: g.notes ?? null });
 
-    // Lists & plans: replaced as a whole per list name (no natural keys).
-    if (pack.targetList.length) {
-      const lists = [...new Set(pack.targetList.map((t) => t.list))];
-      for (const list of lists) {
-        const items = pack.targetList.filter((t) => t.list === list);
-        const existing = await tx.select({ id: s.targetListItem.id }).from(s.targetListItem).where(and(eq(s.targetListItem.workspaceId, workspaceId), eq(s.targetListItem.list, list), isNull(s.targetListItem.deletedAt)));
-        if (existing.length === items.length) { preview.target_list = { create: 0, update: 0, unchanged: (preview.target_list?.unchanged ?? 0) + items.length }; continue; }
-        preview.target_list = { create: (preview.target_list?.create ?? 0) + items.length, update: 0, unchanged: preview.target_list?.unchanged ?? 0 };
-        if (opts.dryRun) continue;
-        await tx.update(s.targetListItem).set({ deletedAt: now }).where(and(eq(s.targetListItem.workspaceId, workspaceId), eq(s.targetListItem.list, list)));
-        await tx.insert(s.targetListItem).values(items.map((t) => ({ workspaceId, list, label: t.label, institutionId: t.institution ? inst.get(t.institution) ?? null : null, category: t.category ?? null, reasons: t.reasons ?? null, createdBy: opts.actorId })));
-      }
+    // Lists: merge by (list, institution | label). Never deletes, never touches the student's
+    // stage, gut feeling, pros/cons or notes; only adds missing rows and refreshes the category.
+    for (const t of pack.targetList) {
+      const institutionId = t.institution ? inst.get(t.institution) ?? null : null;
+      const existing = await tx.select().from(s.targetListItem).where(and(eq(s.targetListItem.workspaceId, workspaceId), eq(s.targetListItem.list, t.list), isNull(s.targetListItem.deletedAt),
+        institutionId && !institutionId.startsWith("dry:") ? eq(s.targetListItem.institutionId, institutionId) : eq(s.targetListItem.label, t.label))).limit(1);
+      if (!existing.length) {
+        bump("target_list", "create");
+        if (!opts.dryRun) await tx.insert(s.targetListItem).values({ workspaceId, list: t.list, label: t.label, institutionId: institutionId?.startsWith("dry:") ? null : institutionId, category: t.category ?? null, reasons: t.reasons ?? null, status: "exploring", createdBy: opts.actorId });
+      } else if ((existing[0].category ?? null) !== (t.category ?? null) || (existing[0].reasons ?? null) !== (t.reasons ?? null)) {
+        bump("target_list", "update");
+        if (!opts.dryRun) await tx.update(s.targetListItem).set({ category: t.category ?? null, reasons: t.reasons ?? null }).where(eq(s.targetListItem.id, existing[0].id));
+      } else bump("target_list", "unchanged");
     }
     for (const p of pack.studyPlans) {
       const [row] = await tx.select().from(s.studyPlan).where(and(eq(s.studyPlan.workspaceId, workspaceId), eq(s.studyPlan.name, p.name))).limit(1);

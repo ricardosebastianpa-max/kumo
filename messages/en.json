@@ -200,7 +200,9 @@
     "people": "People",
     "import": "Import data",
     "subscribe": "External calendar",
-    "main": "Main"
+    "main": "Main",
+    "list": "My list",
+    "explore": "Explore"
   },
   "kinds": {
     "deadline": "Deadline",
@@ -268,7 +270,8 @@
     "moved": "Moved to {date}",
     "allDay": "All day",
     "weekOf": "Week of {date}",
-    "loadLegend": "Month load"
+    "loadLegend": "Month load",
+    "timeline": "Timeline"
   },
   "event": {
     "title": "Title",
@@ -394,5 +397,133 @@
   },
   "more": {
     "title": "More"
+  },
+  "list": {
+    "title": "My list",
+    "lead": "This is where you decide. Drag between columns, compare, and keep what you truly want.",
+    "stages": {
+      "exploring": "Exploring",
+      "shortlist": "Interested",
+      "pursuing": "Going for it",
+      "discarded": "Set aside"
+    },
+    "stageHelp": {
+      "shortlist": "What caught your eye. No commitment.",
+      "pursuing": "What you’ll apply to. Kumo guides you with dates and tasks.",
+      "discarded": "Out, for now. You can bring them back."
+    },
+    "add": "Interested",
+    "added": "On your list",
+    "moveTo": "Move to {stage}",
+    "remove": "Remove from list",
+    "emptyTitle": "Your list starts here",
+    "emptyBody": "Go to Explore and tap the cloud on anything that catches your eye. Then compare, weigh and choose.",
+    "explore": "Go to Explore",
+    "compare": "Compare ({n})",
+    "select": "Select to compare",
+    "selectHint": "Pick 2 to 4 to compare.",
+    "clearSel": "Clear",
+    "gut": "Your gut feeling",
+    "gutLabels": {
+      "1": "Not convinced",
+      "2": "Doubts",
+      "3": "Interesting",
+      "4": "Love it",
+      "5": "This is the one"
+    },
+    "pros": "For",
+    "cons": "Against",
+    "addPro": "Add something in favour",
+    "addCon": "Add a concern",
+    "notes": "Your notes",
+    "notesPh": "What excites you? What worries you?",
+    "ponderTitle": "Your reflection",
+    "saved": "Saved",
+    "next": "Next date",
+    "noNext": "No upcoming dates",
+    "inDays": "{n, plural, =0 {today} one {tomorrow} other {in # days}}",
+    "dropHere": "Drop here",
+    "count": "{n, plural, =0 {empty} one {# option} other {# options}}",
+    "pursuingCount": "{n, plural, one {Going for # option} other {Going for # options}}"
+  },
+  "compare": {
+    "title": "Compare",
+    "lead": "Side by side. The best value in each row is highlighted.",
+    "pick": "Pick 2 to 4 options in My list to compare.",
+    "back": "Back to My list",
+    "rows": {
+      "score": "Score",
+      "category": "Category",
+      "netCost": "Net cost/year",
+      "afford": "Fits your budget (central scenario)",
+      "admission": "Estimated admission",
+      "prestige": "Prestige",
+      "fit": "Fit",
+      "climate": "Climate & city",
+      "city": "City",
+      "janLow": "January low",
+      "next": "Next date",
+      "gut": "Your gut feeling",
+      "pros": "For",
+      "cons": "Against",
+      "coverage": "Coverage",
+      "country": "Country",
+      "deadline": "Deadline"
+    },
+    "best": "Best",
+    "pursue": "Going for it"
+  },
+  "media": {
+    "title": "Photos",
+    "add": "Add photos",
+    "hint": "JPG, PNG or WebP. We optimise them before uploading.",
+    "cover": "Cover",
+    "makeCover": "Use as cover",
+    "delete": "Remove",
+    "deleted": "Photo removed",
+    "uploading": "Uploading…",
+    "errType": "That file isn’t a supported image.",
+    "errSize": "That image is too heavy even after optimising. Try another.",
+    "empty": "No photos yet. Add the campus, the city, whatever inspires you."
+  },
+  "facts": {
+    "title": "Your data",
+    "lead": "What you discover: real costs, contacts, impressions. Saved with history.",
+    "label": "Fact",
+    "value": "Value",
+    "add": "Add fact",
+    "links": "Links",
+    "linkLabel": "Name",
+    "linkUrl": "https://…",
+    "addLink": "Add link",
+    "save": "Save",
+    "empty": "No data of your own yet.",
+    "invalidUrl": "Check the link: it must start with https://"
+  },
+  "tasks": {
+    "title": "Tasks",
+    "lead": "What you need to do for this option. Shows up in Today and the calendar.",
+    "placeholder": "E.g. email admissions about Duolingo",
+    "add": "Create task",
+    "empty": "No tasks yet.",
+    "added": "Task created"
+  },
+  "explore": {
+    "title": "Explore",
+    "unis": "Universities",
+    "schs": "Scholarships",
+    "gallery": "Gallery",
+    "table": "Table",
+    "country": "Country",
+    "allCountries": "All countries"
+  },
+  "timeline": {
+    "title": "Timeline",
+    "onlyList": "Only my list",
+    "all": "Everything",
+    "empty": "Nothing to show. Add options to your list or clear the filter.",
+    "today": "Today",
+    "window": "Window",
+    "legend": "Bars: application windows. Diamonds: deadlines. Circles: tasks."
   }
 }

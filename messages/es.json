@@ -200,7 +200,9 @@
     "people": "Personas",
     "import": "Importar datos",
     "subscribe": "Calendario externo",
-    "main": "Principal"
+    "main": "Principal",
+    "list": "Mi lista",
+    "explore": "Explorar"
   },
   "kinds": {
     "deadline": "Plazo",
@@ -268,7 +270,8 @@
     "moved": "Movido al {date}",
     "allDay": "Todo el día",
     "weekOf": "Semana del {date}",
-    "loadLegend": "Carga del mes"
+    "loadLegend": "Carga del mes",
+    "timeline": "Línea"
   },
   "event": {
     "title": "Título",
@@ -394,5 +397,133 @@
   },
   "more": {
     "title": "Más"
+  },
+  "list": {
+    "title": "Mi lista",
+    "lead": "Aquí decides. Arrastra entre columnas, compara y quédate con lo que de verdad quieres.",
+    "stages": {
+      "exploring": "Explorando",
+      "shortlist": "Me interesa",
+      "pursuing": "Voy por ella",
+      "discarded": "Descartadas"
+    },
+    "stageHelp": {
+      "shortlist": "Lo que te llamó la atención. Sin compromiso.",
+      "pursuing": "Lo que vas a solicitar. Kumo te acompaña con fechas y tareas.",
+      "discarded": "Fuera, por ahora. Puedes traerlas de vuelta."
+    },
+    "add": "Me interesa",
+    "added": "En tu lista",
+    "moveTo": "Mover a {stage}",
+    "remove": "Quitar de la lista",
+    "emptyTitle": "Tu lista empieza aquí",
+    "emptyBody": "Ve a Explorar y toca la nube en lo que te llame la atención. Después compara, pondera y elige.",
+    "explore": "Ir a Explorar",
+    "compare": "Comparar ({n})",
+    "select": "Seleccionar para comparar",
+    "selectHint": "Elige de 2 a 4 para comparar.",
+    "clearSel": "Limpiar",
+    "gut": "Tu intuición",
+    "gutLabels": {
+      "1": "No me convence",
+      "2": "Dudas",
+      "3": "Interesante",
+      "4": "Me encanta",
+      "5": "Es esta"
+    },
+    "pros": "A favor",
+    "cons": "En contra",
+    "addPro": "Agrega algo a favor",
+    "addCon": "Agrega algo en contra",
+    "notes": "Tus notas",
+    "notesPh": "¿Qué te hace ilusión? ¿Qué te preocupa?",
+    "ponderTitle": "Tu reflexión",
+    "saved": "Guardado",
+    "next": "Próxima fecha",
+    "noNext": "Sin fechas próximas",
+    "inDays": "{n, plural, =0 {hoy} one {mañana} other {en # días}}",
+    "dropHere": "Suelta aquí",
+    "count": "{n, plural, =0 {vacía} one {# opción} other {# opciones}}",
+    "pursuingCount": "{n, plural, one {Vas por # opción} other {Vas por # opciones}}"
+  },
+  "compare": {
+    "title": "Comparar",
+    "lead": "Lado a lado. Lo mejor de cada fila aparece resaltado.",
+    "pick": "Elige de 2 a 4 opciones en Mi lista para comparar.",
+    "back": "Volver a Mi lista",
+    "rows": {
+      "score": "Puntaje",
+      "category": "Categoría",
+      "netCost": "Costo neto/año",
+      "afford": "Te alcanza (escenario central)",
+      "admission": "Admisión estimada",
+      "prestige": "Prestigio",
+      "fit": "Encaje",
+      "climate": "Clima y ciudad",
+      "city": "Ciudad",
+      "janLow": "Enero, mínima",
+      "next": "Próxima fecha",
+      "gut": "Tu intuición",
+      "pros": "A favor",
+      "cons": "En contra",
+      "coverage": "Cobertura",
+      "country": "País",
+      "deadline": "Plazo"
+    },
+    "best": "Mejor",
+    "pursue": "Voy por ella"
+  },
+  "media": {
+    "title": "Fotos",
+    "add": "Agregar fotos",
+    "hint": "JPG, PNG o WebP. Las optimizamos antes de subirlas.",
+    "cover": "Portada",
+    "makeCover": "Usar como portada",
+    "delete": "Quitar",
+    "deleted": "Foto quitada",
+    "uploading": "Subiendo…",
+    "errType": "Ese archivo no es una imagen compatible.",
+    "errSize": "La imagen es muy pesada incluso optimizada. Prueba con otra.",
+    "empty": "Aún sin fotos. Agrega el campus, la ciudad, lo que te inspire."
+  },
+  "facts": {
+    "title": "Tus datos",
+    "lead": "Lo que descubras: costos reales, contactos, impresiones. Se guarda con historial.",
+    "label": "Dato",
+    "value": "Valor",
+    "add": "Agregar dato",
+    "links": "Enlaces",
+    "linkLabel": "Nombre",
+    "linkUrl": "https://…",
+    "addLink": "Agregar enlace",
+    "save": "Guardar",
+    "empty": "Sin datos propios todavía.",
+    "invalidUrl": "Revisa el enlace: debe empezar con https://"
+  },
+  "tasks": {
+    "title": "Tareas",
+    "lead": "Lo que tienes que hacer para esta opción. Aparece en Hoy y en el calendario.",
+    "placeholder": "Ej.: escribir a admisiones sobre Duolingo",
+    "add": "Crear tarea",
+    "empty": "Sin tareas todavía.",
+    "added": "Tarea creada"
+  },
+  "explore": {
+    "title": "Explorar",
+    "unis": "Universidades",
+    "schs": "Becas",
+    "gallery": "Galería",
+    "table": "Tabla",
+    "country": "País",
+    "allCountries": "Todos los países"
+  },
+  "timeline": {
+    "title": "Línea de tiempo",
+    "onlyList": "Solo mi lista",
+    "all": "Todo",
+    "empty": "Nada que mostrar. Agrega opciones a tu lista o quita el filtro.",
+    "today": "Hoy",
+    "window": "Ventana",
+    "legend": "Barras: ventanas de solicitud. Rombos: plazos. Círculos: tareas."
   }
 }

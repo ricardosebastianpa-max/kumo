@@ -15,6 +15,13 @@
       "when": 1795500876490,
       "tag": "0001_event_completed",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795502562221,
+      "tag": "0002_shortlist_media",
+      "breakpoints": true
     }
   ]
 }

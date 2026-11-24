@@ -6,7 +6,7 @@
  */
 
 import {
-  boolean, doublePrecision, index, integer, jsonb, pgEnum, pgTable, primaryKey, text, timestamp, uniqueIndex,
+  boolean, customType, doublePrecision, index, integer, jsonb, pgEnum, pgTable, primaryKey, text, timestamp, uniqueIndex,
 } from "drizzle-orm/pg-core";
 
 const id = () => text("id").primaryKey().$defaultFn(() => crypto.randomUUID());
@@ -282,6 +282,9 @@ export const requirementTemplate = pgTable("requirement_template", {
 }, (t) => [uniqueIndex("req_tpl_ws_slug").on(t.workspaceId, t.slug)]);
 
 /* ── Process ─────────────────────────────────────────────────────────── */
+const bytea = customType<{ data: Buffer; driverData: Buffer }>({ dataType: () => "bytea" });
+
+/** Shortlist stages: exploring → shortlist → pursuing (or discarded). Gut = 1–5 feeling. */
 export const targetListItem = pgTable("target_list_item", {
   id: id(),
   workspaceId: text("workspace_id").notNull().references(() => workspace.id, { onDelete: "cascade" }),
@@ -294,8 +297,28 @@ export const targetListItem = pgTable("target_list_item", {
   category: text("category"), // Safety | Target | Reach | Dream | custom
   priority: integer("priority"),
   reasons: text("reasons"),
+  gut: integer("gut"),
+  pros: jsonb("pros").$type<string[]>().notNull().default([]),
+  cons: jsonb("cons").$type<string[]>().notNull().default([]),
+  notes: text("notes"),
+  position: integer("position").notNull().default(0),
   ...owned,
-});
+}, (t) => [index("tli_ws_list").on(t.workspaceId, t.list)]);
+
+/** Private images (compressed client-side to WebP ≤ 400 KB) stored in Postgres; served with an auth check. */
+export const media = pgTable("media", {
+  id: id(),
+  workspaceId: text("workspace_id").notNull().references(() => workspace.id, { onDelete: "cascade" }),
+  resourceType: text("resource_type").notNull(),
+  resourceId: text("resource_id").notNull(),
+  mime: text("mime").notNull(),
+  bytes: bytea("bytes").notNull(),
+  width: integer("width"),
+  height: integer("height"),
+  caption: text("caption"),
+  isCover: boolean("is_cover").notNull().default(false),
+  ...owned,
+}, (t) => [index("media_res").on(t.resourceType, t.resourceId)]);
 
 export const event = pgTable("event", {
   id: id(),

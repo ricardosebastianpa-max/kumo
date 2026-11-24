@@ -11,7 +11,8 @@ test("phase 1 acceptance: today, calendar edit with audit, capture, catalogs, IC
   // Catalog: all institutions, ranked; HIT first with the research score.
   await page.goto("/app/universities");
   await expect(page.getByText(`${nInst} de ${nInst}`)).toBeVisible();
-  if (PRIVATE) await expect(page.locator("tbody tr").first()).toContainText("79.4");
+  if (PRIVATE) await expect(page.getByTestId("uni-card").first()).toContainText("Harbin Institute of Technology");
+  if (PRIVATE) await expect(page.getByTestId("uni-card").first().getByRole("img", { name: "Puntaje: 79.4" })).toBeVisible();
 
   // Edit a deadline from its sheet → change lands in history (audit log).
   await page.goto("/app/calendar?view=agenda&d=2026-11-01");

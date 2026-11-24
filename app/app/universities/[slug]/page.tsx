@@ -11,6 +11,10 @@ import { scoreInstitution } from "@/lib/domain/score-institution";
 import { fmtWhen } from "@/lib/format";
 import { Card, CategoryChip, ConfidenceBadge } from "@/components/ui";
 import { InstitutionEditor } from "./editor";
+import { enrichData } from "@/lib/server/enrich";
+import { Cover } from "@/components/cover";
+import { StagePicker } from "@/components/client/stage";
+import { Facts, LinkedTasks, Photos, Ponder } from "@/components/client/enrich";
 
 export default async function UniversityPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -32,6 +36,8 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
       .where(and(eq(s.activityLog.resourceType, "institution"), eq(s.activityLog.resourceId, i.id), eq(s.activityLog.action, "update"))).orderBy(desc(s.activityLog.createdAt)).limit(10),
   ]);
   const r = model ? scoreInstitution(i as never, model.params) : null;
+  const en = await enrichData(ws, "institution", i.id, tz, locale);
+  const canList = can(ctx.actor, "edit", { workspaceId: ws, module: "list" });
   const fin = (i.finance ?? {}) as { currency?: string; tuitionYear?: number | null; tuitionEstimated?: boolean };
   const det = (i.details ?? {}) as { verdict?: string; requirements?: string; notes?: string; englishPrograms?: string[]; duolingo?: string; scoring?: { tierPointsOverride?: number; rankPointsOverride?: number } };
   const cur = fin.currency ?? "USD";
@@ -45,6 +51,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
   return (
     <div className="grid max-w-4xl gap-6 pt-2">
       <Link href="/app/universities" className="min-h-11 content-center text-sm font-semibold text-ink-2 hover:underline">← {t("back")}</Link>
+      <Cover src={en.cover} seed={i.slug} category={r?.category} alt={i.name} className="-mx-4 aspect-[21/9] sm:mx-0 sm:rounded-[28px]" />
       <header className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
         <div className="grid gap-2">
           <div className="flex flex-wrap gap-2">{r?.category && <CategoryChip category={r.category} label={tcat(r.category as never)} />}<ConfidenceBadge level={i.confidence} label={tc(`confidence.${i.confidence}`)} /></div>
@@ -53,6 +60,9 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
         </div>
         {r && <div className="text-right"><p className="font-display text-6xl leading-none tabular-nums">{r.total.toFixed(1)}</p><p className="text-sm text-mute">{t("score")} / 100</p></div>}
       </header>
+
+      {canList && <StagePicker kind="institution" refId={i.id} stage={en.stage} />}
+      {canList && <Ponder kind="institution" refId={i.id} initial={en.ponder} />}
 
       {r && model && (
         <Card className="grid gap-5 p-6">
@@ -99,6 +109,10 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
           </Card>
         )}
       </div>
+
+      <LinkedTasks kind="institution" refId={i.id} tasks={en.tasks} timezone={tz} canEdit={can(ctx.actor, "edit", { workspaceId: ws, module: "calendar" })} />
+      <Photos kind="institution" refId={i.id} photos={en.photos} canEdit={canEdit} />
+      <Facts kind="institution" refId={i.id} canEdit={canEdit} initial={{ custom: (det as { custom?: { label: string; value: string }[] }).custom ?? [], links: (det as { links?: { label: string; url: string }[] }).links ?? [] }} />
 
       <Card className="grid gap-2 p-6"><h2 className="text-xl">{t("sources")}</h2>
         {sources.length ? sources.map((x, k) => <p key={k} className="text-sm">{x.url ? <a href={x.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2">{x.title}</a> : x.title} · {tc(`confidence.${x.confidence}`)}</p>) : <p className="text-sm text-mute">—</p>}

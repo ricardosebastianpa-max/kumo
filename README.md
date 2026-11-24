@@ -5,6 +5,7 @@ Your step-by-step ally, all the way to university. A calm copilot for students a
 ## Status
 **Phase 0, foundations: done.** Covers auth (email + password), workspaces and roles with central `can()`, full schema and migrations, an idempotent seed-pack importer with preview, guardian invitations, a design system at `/design`, CI, and es/en i18n.
 **Phase 1, Today + Calendar + Catalogs: done.** Today screen (one main thing, calm alerts), calendar with layers and drag & drop, quick capture in natural language (⌘K), university and scholarship catalogs with score breakdown, sources and audited edits, ICS subscription for Google/Apple Calendar.
+**Shortlisting:** Mi lista board (Me interesa / Voy por ella / Descartadas), gut feeling, pros/cons, side-by-side compare, photos, your own facts and links, tasks tied to each option, a visual Explore gallery, a country filter for scholarships, and a timeline view in the calendar.
 Next up: **Phase 2** (applications pipeline, documents, recommenders, family view with approvals).
 
 ## Run locally
