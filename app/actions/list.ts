@@ -8,6 +8,7 @@ import { requireWorkspace } from "@/lib/server/session";
 import { assertCan } from "@/lib/domain/permissions";
 import { isValidTimeZone, zonedToUtc } from "@/lib/domain/time";
 import { audit, diff } from "@/lib/server/audit";
+import { ensureApplication } from "@/lib/server/applications";
 
 export type Stage = "exploring" | "shortlist" | "pursuing" | "discarded";
 const STAGES = ["exploring", "shortlist", "pursuing", "discarded"] as const;
@@ -40,6 +41,7 @@ export async function setStage(kind: "institution" | "scholarship", refId: strin
   const [{ m }] = await db.select({ m: max(s.targetListItem.position) }).from(s.targetListItem).where(and(eq(s.targetListItem.workspaceId, ctx.workspace.id), eq(s.targetListItem.status, stage)));
   await db.update(s.targetListItem).set({ status: stage, position: (m ?? 0) + 1 }).where(eq(s.targetListItem.id, item.id));
   await audit({ workspaceId: ctx.workspace.id, actorId: ctx.user.id, action: "update", resourceType: "target_list_item", resourceId: item.id, diff: { status: { from: item.status, to: stage } } });
+  if (stage === "pursuing") await ensureApplication(ctx.workspace.id, ctx.user.id, kind, refId);
   refresh();
 }
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { and, asc, eq, gte, isNull, lte } from "drizzle-orm";
 import { db } from "@/lib/db";
@@ -10,10 +11,12 @@ import { fmtWhen } from "@/lib/format";
 import { Kumo } from "@/components/kumo";
 import { ButtonLink, Card, ConfidenceBadge } from "@/components/ui";
 import { DoneButton } from "@/components/client/done-button";
+import { CalmButton } from "@/components/client/calm";
 import { AlertTriangle, BookOpen, CalendarClock, Layers } from "lucide-react";
 
 export default async function Today() {
   const ctx = await requireWorkspace();
+  if (ctx.role === "guardian") redirect("/app/family");
   const [t, tc, tk, tp, locale] = await Promise.all([getTranslations("today"), getTranslations("common"), getTranslations("kinds"), getTranslations("priority"), getLocale()]);
   const th = await getTranslations("home");
   const ws = ctx.workspace.id;
@@ -68,6 +71,7 @@ export default async function Today() {
   return (
     <div className="grid max-w-3xl gap-8 pt-2">
       <h1 className="text-[clamp(2rem,5vw,3rem)] leading-tight enter">{t(greet, { name })}</h1>
+      <CalmButton main={plan.main?.title ?? null} />
 
       {plan.main ? (
         <Card className="relative grid gap-4 overflow-hidden p-6 sm:p-8 enter" aria-labelledby="main-label">

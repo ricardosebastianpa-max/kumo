@@ -22,9 +22,9 @@ test("phase 0 acceptance: sign up, space, import, invite guardian", async ({ bro
   await d.getByLabel("Contraseña", { exact: true }).fill(PASS);
   await d.getByRole("button", { name: "Crear cuenta" }).click();
   await d.getByRole("button", { name: /aceptar invitación/i }).click();
-  await expect(d).toHaveURL(/\/app$/);
+  await expect(d).toHaveURL(/\/app\/family$/);
   await expect(d.getByRole("note")).toContainText(/como familia/i);
-  for (const url of ["/app/import", "/app/members", "/app/subscribe"]) { await d.goto(url); await expect(d).toHaveURL(/\/app$/); }
+  for (const url of ["/app/import", "/app/members", "/app/subscribe"]) { await d.goto(url); await expect(d).toHaveURL(/\/app(\/family)?$/); }
   // Guardians see the calendar but cannot capture or edit.
   await expect(d.getByRole("button", { name: "Capturar" })).toHaveCount(0);
 });

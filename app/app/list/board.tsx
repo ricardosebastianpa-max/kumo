@@ -18,6 +18,7 @@ export function Board({ cards: initial, today, canEdit }: { cards: ListCard[]; t
   const t = useTranslations("list");
   const tcat = useTranslations("categories");
   const tcat2 = useTranslations("catalog");
+  const tm = useTranslations("model");
   const router = useRouter();
   const [cards, setCards] = useState(initial);
   useEffect(() => setCards(initial), [initial]);
@@ -89,6 +90,8 @@ export function Board({ cards: initial, today, canEdit }: { cards: ListCard[]; t
         <h1 className="text-4xl">{t("title")}</h1>
         <p className="max-w-[62ch] text-lg text-ink-2">{t("lead")}</p>
         {byStage.pursuing.length > 0 && <p className="font-semibold text-[var(--lacquer)]">{t("pursuingCount", { n: byStage.pursuing.length })}</p>}
+        {byStage.pursuing.length > 0 && (() => { const c = (k: string) => byStage.pursuing.filter((x) => x.category === k).length; return (
+          <p className="text-sm text-ink-2">{tm("balance", { safety: c("safety"), target: c("target"), reach: c("reach"), dream: c("dream") })}{c("safety") === 0 ? <span className="ml-2 font-semibold text-[var(--conf-estimated)]">{tm("noSafety")}</span> : null}</p>); })()}
       </div>
       <div className="grid gap-5 xl:grid-cols-[1fr_1fr_.7fr] lg:grid-cols-2">
         {COLS.map((col) => (

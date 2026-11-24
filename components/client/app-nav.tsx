@@ -2,14 +2,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { BookOpen, CalendarDays, Compass, Heart, MoreHorizontal, Sun } from "lucide-react";
+import { BookOpen, CalendarDays, ClipboardCheck, Compass, Heart, MoreHorizontal, Sun } from "lucide-react";
 
 const ITEMS = [
   { href: "/app", key: "today", icon: Sun, exact: true },
   { href: "/app/calendar", key: "calendar", icon: CalendarDays },
   { href: "/app/list", key: "list", icon: Heart, also: ["/app/compare"] },
   { href: "/app/universities", key: "explore", icon: Compass, also: ["/app/scholarships"] },
-  { href: "/app/study", key: "study", icon: BookOpen, desktopOnly: true },
+  { href: "/app/applications", key: "applications", icon: ClipboardCheck, desktopOnly: true },
+  { href: "/app/study", key: "study", icon: BookOpen, desktopOnly: true, also: ["/app/progress", "/app/focus"] },
   { href: "/app/more", key: "more", icon: MoreHorizontal },
 ] as const;
 

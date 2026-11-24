@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { BookOpen, CalendarPlus, Palette, Upload, Users } from "lucide-react";
+import { BookOpen, Bot, CalendarPlus, ClipboardCheck, Download, FileText, Gauge, HeartHandshake, NotebookPen, Palette, Timer, TrendingUp, Upload, UserRoundPen, Users } from "lucide-react";
 import { requireWorkspace } from "@/lib/server/session";
 import { can } from "@/lib/domain/permissions";
 import { Card } from "@/components/ui";
@@ -12,8 +12,17 @@ export default async function More() {
   const [t, tc] = await Promise.all([getTranslations("nav"), getTranslations("common")]);
   const owner = can(ctx.actor, "manage", { workspaceId: ctx.workspace.id, module: "members" });
   const links = [
+    { href: "/app/applications", label: t("applications"), icon: ClipboardCheck },
+    { href: "/app/documents", label: t("documents"), icon: FileText },
+    { href: "/app/people", label: t("people"), icon: UserRoundPen },
+    { href: "/app/family", label: t("family"), icon: HeartHandshake },
     { href: "/app/study", label: t("study"), icon: BookOpen },
-    ...(owner ? [{ href: "/app/members", label: t("people"), icon: Users }, { href: "/app/import", label: t("import"), icon: Upload }, { href: "/app/subscribe", label: t("subscribe"), icon: CalendarPlus }] : []),
+    { href: "/app/progress", label: t("progress"), icon: TrendingUp },
+    { href: "/app/focus", label: t("focus"), icon: Timer },
+    { href: "/app/essays", label: t("essays"), icon: NotebookPen },
+    { href: "/app/copilot", label: t("copilot"), icon: Bot },
+    { href: "/app/model", label: t("model"), icon: Gauge },
+    ...(owner ? [{ href: "/app/members", label: (await getTranslations("members"))("title"), icon: Users }, { href: "/app/import", label: t("import"), icon: Upload }, { href: "/app/subscribe", label: t("subscribe"), icon: CalendarPlus }, { href: "/api/export", label: t("export"), icon: Download }] : []),
     { href: "/design", label: "Design system", icon: Palette },
   ];
   return (

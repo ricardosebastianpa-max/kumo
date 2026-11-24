@@ -455,3 +455,111 @@ export const scoreSnapshot = pgTable("score_snapshot", {
   computedAt: timestamp("computed_at", { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [uniqueIndex("snapshot_model_inst").on(t.modelId, t.institutionId)]);
 
+
+/* ── Phase 2: applications, documents, recommenders, money, family ─── */
+export const application = pgTable("application", {
+  id: id(),
+  workspaceId: text("workspace_id").notNull().references(() => workspace.id, { onDelete: "cascade" }),
+  institutionId: text("institution_id").references(() => institution.id, { onDelete: "cascade" }),
+  scholarshipId: text("scholarship_id").references(() => scholarship.id, { onDelete: "cascade" }),
+  title: text("title").notNull(),
+  status: text("status").notNull().default("preparing"), // preparing | submitted | interview | admitted | waitlisted | rejected | accepted | declined
+  portalUrl: text("portal_url"),
+  portalUser: text("portal_user"), // never passwords
+  appNumber: text("app_number"),
+  submittedAt: timestamp("submitted_at", { withTimezone: true }),
+  notes: text("notes"),
+  ...owned,
+});
+export const applicationItem = pgTable("application_item", {
+  id: id(),
+  applicationId: text("application_id").notNull().references(() => application.id, { onDelete: "cascade" }),
+  key: text("key").notNull(),
+  label: text("label").notNull(),
+  done: boolean("done").notNull().default(false),
+  dependsOn: jsonb("depends_on").$type<string[]>().notNull().default([]),
+  position: integer("position").notNull().default(0),
+  dueOn: text("due_on"),
+});
+export const document = pgTable("document", {
+  id: id(),
+  workspaceId: text("workspace_id").notNull().references(() => workspace.id, { onDelete: "cascade" }),
+  name: text("name").notNull(),
+  status: text("status").notNull().default("missing"), // missing | in_progress | ready | translated | apostilled
+  expiresOn: text("expires_on"),
+  notes: text("notes"),
+  ...owned,
+});
+export const recommender = pgTable("recommender", {
+  id: id(),
+  workspaceId: text("workspace_id").notNull().references(() => workspace.id, { onDelete: "cascade" }),
+  name: text("name").notNull(),
+  email: text("email"),
+  role: text("role"),
+  ask: text("ask"),
+  dueOn: text("due_on"),
+  status: text("status").notNull().default("to_ask"), // to_ask | asked | in_progress | sent | thanked
+  token: text("token").notNull().unique().$defaultFn(() => crypto.randomUUID().replace(/-/g, "")),
+  replyNote: text("reply_note"),
+  ...owned,
+});
+export const expense = pgTable("expense", {
+  id: id(),
+  workspaceId: text("workspace_id").notNull().references(() => workspace.id, { onDelete: "cascade" }),
+  label: text("label").notNull(),
+  amount: doublePrecision("amount").notNull(),
+  currency: text("currency").notNull().default("USD"),
+  status: text("status").notNull().default("pending"), // pending | approved | rejected | paid
+  decidedBy: text("decided_by"),
+  decidedAt: timestamp("decided_at", { withTimezone: true }),
+  decisionNote: text("decision_note"),
+  ...owned,
+});
+export const message = pgTable("message", {
+  id: id(),
+  workspaceId: text("workspace_id").notNull().references(() => workspace.id, { onDelete: "cascade" }),
+  authorId: text("author_id").notNull(),
+  body: text("body").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+/* ── Phase 3: study tracking & wellbeing ───────────────────────────── */
+export const studySession = pgTable("study_session", {
+  id: id(),
+  workspaceId: text("workspace_id").notNull().references(() => workspace.id, { onDelete: "cascade" }),
+  subject: text("subject").notNull(),
+  minutes: integer("minutes").notNull(),
+  startedAt: timestamp("started_at", { withTimezone: true }).notNull(),
+  feeling: integer("feeling"),
+  createdBy: text("created_by"),
+});
+export const practiceTest = pgTable("practice_test", {
+  id: id(),
+  workspaceId: text("workspace_id").notNull().references(() => workspace.id, { onDelete: "cascade" }),
+  exam: text("exam").notNull(),
+  section: text("section").notNull(),
+  score: doublePrecision("score").notNull(),
+  maxScore: doublePrecision("max_score").notNull().default(100),
+  takenOn: text("taken_on").notNull(),
+  notes: text("notes"),
+  createdBy: text("created_by"),
+});
+export const checkin = pgTable("checkin", {
+  id: id(),
+  workspaceId: text("workspace_id").notNull().references(() => workspace.id, { onDelete: "cascade" }),
+  day: text("day").notNull(),
+  energy: integer("energy"), mood: integer("mood"), sleep: integer("sleep"), stress: integer("stress"),
+  note: text("note"),
+}, (t) => [uniqueIndex("checkin_ws_day").on(t.workspaceId, t.day)]);
+
+/* ── Phase 5: writing ───────────────────────────────────────────────── */
+export const essay = pgTable("essay", {
+  id: id(),
+  workspaceId: text("workspace_id").notNull().references(() => workspace.id, { onDelete: "cascade" }),
+  title: text("title").notNull(),
+  prompt: text("prompt"),
+  wordLimit: integer("word_limit"),
+  body: text("body").notNull().default(""),
+  versions: jsonb("versions").$type<{ at: string; body: string }[]>().notNull().default([]),
+  ...owned,
+});

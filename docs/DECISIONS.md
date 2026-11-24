@@ -70,3 +70,12 @@ Calendar "Línea": one row per institution/scholarship with dated items, 8 month
 
 ## ADR-023 Study library from CSV sheets
 The "Ruta 0–100", "Profundizar" and "Canales y cursos" sheets import through the normal importer (CSV recognised by header row). They carry titles but no URLs, so each resource gets a search link (YouTube for videos/channels, web search for books and sites) flagged `urlIsSearch`; the student can paste the exact link once found. Re-imports refresh content but never the student's ✓, notes or saved link. The next unfinished route step appears on Today.
+
+## ADR-024 Phases 2–6 in one pass (owner request: useful first, lighter testing)
+- Applications are created automatically when an option becomes "Voy por ella", with the workspace's requirement template as checklist (dependencies lock steps). Portal username only, never passwords.
+- Documents track status/expiry; guardians see status but not notes. Recommenders get a token link (`/r/{token}`) to report progress, no account.
+- Family view (`/app/family`) is the guardian landing: traffic light, deadlines, applications, weekly study hours vs plan, expense approvals, message thread.
+- Weekly planner (`lib/domain/scheduler.ts`) is deterministic: 50+10 min blocks between 7:00–22:00, never overlapping timed events, max 4/day; re-planning replaces only future auto blocks.
+- Scoring model editor saves a new version (old ones kept, `is_active` flag); live preview runs the same pure scoring in the browser.
+- AI copilot and essay coach call the Anthropic Messages API only when `ANTHROPIC_API_KEY` is set (`KUMO_AI_MODEL` optional). Read-only: answers from a JSON snapshot of the workspace; the coach never rewrites.
+- Deferred: spaced-repetition flashcards, the visual "Camino", offline PWA cache, push notifications, Google sign-in.
