@@ -37,3 +37,6 @@ Geist (npm `geist`) and Fraunces (Fontsource woff2 via `next/font/local`), `disp
 
 ## ADR-012 Private data never in git
 `private/` is git-ignored. Real data reaches production only through the in-app importer. Tests that need it skip when it is absent; a fictional demo pack (`seed/demo-pack.json`) covers CI.
+
+## ADR-013 Email is optional: password sign-in + shareable invite links (owner decision, supersedes part of ADR-004)
+The owner chose not to set up an email provider. Sign-in is email + password (Better Auth, min 8 chars, rate-limited). Invitations produce a link the student copies or sends via WhatsApp; the invitee creates an account on that link and must use the invited email. If `RESEND_API_KEY` is ever set, magic links and invitation emails turn on automatically with no code change. Password reset needs email, so until then a forgotten password is reset by the owner from the database (documented in README); revisit with Google sign-in in Phase 1.

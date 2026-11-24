@@ -1,5 +1,5 @@
 "use server";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { and, eq, gt, isNull } from "drizzle-orm";
@@ -13,7 +13,15 @@ import { assertCan, type Role } from "@/lib/domain/permissions";
 import { importSeedPack, type ImportResult } from "@/lib/seed/import";
 import { convertCentro, type CentroFiles } from "@/lib/seed/adapters/centro-v0";
 import { PackPack } from "@/lib/seed/schema";
-import { layout, sendMail } from "@/lib/email";
+import { emailEnabled, layout, sendMail } from "@/lib/email";
+
+/** Public origin of the current request, so share links work on any domain. */
+async function baseUrl() {
+  const h = await headers();
+  const host = h.get("x-forwarded-host") ?? h.get("host");
+  if (host) return `${h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https")}://${host}`;
+  return process.env.BETTER_AUTH_URL ?? "http://localhost:3000";
+}
 
 export async function setLocale(locale: "es" | "en") {
   (await cookies()).set("kumo_locale", locale === "en" ? "en" : "es", { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
@@ -61,7 +69,7 @@ export async function runImport(files: Record<string, unknown>, dryRun: boolean)
 }
 
 const InviteInput = z.object({ email: z.string().trim().toLowerCase().email(), role: z.enum(["guardian", "mentor"]), message: z.string().max(500).optional() });
-export async function inviteMember(_: unknown, form: FormData): Promise<{ error?: string; sent?: string }> {
+export async function inviteMember(_: unknown, form: FormData): Promise<{ error?: string; sent?: string; link?: string; emailed?: boolean }> {
   const ctx = await requireWorkspace();
   assertCan(ctx.actor, "manage", { workspaceId: ctx.workspace.id, module: "members" });
   const tm = await getTranslations("members");
@@ -74,7 +82,7 @@ export async function inviteMember(_: unknown, form: FormData): Promise<{ error?
   await db.insert(s.activityLog).values({ workspaceId: ctx.workspace.id, actorId: ctx.user.id, action: "create", resourceType: "invitation", resourceId: inv.id, meta: { email, role } });
   const ti = await getTranslations("invite");
   const tc = await getTranslations("common");
-  const base = process.env.BETTER_AUTH_URL ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000");
+  const base = await baseUrl();
   const url = `${base}/invite/${inv.token}`;
   const roleLabel = tc(`roles.${role}`).toLowerCase();
   const esc = (x: string) => x.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
@@ -83,9 +91,10 @@ export async function inviteMember(_: unknown, form: FormData): Promise<{ error?
     body: `${esc(ti("emailBody", { inviter: ctx.user.name, role: roleLabel }))}${message ? `<br><br><em>“${esc(message)}”</em>` : ""}`,
     cta: { label: ti("emailCta"), url },
   });
+  const emailed = emailEnabled();
   await sendMail({ to: email, subject: ti("emailSubject", { inviter: ctx.user.name }), ...m });
   revalidatePath("/app/members");
-  return { sent: tm("sent", { email }) };
+  return { sent: emailed ? tm("sent", { email }) : tm("linkReady"), link: url, emailed };
 }
 
 export async function revokeInvitation(id: string) {

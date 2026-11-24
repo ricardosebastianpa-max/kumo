@@ -3,7 +3,7 @@
 Your step-by-step ally, all the way to university. A calm copilot for students applying to universities and scholarships, and for the family that supports them.
 
 ## Status
-**Phase 0, foundations: done.** Covers auth (magic link), workspaces and roles with central `can()`, full schema and migrations, an idempotent seed-pack importer with preview, guardian invitations, a design system at `/design`, CI, and es/en i18n.
+**Phase 0, foundations: done.** Covers auth (email + password), workspaces and roles with central `can()`, full schema and migrations, an idempotent seed-pack importer with preview, guardian invitations, a design system at `/design`, CI, and es/en i18n.
 Next up: **Phase 1** (Today, Calendar, Catalogs, quick capture, ICS).
 
 ## Run locally
@@ -13,7 +13,7 @@ npm install
 npm run db:migrate
 npm run dev                       # http://localhost:3000
 ```
-Without `RESEND_API_KEY`, magic links and invitations appear at `/dev/outbox`.
+Sign-in is email + password. Invitations are links you copy or send by WhatsApp. Email (Resend) is optional; set `RESEND_API_KEY` to also enable magic links and invitation emails.
 
 ## Test
 ```bash

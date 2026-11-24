@@ -41,7 +41,7 @@
   },
   "login": {
     "title": "Entra a Kumo",
-    "lead": "Te enviamos un enlace a tu correo. Sin contraseñas.",
+    "lead": "Entra con tu correo y una contraseña.",
     "email": "Correo electrónico",
     "emailPlaceholder": "tu@correo.com",
     "submit": "Enviarme el enlace",
@@ -50,7 +50,19 @@
     "sentBody": "Enviamos un enlace a {email}. Vence en 15 minutos.",
     "useOther": "Usar otro correo",
     "invalidEmail": "Escribe un correo válido, por ejemplo nombre@gmail.com.",
-    "devOutbox": "Modo de desarrollo: ver el correo enviado"
+    "devOutbox": "Modo de desarrollo: ver el correo enviado",
+    "password": "Contraseña",
+    "passwordHint": "Mínimo 8 caracteres.",
+    "signIn": "Entrar",
+    "signUp": "Crear cuenta",
+    "toSignUp": "¿Primera vez? Crea tu cuenta",
+    "toSignIn": "¿Ya tienes cuenta? Entra",
+    "signUpTitle": "Crea tu cuenta",
+    "badCredentials": "El correo o la contraseña no coinciden.",
+    "exists": "Ya existe una cuenta con ese correo. Entra con tu contraseña.",
+    "shortPassword": "La contraseña necesita al menos 8 caracteres.",
+    "showPassword": "Mostrar",
+    "hidePassword": "Ocultar"
   },
   "onboarding": {
     "step": "Paso {n} de {total}",
@@ -152,7 +164,12 @@
       "study": "Estudio",
       "writing": "Ensayos"
     },
-    "invalidEmail": "Escribe un correo válido."
+    "invalidEmail": "Escribe un correo válido.",
+    "linkReady": "Invitación lista. Envíale este enlace.",
+    "copy": "Copiar enlace",
+    "copied": "Copiado",
+    "whatsapp": "Enviar por WhatsApp",
+    "shareText": "Te invito a acompañar mi camino a la universidad en Kumo:"
   },
   "invite": {
     "title": "{inviter} te invita a Kumo",

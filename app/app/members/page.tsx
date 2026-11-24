@@ -6,7 +6,8 @@ import * as s from "@/db/schema";
 import { requireWorkspace } from "@/lib/server/session";
 import { allowedActions, can } from "@/lib/domain/permissions";
 import { Card } from "@/components/ui";
-import { InviteForm, RevokeButton } from "./client";
+import { headers } from "next/headers";
+import { InviteForm, RevokeButton, ShareLink } from "./client";
 
 const PREVIEW_MODULES = ["today", "calendar", "catalog", "list", "applications", "documents", "people", "finance", "study", "writing"] as const;
 
@@ -21,6 +22,9 @@ export default async function Members() {
     db.select({ m: s.membership, u: s.user }).from(s.membership).innerJoin(s.user, eq(s.user.id, s.membership.userId)).where(eq(s.membership.workspaceId, ws)),
     db.select().from(s.invitation).where(and(eq(s.invitation.workspaceId, ws), isNull(s.invitation.acceptedAt), isNull(s.invitation.revokedAt), gt(s.invitation.expiresAt, new Date()))),
   ]);
+  const h = await headers();
+  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
+  const origin = `${h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https")}://${host}`;
   const preview = Object.fromEntries((["guardian", "mentor"] as const).map((r) => [r, {
     see: PREVIEW_MODULES.filter((m) => allowedActions(r, m).includes("view")).map((m) => t(`modules.${m}`)),
     approve: PREVIEW_MODULES.filter((m) => allowedActions(r, m).includes("approve")).map((m) => t(`modules.${m}`)),
@@ -41,9 +45,12 @@ export default async function Members() {
         <section className="grid gap-3"><h2 className="text-2xl">{t("pending")}</h2>
           <Card className="divide-y divide-[var(--line)]">
             {pending.map((p) => (
-              <div key={p.id} className="flex items-center justify-between gap-3 p-4">
-                <div className="min-w-0"><p className="truncate font-semibold">{p.email}</p><p className="text-sm text-mute">{tc(`roles.${p.role}`)}</p></div>
-                <RevokeButton id={p.id} label={t("revoke")} />
+              <div key={p.id} className="grid gap-3 p-4">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="min-w-0"><p className="truncate font-semibold">{p.email}</p><p className="text-sm text-mute">{tc(`roles.${p.role}`)}</p></div>
+                  <RevokeButton id={p.id} label={t("revoke")} />
+                </div>
+                <ShareLink link={`${origin}/invite/${p.token}`} compact />
               </div>
             ))}
           </Card>

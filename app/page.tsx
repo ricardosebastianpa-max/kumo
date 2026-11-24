@@ -21,7 +21,7 @@ export default async function Landing() {
             <Eyebrow>{t("eyebrow")}</Eyebrow>
             <h1 className="text-[clamp(2.4rem,6vw,4.2rem)] leading-[1.02]">{t("title")}</h1>
             <p className="max-w-[54ch] text-lg leading-relaxed text-ink-2">{t("lead")}</p>
-            <div className="flex flex-wrap gap-3 pt-2"><ButtonLink href="/login" size="lg">{t("cta")}</ButtonLink></div>
+            <div className="flex flex-wrap gap-3 pt-2"><ButtonLink href="/login?mode=signup" size="lg">{t("cta")}</ButtonLink></div>
           </div>
           <div className="relative grid place-items-center">
             <div aria-hidden className="absolute inset-6 rounded-full bg-paper-2" />

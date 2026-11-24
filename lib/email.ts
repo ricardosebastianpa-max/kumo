@@ -8,10 +8,11 @@ export interface Mail { to: string; subject: string; html: string; text: string 
 const g = globalThis as unknown as { __kumoOutbox?: (Mail & { at: string })[] };
 export const outbox = (g.__kumoOutbox ??= []);
 
+export const emailEnabled = () => !!process.env.RESEND_API_KEY;
+/** Email is optional: without a provider, mails go to the dev outbox and the UI offers share links instead. */
 export async function sendMail(m: Mail): Promise<void> {
   const key = process.env.RESEND_API_KEY;
   if (!key) {
-    if (process.env.NODE_ENV === "production" && process.env.KUMO_ALLOW_OUTBOX !== "1") throw new Error("RESEND_API_KEY missing");
     outbox.unshift({ ...m, at: new Date().toISOString() });
     outbox.length = Math.min(outbox.length, 50);
     console.info(`[mail:outbox] to=${m.to} subject="${m.subject}"`);

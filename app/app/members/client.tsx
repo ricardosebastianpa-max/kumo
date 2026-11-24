@@ -40,6 +40,7 @@ export function InviteForm({ preview }: { preview: Preview }) {
         </div>
         <Button type="submit" size="lg" disabled={pending} className="justify-self-start">{pending ? t("sending") : t("send")}</Button>
         {state?.sent ? <p role="status" className="font-semibold text-[var(--conf-confirmed)]">{state.sent}</p> : null}
+        {state?.link ? <ShareLink link={state.link} /> : null}
       </form>
     </Card>
   );
@@ -47,4 +48,22 @@ export function InviteForm({ preview }: { preview: Preview }) {
 export function RevokeButton({ id, label }: { id: string; label: string }) {
   const [pending, start] = useTransition();
   return <Button variant="danger" disabled={pending} onClick={() => start(() => revokeInvitation(id))}>{label}</Button>;
+}
+
+/** Copy / WhatsApp share for an invitation link (works without any email provider). */
+export function ShareLink({ link, compact = false }: { link: string; compact?: boolean }) {
+  const t = useTranslations("members");
+  const [copied, setCopied] = useState(false);
+  const wa = `https://wa.me/?text=${encodeURIComponent(`${t("shareText")} ${link}`)}`;
+  return (
+    <div className="grid gap-2">
+      {!compact && <input readOnly value={link} onFocus={(e) => e.currentTarget.select()} aria-label={t("copy")} className={`${inputCls} font-mono text-sm`} data-testid="invite-link" />}
+      <div className="flex flex-wrap gap-2">
+        <Button type="button" variant="secondary" onClick={async () => { try { await navigator.clipboard.writeText(link); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch { /* clipboard blocked: the field stays selectable */ } }}>
+          {copied ? t("copied") : t("copy")}
+        </Button>
+        <a href={wa} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-xl border border-line bg-card px-4 text-[0.9375rem] font-semibold hover:bg-paper-2">{t("whatsapp")}</a>
+      </div>
+    </div>
+  );
 }
