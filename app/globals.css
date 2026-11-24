@@ -1,26 +1,107 @@
 @import "tailwindcss";
 
+/* Kumo design tokens. Colors are CSS variables so a workspace can override them at runtime. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #FBF8F3;
+  --paper-2: #F4EEE4;
+  --card: #FFFFFF;
+  --ink: #14213D;
+  --ink-2: #3A4560;
+  --mute: #646B78;
+  --line: #E9E1D4;
+  --brand: #14213D;
+  --brand-ink: #FFFFFF;
+  --lacquer: #C93B3B;
+  --lacquer-soft: #FBE9E7;
+  --focus: #2F6FED;
+
+  /* Semantic categories (editable per workspace) */
+  --cat-dream: #9A6B00;
+  --cat-reach: #C2410C;
+  --cat-target: #2563EB;
+  --cat-safety: #0F766E;
+
+  /* Confidence */
+  --conf-confirmed: #0F766E;
+  --conf-estimated: #B45309;
+  --conf-unverified: #9A3412;
+
+  /* Motion tokens */
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --ease-in: cubic-bezier(.55, 0, 1, .45);
+  --spring: cubic-bezier(.34, 1.4, .5, 1);
+  --dur-in: 220ms;
+  --dur-out: 160ms;
+
+  --shadow-1: 0 1px 2px rgba(20, 33, 61, .05), 0 8px 24px -16px rgba(20, 33, 61, .18);
+  --shadow-2: 0 2px 4px rgba(20, 33, 61, .05), 0 24px 48px -24px rgba(20, 33, 61, .28);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1422; --paper-2: #141B2D; --card: #18203A; --ink: #F2EEE6; --ink-2: #C9C6BE; --mute: #9AA0AE;
+    --line: #26304A; --brand: #F2EEE6; --brand-ink: #0E1422; --lacquer: #E36363; --lacquer-soft: #3A1E24; --focus: #7AA2FF;
+    --cat-dream: #E0B44A; --cat-reach: #F08A5D; --cat-target: #7AA2FF; --cat-safety: #4FC1B0;
+    --conf-confirmed: #4FC1B0; --conf-estimated: #F0B45D; --conf-unverified: #F08A5D;
+    --shadow-1: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.6);
+    --shadow-2: 0 2px 4px rgba(0,0,0,.3), 0 24px 48px -24px rgba(0,0,0,.7);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1422; --paper-2: #141B2D; --card: #18203A; --ink: #F2EEE6; --ink-2: #C9C6BE; --mute: #9AA0AE;
+  --line: #26304A; --brand: #F2EEE6; --brand-ink: #0E1422; --lacquer: #E36363; --lacquer-soft: #3A1E24; --focus: #7AA2FF;
+  --cat-dream: #E0B44A; --cat-reach: #F08A5D; --cat-target: #7AA2FF; --cat-safety: #4FC1B0;
+  --conf-confirmed: #4FC1B0; --conf-estimated: #F0B45D; --conf-unverified: #F08A5D;
+  --shadow-1: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.6);
+  --shadow-2: 0 2px 4px rgba(0,0,0,.3), 0 24px 48px -24px rgba(0,0,0,.7);
+  color-scheme: dark;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-mute: var(--mute);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-lacquer: var(--lacquer);
+  --color-lacquer-soft: var(--lacquer-soft);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+  --radius-card: 20px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html { -webkit-text-size-adjust: 100%; }
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+/* Paper texture: a very faint fibre noise, never louder than the content. */
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.13 0 0 0 0 0.24 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+body > * { position: relative; z-index: 1; }
+
+h1, h2, h3, .font-display { font-family: var(--font-serif); font-optical-sizing: auto; letter-spacing: -0.015em; font-weight: 500; }
+:focus-visible { outline: 2.5px solid var(--focus); outline-offset: 2px; }
+::selection { background: var(--lacquer-soft); color: var(--ink); }
+
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--brand); color: var(--brand-ink); padding: 10px 14px; border-radius: 10px; }
+.skip-link:focus { top: 12px; }
+
+/* Motion */
+@keyframes kumo-in { from { opacity: 0; transform: translateY(8px); } }
+.enter { animation: kumo-in var(--dur-in) var(--ease-out) both; }
+@keyframes kumo-float { 50% { transform: translateY(-4px) rotate(-1deg); } }
+.kumo-float { animation: kumo-float 5s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }

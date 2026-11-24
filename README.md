@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kumo ☁️
 
-## Getting Started
+Your step-by-step ally, all the way to university. A calm copilot for students applying to universities and scholarships, and for the family that supports them.
 
-First, run the development server:
+## Status
+**Phase 0, foundations: done.** Covers auth (magic link), workspaces and roles with central `can()`, full schema and migrations, an idempotent seed-pack importer with preview, guardian invitations, a design system at `/design`, CI, and es/en i18n.
+Next up: **Phase 1** (Today, Calendar, Catalogs, quick capture, ICS).
 
+## Run locally
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env.local        # set DATABASE_URL to a local Postgres
+npm install
+npm run db:migrate
+npm run dev                       # http://localhost:3000
 ```
+Without `RESEND_API_KEY`, magic links and invitations appear at `/dev/outbox`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Test
+```bash
+npm run typecheck && npm run lint
+npm test                          # unit + integration (needs Postgres: DATABASE_URL or kumo_test)
+npm run build && npm run e2e      # Playwright, Phase 0 acceptance flow
+```
+Tests that use real student data read `private/data` (git-ignored) and are skipped without it. CI uses the fictional `seed/demo-pack.json`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Layout
+| Path | What |
+|---|---|
+| `app/` | Routes, server actions (`app/actions.ts`) |
+| `components/` | UI primitives (`ui.tsx`), Kumo crane (`kumo.tsx`) |
+| `lib/domain/` | Pure, tested business logic: `permissions`, `scoring`, `time` |
+| `lib/seed/` | SeedPack v1 schema, importer, adapters |
+| `db/` | Drizzle schema + migrations |
+| `messages/` | i18n (es default, en) |
+| `docs/` | `DECISIONS.md` (ADRs), `JOURNEY_MAP.md`, `flows/` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Data and privacy
+Personal data (`private/`, research PDFs) is never committed. Real data enters production only through **Importar datos** in the app.

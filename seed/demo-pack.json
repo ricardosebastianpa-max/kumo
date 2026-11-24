@@ -1,0 +1,426 @@
+{
+ "schemaVersion": 1,
+ "slug": "demo",
+ "version": "1",
+ "title": "Demo (datos ficticios)",
+ "profile": {
+  "displayName": "Lucía Demo",
+  "country": "XX",
+  "timezone": "America/Mexico_City",
+  "interests": [
+   "Ingeniería de software",
+   "Negocios"
+  ]
+ },
+ "budgets": [
+  {
+   "key": "A",
+   "label": "Escenario A",
+   "currency": "USD",
+   "amountPerYear": 8000,
+   "weight": 15,
+   "isCentral": false
+  },
+  {
+   "key": "B",
+   "label": "Escenario B",
+   "currency": "USD",
+   "amountPerYear": 15000,
+   "weight": 12,
+   "isCentral": true
+  },
+  {
+   "key": "C",
+   "label": "Escenario C",
+   "currency": "USD",
+   "amountPerYear": 25000,
+   "weight": 8,
+   "isCentral": false
+  }
+ ],
+ "institutions": [
+  {
+   "slug": "north-coast",
+   "name": "Universidad Ejemplo del Norte",
+   "country": "XX",
+   "city": "Ciudad Norte",
+   "tiers": [
+    "Top"
+   ],
+   "rankings": [
+    {
+     "source": "Demo",
+     "rank": 80
+    }
+   ],
+   "climate": {
+    "janLowC": -8,
+    "centralHeating": true,
+    "charm": 4
+   },
+   "costOfLiving": {
+    "currency": "USD",
+    "month": 700
+   },
+   "admission": {
+    "low": 20,
+    "high": 35
+   },
+   "finance": {
+    "currency": "USD",
+    "tuitionYear": 9000,
+    "pFull": 0.2,
+    "fullValue": 9000,
+    "pPartial": 0.4,
+    "partialValue": 4500.0
+   },
+   "details": {
+    "scoring": {
+     "fitKey": "both"
+    }
+   },
+   "confidence": "estimated",
+   "source": {
+    "url": null,
+    "title": "Datos de demostración"
+   }
+  },
+  {
+   "slug": "lakeside",
+   "name": "Instituto Lakeside (ficticio)",
+   "country": "XX",
+   "city": "Lakeside",
+   "tiers": [
+    "Strong"
+   ],
+   "rankings": [
+    {
+     "source": "Demo",
+     "rank": 250
+    }
+   ],
+   "climate": {
+    "janLowC": -8,
+    "centralHeating": true,
+    "charm": 4
+   },
+   "costOfLiving": {
+    "currency": "USD",
+    "month": 600
+   },
+   "admission": {
+    "low": 40,
+    "high": 60
+   },
+   "finance": {
+    "currency": "USD",
+    "tuitionYear": 6000,
+    "pFull": 0.2,
+    "fullValue": 6000,
+    "pPartial": 0.4,
+    "partialValue": 3000.0
+   },
+   "details": {
+    "scoring": {
+     "fitKey": "main"
+    }
+   },
+   "confidence": "estimated",
+   "source": {
+    "url": null,
+    "title": "Datos de demostración"
+   }
+  },
+  {
+   "slug": "valle",
+   "name": "Universidad del Valle Demo",
+   "country": "XX",
+   "city": "Valle",
+   "tiers": [
+    "Regional"
+   ],
+   "rankings": [],
+   "climate": {
+    "janLowC": -8,
+    "centralHeating": true,
+    "charm": 4
+   },
+   "costOfLiving": {
+    "currency": "USD",
+    "month": 450
+   },
+   "admission": {
+    "low": 60,
+    "high": 80
+   },
+   "finance": {
+    "currency": "USD",
+    "tuitionYear": 3000,
+    "pFull": 0.2,
+    "fullValue": 3000,
+    "pPartial": 0.4,
+    "partialValue": 1500.0
+   },
+   "details": {
+    "scoring": {
+     "fitKey": "both"
+    }
+   },
+   "confidence": "estimated",
+   "source": {
+    "url": null,
+    "title": "Datos de demostración"
+   }
+  },
+  {
+   "slug": "harbor",
+   "name": "Harbor Tech (ficticio)",
+   "country": "XX",
+   "city": "Harbor",
+   "tiers": [
+    "Strong"
+   ],
+   "rankings": [
+    {
+     "source": "Demo",
+     "rank": 420
+    }
+   ],
+   "climate": {
+    "janLowC": -8,
+    "centralHeating": true,
+    "charm": 4
+   },
+   "costOfLiving": {
+    "currency": "USD",
+    "month": 800
+   },
+   "admission": {
+    "low": 30,
+    "high": 50
+   },
+   "finance": {
+    "currency": "USD",
+    "tuitionYear": 7000,
+    "pFull": 0.2,
+    "fullValue": 7000,
+    "pPartial": 0.4,
+    "partialValue": 3500.0
+   },
+   "details": {
+    "scoring": {
+     "fitKey": "related"
+    }
+   },
+   "confidence": "estimated",
+   "source": {
+    "url": null,
+    "title": "Datos de demostración"
+   }
+  }
+ ],
+ "programs": [
+  {
+   "slug": "north-coast-cs",
+   "institution": "north-coast",
+   "name": "Computer Science",
+   "field": "cs",
+   "language": "en",
+   "tuition": {
+    "currency": "USD",
+    "year": 9000
+   },
+   "confidence": "estimated"
+  }
+ ],
+ "scholarships": [
+  {
+   "slug": "beca-demo-global",
+   "name": "Beca Global Demo",
+   "scope": "private",
+   "coverage": {
+    "text": "Matrícula completa y estipendio"
+   },
+   "deadlineText": "2026-12-14",
+   "confidence": "estimated"
+  }
+ ],
+ "exams": [
+  {
+   "slug": "ielts",
+   "name": "IELTS",
+   "sessions": [
+    {
+     "slug": "ielts-demo-1",
+     "startsOn": "2026-12-24",
+     "timezone": "America/Mexico_City",
+     "confidence": "confirmed"
+    }
+   ]
+  }
+ ],
+ "events": [
+  {
+   "key": "demo-1",
+   "kind": "deadline",
+   "title": "Universidad Ejemplo del Norte: plazo",
+   "date": "2026-12-04",
+   "timezone": "America/Mexico_City",
+   "confidence": "confirmed",
+   "priority": "high",
+   "related": "north-coast"
+  },
+  {
+   "key": "demo-2",
+   "kind": "registration",
+   "title": "IELTS: cierra el registro",
+   "date": "2026-11-29",
+   "time": "23:59",
+   "timezone": "Europe/London",
+   "confidence": "estimated",
+   "priority": "critical",
+   "related": "ielts"
+  },
+  {
+   "key": "demo-3",
+   "kind": "task",
+   "title": "Pedir constancia de notas",
+   "date": "2026-11-26",
+   "timezone": "America/Mexico_City",
+   "confidence": "confirmed",
+   "priority": "medium",
+   "related": "documents"
+  }
+ ],
+ "requirementTemplates": [
+  {
+   "slug": "default-application",
+   "name": "Checklist de solicitud",
+   "items": [
+    {
+     "key": "portal",
+     "label": "Crear cuenta en el portal"
+    },
+    {
+     "key": "essay",
+     "label": "Ensayo personal"
+    }
+   ]
+  }
+ ],
+ "scoringModel": {
+  "name": "Modelo demo",
+  "version": 1,
+  "params": {
+   "weights": {
+    "prestige": 35,
+    "fit": 20,
+    "finance": 35,
+    "climate_city": 10
+   },
+   "prestige": {
+    "tierPoints": {
+     "Top": 40,
+     "Strong": 30,
+     "Regional": 15
+    },
+    "rankPoints": [
+     [
+      100,
+      10
+     ],
+     [
+      300,
+      8
+     ],
+     [
+      600,
+      5
+     ],
+     [
+      1000,
+      3
+     ],
+     [
+      "unranked",
+      1
+     ]
+    ],
+    "maxRaw": 50
+   },
+   "fit": {
+    "points": {
+     "both": 20,
+     "main": 15,
+     "related": 5,
+     "none": 0
+    },
+    "maxRaw": 20
+   },
+   "finance": {
+    "scenarios": [
+     {
+      "key": "A",
+      "amountPerYear": 8000,
+      "points": 15
+     },
+     {
+      "key": "B",
+      "amountPerYear": 15000,
+      "points": 12
+     },
+     {
+      "key": "C",
+      "amountPerYear": 25000,
+      "points": 8
+     }
+    ],
+    "insurancePerYear": 600,
+    "tolerance": 0
+   },
+   "climate": {
+    "coldBands": [
+     [
+      -10,
+      5
+     ],
+     [
+      -3,
+      4
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      5,
+      1
+     ]
+    ],
+    "noHeatingPenaltyBelowC": 1,
+    "charmMax": 5
+   },
+   "categories": {
+    "thresholds": [
+     {
+      "label": "safety",
+      "min": 0.3
+     },
+     {
+      "label": "target",
+      "min": 0.15
+     },
+     {
+      "label": "reach",
+      "min": 0.05
+     },
+     {
+      "label": "dream",
+      "min": 0
+     }
+    ],
+    "centralScenario": "B"
+   }
+  }
+ }
+}

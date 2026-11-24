@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# private seed data (never commit)
+/private/
+!.env.example
+.env
+.env.local
