@@ -19,11 +19,12 @@ test("phase 1 acceptance: today, calendar edit with audit, capture, catalogs, IC
   await page.getByTestId("cal-event").first().click();
   const dateInput = page.getByTestId("ev-date");
   await expect(dateInput).toHaveValue(/\d{4}-\d{2}-\d{2}/);
+  const title = (await page.getByRole("dialog").getByRole("heading", { level: 2 }).textContent())!;
   await dateInput.fill("2027-01-15");
   await page.getByRole("button", { name: "Guardar cambios" }).click();
   await expect(page.getByText("Guardado")).toBeVisible();
   await page.goto("/app/calendar?view=agenda&d=2027-01-15");
-  await page.getByTestId("cal-event").first().click();
+  await page.getByTestId("cal-event").filter({ hasText: title }).first().click();
   await expect(page.getByTestId("ev-history")).toContainText(/cambió fecha/);
 
   // Quick capture with natural language.

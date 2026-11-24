@@ -22,7 +22,7 @@ export function ImportFlow() {
     if (!list?.length) return;
     setPhase("reading"); setError(null);
     const out: Record<string, unknown> = {};
-    try { for (const f of Array.from(list)) if (f.name.endsWith(".json")) out[f.name] = JSON.parse(await f.text()); }
+    try { for (const f of Array.from(list)) { if (f.name.endsWith(".json")) out[f.name] = JSON.parse(await f.text()); else if (f.name.endsWith(".csv")) out[f.name] = await f.text(); } }
     catch { setError(t("invalid")); setPhase("pick"); return; }
     const r = await runImport(out, true).catch(() => null);
     if (!r || !r.ok) { setError(r && !r.ok ? r.error : tc("errorGeneric")); setPhase("pick"); return; }
@@ -50,7 +50,7 @@ export function ImportFlow() {
         onDrop={(e) => { e.preventDefault(); setDrag(false); read(e.dataTransfer.files); }}
         className={`grid justify-items-center gap-3 rounded-[var(--radius-card)] border-2 border-dashed p-8 text-center transition-colors ${drag ? "border-[var(--lacquer)] bg-lacquer-soft" : "border-line bg-card"}`}
       >
-        <input ref={input} type="file" accept=".json,application/json" multiple className="sr-only" id="pack" onChange={(e) => read(e.target.files)} data-testid="pack-input" />
+        <input ref={input} type="file" accept=".json,.csv,application/json,text/csv" multiple className="sr-only" id="pack" onChange={(e) => read(e.target.files)} data-testid="pack-input" />
         <Button type="button" onClick={() => input.current?.click()} disabled={phase === "reading" || phase === "importing"}>{phase === "reading" ? tc("loading") : t("pick")}</Button>
         <p className="text-sm text-mute">{t("dropHint")}</p>
         {files ? <p className="text-sm text-ink-2">{t("files", { n: Object.keys(files).length })}</p> : null}

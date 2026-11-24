@@ -257,6 +257,7 @@ export function convertCentro(files: CentroFiles, meta: { slug: string; version:
       name: "Plan semanal", weeklyHours: Object.fromEntries(Object.entries(sp.weekly_template_hours).filter(([, v]) => typeof v === "number")) as Record<string, number>,
       notes: sp.notes,
     }] : [],
+    studyResources: [],
     scoringModel: { name: "Modelo de 100 puntos", version: 1, params: { ...params, legacy: { admissionProfile: model.admission_profile_model ?? null } } as unknown as Record<string, unknown> },
   };
 }

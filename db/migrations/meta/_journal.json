@@ -22,6 +22,13 @@
       "when": 1795502562221,
       "tag": "0002_shortlist_media",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1795504165715,
+      "tag": "0003_study_library",
+      "breakpoints": true
     }
   ]
 }

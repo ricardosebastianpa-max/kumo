@@ -13,6 +13,7 @@ import { assertCan, type Role } from "@/lib/domain/permissions";
 import { importSeedPack, type ImportResult } from "@/lib/seed/import";
 import { convertCentro, type CentroFiles } from "@/lib/seed/adapters/centro-v0";
 import { PackPack } from "@/lib/seed/schema";
+import { studyFromCsv } from "@/lib/seed/adapters/study-csv";
 import { emailEnabled, layout, sendMail } from "@/lib/email";
 
 /** Public origin of the current request, so share links work on any domain. */
@@ -45,6 +46,17 @@ export async function completeOnboarding(_: unknown, form: FormData): Promise<{ 
 
 /** Accepts either a canonical Kumo pack ({schemaVersion:1,...}) or the Centro v0 data/ files keyed by filename. */
 function toPack(files: Record<string, unknown>) {
+  // CSV sheets (study library) arrive as raw text; everything else is parsed JSON.
+  const csv = Object.values(files).filter((v): v is string => typeof v === "string").map(studyFromCsv).filter(Boolean).flat() as NonNullable<ReturnType<typeof studyFromCsv>>;
+  const json = Object.fromEntries(Object.entries(files).filter(([, v]) => typeof v !== "string"));
+  if (!Object.keys(json).length) {
+    if (!csv.length) throw new Error("unrecognised");
+    return PackPack.parse({ schemaVersion: 1, slug: "study-library", version: new Date().toISOString().slice(0, 10), title: "Biblioteca de estudio", studyResources: csv });
+  }
+  const pack = toPackJson(json);
+  return { ...pack, studyResources: [...pack.studyResources, ...csv] };
+}
+function toPackJson(files: Record<string, unknown>) {
   const vals = Object.values(files);
   const canonical = vals.find((v) => v && typeof v === "object" && (v as { schemaVersion?: number }).schemaVersion === 1);
   if (canonical) return PackPack.parse(canonical);

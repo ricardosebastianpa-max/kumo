@@ -67,3 +67,6 @@ Without a photo, each option gets a deterministic folded-paper composition (seed
 
 ## ADR-022 Timeline view
 Calendar "Línea": one row per institution/scholarship with dated items, 8 months across; window→deadline bars, diamonds for deadlines/registrations, circles for tasks/exams, dashed when estimated. Defaults to the shortlist ("Solo mi lista").
+
+## ADR-023 Study library from CSV sheets
+The "Ruta 0–100", "Profundizar" and "Canales y cursos" sheets import through the normal importer (CSV recognised by header row). They carry titles but no URLs, so each resource gets a search link (YouTube for videos/channels, web search for books and sites) flagged `urlIsSearch`; the student can paste the exact link once found. Re-imports refresh content but never the student's ✓, notes or saved link. The next unfinished route step appears on Today.

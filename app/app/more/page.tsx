@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { CalendarPlus, Palette, Upload, Users } from "lucide-react";
+import { BookOpen, CalendarPlus, Palette, Upload, Users } from "lucide-react";
 import { requireWorkspace } from "@/lib/server/session";
 import { can } from "@/lib/domain/permissions";
 import { Card } from "@/components/ui";
@@ -12,6 +12,7 @@ export default async function More() {
   const [t, tc] = await Promise.all([getTranslations("nav"), getTranslations("common")]);
   const owner = can(ctx.actor, "manage", { workspaceId: ctx.workspace.id, module: "members" });
   const links = [
+    { href: "/app/study", label: t("study"), icon: BookOpen },
     ...(owner ? [{ href: "/app/members", label: t("people"), icon: Users }, { href: "/app/import", label: t("import"), icon: Upload }, { href: "/app/subscribe", label: t("subscribe"), icon: CalendarPlus }] : []),
     { href: "/design", label: "Design system", icon: Palette },
   ];

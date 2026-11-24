@@ -388,6 +388,29 @@ export const studyPlan = pgTable("study_plan", {
   ...owned,
 });
 
+/** Study library: route steps (ordered), deep-dive resources and channels. Done/notes belong to the student. */
+export const studyResource = pgTable("study_resource", {
+  id: id(),
+  workspaceId: text("workspace_id").notNull().references(() => workspace.id, { onDelete: "cascade" }),
+  externalKey: text("external_key").notNull(),
+  kind: text("kind").notNull(), // route | deep | channel
+  position: integer("position").notNull().default(0),
+  phase: text("phase"),
+  topic: text("topic"),
+  level: text("level"),
+  lang: text("lang"),
+  title: text("title").notNull(),
+  source: text("source"),
+  type: text("type"),
+  focus: text("focus"),
+  url: text("url"),
+  urlIsSearch: boolean("url_is_search").notNull().default(true),
+  done: boolean("done").notNull().default(false),
+  doneAt: timestamp("done_at", { withTimezone: true }),
+  notes: text("notes"),
+  ...owned,
+}, (t) => [uniqueIndex("study_res_ws_key").on(t.workspaceId, t.externalKey)]);
+
 /* ── Money ───────────────────────────────────────────────────────────── */
 export const budgetScenario = pgTable("budget_scenario", {
   id: id(),

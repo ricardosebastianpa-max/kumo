@@ -77,6 +77,10 @@ export const PackPack = z.object({
   requirementTemplates: z.array(z.object({ slug, name: z.string(), items: z.array(z.object({ key: z.string(), label: z.string(), dependsOn: z.array(z.string()).optional() })) })).default([]),
   studyGoals: z.array(z.object({ key: z.string(), subject: z.string(), target: z.string().optional(), deadline: isoDate.optional(), deadlineText: z.string().optional(), notes: z.string().optional() })).default([]),
   studyPlans: z.array(z.object({ name: z.string(), weeklyHours: z.record(z.number()), notes: z.unknown().optional() })).default([]),
+  studyResources: z.array(z.object({
+    key: z.string(), kind: z.enum(["route", "deep", "channel"]), position: z.number(), phase: z.string().optional(), topic: z.string().optional(), level: z.string().optional(),
+    lang: z.string().optional(), title: z.string(), source: z.string().optional(), type: z.string().optional(), focus: z.string().optional(), url: z.string(), urlIsSearch: z.boolean(), done: z.boolean().optional(),
+  })).default([]),
   scoringModel: z.object({ name: z.string(), version: z.number(), params: z.record(z.unknown()) }).optional(),
 });
 export type SeedPack = z.infer<typeof PackPack>;

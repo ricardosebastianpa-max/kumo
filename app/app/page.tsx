@@ -10,7 +10,7 @@ import { fmtWhen } from "@/lib/format";
 import { Kumo } from "@/components/kumo";
 import { ButtonLink, Card, ConfidenceBadge } from "@/components/ui";
 import { DoneButton } from "@/components/client/done-button";
-import { AlertTriangle, CalendarClock, Layers } from "lucide-react";
+import { AlertTriangle, BookOpen, CalendarClock, Layers } from "lucide-react";
 
 export default async function Today() {
   const ctx = await requireWorkspace();
@@ -23,6 +23,9 @@ export default async function Today() {
   const canEdit = can(ctx.actor, "edit", { workspaceId: ws, module: "calendar" });
   const rows = canView ? await db.select().from(s.event).where(and(eq(s.event.workspaceId, ws), isNull(s.event.deletedAt),
     gte(s.event.startsAt, new Date(now.getTime() - 15 * 86400000)), lte(s.event.startsAt, new Date(now.getTime() + 32 * 86400000)))).orderBy(asc(s.event.startsAt)) : [];
+  const ts = await getTranslations("study");
+  const [routeNext] = can(ctx.actor, "view", { workspaceId: ws, module: "study" }) ? await db.select().from(s.studyResource)
+    .where(and(eq(s.studyResource.workspaceId, ws), eq(s.studyResource.kind, "route"), eq(s.studyResource.done, false), isNull(s.studyResource.deletedAt))).orderBy(asc(s.studyResource.position)).limit(1) : [];
   const items: TodayItem[] = rows.map((r) => ({ id: r.id, title: r.title, kind: r.kind, startsAt: r.startsAt, allDay: r.allDay, timezone: r.timezone, priority: r.priority, confidence: r.confidence, done: !!r.completedAt }));
   const plan = planToday(items, now, tz);
   const next30 = items.filter((i) => !i.done && daysUntil(i, now, tz) >= 0 && daysUntil(i, now, tz) <= 30 && i.id !== plan.main?.id && !plan.secondary.some((x) => x.id === i.id));
@@ -77,6 +80,17 @@ export default async function Today() {
         </Card>
       ) : (
         <Card className="flex items-center gap-4 p-6"><Kumo state="resting" size={72} className="text-ink" /><p className="text-lg text-ink-2">{t("allClear")}</p></Card>
+      )}
+
+      {routeNext && (
+        <Link href="/app/study" className="flex items-center gap-4 rounded-[var(--radius-card)] border border-line bg-card p-5 hover:bg-paper-2" data-testid="today-study">
+          <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-paper-2"><BookOpen size={22} aria-hidden /></span>
+          <span className="grid min-w-0 gap-0.5">
+            <span className="text-sm font-semibold text-[var(--lacquer)]">{ts("next")}</span>
+            <span className="font-semibold">#{routeNext.position} · {routeNext.topic ?? routeNext.title}</span>
+            <span className="truncate text-sm text-mute">{routeNext.title}{routeNext.source ? ` · ${routeNext.source}` : ""}</span>
+          </span>
+        </Link>
       )}
 
       {plan.alerts.length > 0 && (

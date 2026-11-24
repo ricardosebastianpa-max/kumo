@@ -158,6 +158,16 @@ export async function importSeedPack(db: DB, workspaceId: string, raw: unknown, 
       if (row) { bump("study_plan", same(row as Record<string, unknown>, { weeklyHours: p.weeklyHours }) ? "unchanged" : "update"); if (!opts.dryRun) await tx.update(s.studyPlan).set({ weeklyHours: p.weeklyHours, notes: p.notes ?? null }).where(eq(s.studyPlan.id, row.id)); }
       else { bump("study_plan", "create"); if (!opts.dryRun) await tx.insert(s.studyPlan).values({ workspaceId, name: p.name, weeklyHours: p.weeklyHours, notes: p.notes ?? null, createdBy: opts.actorId }); }
     }
+    // Study library: content refreshes; the student's done/notes/custom URL are never overwritten.
+    for (const r of pack.studyResources) {
+      const [row] = await tx.select().from(s.studyResource).where(and(eq(s.studyResource.workspaceId, workspaceId), eq(s.studyResource.externalKey, r.key))).limit(1);
+      const content = { kind: r.kind, position: r.position, phase: r.phase ?? null, topic: r.topic ?? null, level: r.level ?? null, lang: r.lang ?? null, title: r.title, source: r.source ?? null, type: r.type ?? null, focus: r.focus ?? null };
+      if (!row) {
+        bump("study_resource", "create");
+        if (!opts.dryRun) await tx.insert(s.studyResource).values({ ...content, workspaceId, externalKey: r.key, url: r.url, urlIsSearch: r.urlIsSearch, done: !!r.done, doneAt: r.done ? new Date() : null, createdBy: opts.actorId });
+      } else if (same(row as Record<string, unknown>, content)) bump("study_resource", "unchanged");
+      else { bump("study_resource", "update"); if (!opts.dryRun) await tx.update(s.studyResource).set({ ...content, ...(row.urlIsSearch ? { url: r.url } : {}) }).where(eq(s.studyResource.id, row.id)); }
+    }
     if (pack.scoringModel) {
       const m = pack.scoringModel;
       const [row] = await tx.select().from(s.scoringModel).where(and(eq(s.scoringModel.workspaceId, workspaceId), eq(s.scoringModel.version, m.version))).limit(1);

@@ -98,7 +98,7 @@
   },
   "import": {
     "title": "Importar datos",
-    "lead": "Elige los archivos .json de tu carpeta de datos. Primero verás qué se va a crear o actualizar; nada se guarda hasta que confirmes.",
+    "lead": "Elige los archivos .json o .csv de tu carpeta de datos. Primero verás qué se va a crear o actualizar; nada se guarda hasta que confirmes.",
     "pick": "Elegir archivos",
     "dropHint": "o arrástralos aquí",
     "previewTitle": "Vista previa",
@@ -126,7 +126,8 @@
       "study_goal": "Metas de estudio",
       "target_list": "Listas",
       "study_plan": "Plan de estudio",
-      "scoring_model": "Modelo de puntaje"
+      "scoring_model": "Modelo de puntaje",
+      "study_resource": "Biblioteca de estudio"
     }
   },
   "members": {
@@ -202,7 +203,8 @@
     "subscribe": "Calendario externo",
     "main": "Principal",
     "list": "Mi lista",
-    "explore": "Explorar"
+    "explore": "Explorar",
+    "study": "Estudio"
   },
   "kinds": {
     "deadline": "Plazo",
@@ -525,5 +527,35 @@
     "today": "Hoy",
     "window": "Ventana",
     "legend": "Barras: ventanas de solicitud. Rombos: plazos. Círculos: tareas."
+  },
+  "study": {
+    "title": "Estudio",
+    "lead": "Tu ruta del CSCA de 0 a 100, la biblioteca para profundizar y los canales que vale la pena seguir.",
+    "tabs": {
+      "route": "Ruta 0–100",
+      "deep": "Profundizar",
+      "channel": "Canales y cursos"
+    },
+    "rule": "Regla: ver el video → hacer 10 ejercicios a mano → marcar ✓. Sin ejercicios no cuenta.",
+    "progress": "{done} de {total} hechos",
+    "next": "Tu siguiente paso de estudio",
+    "open": "Abrir",
+    "search": "Buscar",
+    "searchHint": "Enlace de búsqueda: pega el enlace exacto cuando lo encuentres.",
+    "setLink": "Guardar enlace",
+    "notes": "Mis notas",
+    "notesPh": "Qué entendí, qué me costó…",
+    "markDone": "Marcar como hecho",
+    "done": "Hecho",
+    "doneToast": "¡Un paso más en la ruta!",
+    "deepHint": "Cuando un tema de la ruta te enganche o se te atore, ven aquí: sube de nivel 1 (intuición) a 5 (reto) dentro del mismo tema.",
+    "allTopics": "Todos los temas",
+    "allLevels": "Todos los niveles",
+    "allLangs": "ES y EN",
+    "empty": "Aún no hay biblioteca. Importa los CSV de tu biblioteca en Más → Importar datos.",
+    "goImport": "Importar",
+    "phaseDone": "{done}/{total}",
+    "hideDone": "Ocultar hechos",
+    "finished": "¡Ruta completa! A los simulacros."
   }
 }

@@ -98,7 +98,7 @@
   },
   "import": {
     "title": "Import data",
-    "lead": "Choose the .json files from your data folder. You will first see what gets created or updated; nothing is saved until you confirm.",
+    "lead": "Choose the .json or .csv files from your data folder. You will first see what gets created or updated; nothing is saved until you confirm.",
     "pick": "Choose files",
     "dropHint": "or drop them here",
     "previewTitle": "Preview",
@@ -126,7 +126,8 @@
       "study_goal": "Study goals",
       "target_list": "Lists",
       "study_plan": "Study plan",
-      "scoring_model": "Scoring model"
+      "scoring_model": "Scoring model",
+      "study_resource": "Study library"
     }
   },
   "members": {
@@ -202,7 +203,8 @@
     "subscribe": "External calendar",
     "main": "Main",
     "list": "My list",
-    "explore": "Explore"
+    "explore": "Explore",
+    "study": "Study"
   },
   "kinds": {
     "deadline": "Deadline",
@@ -525,5 +527,35 @@
     "today": "Today",
     "window": "Window",
     "legend": "Bars: application windows. Diamonds: deadlines. Circles: tasks."
+  },
+  "study": {
+    "title": "Study",
+    "lead": "Your CSCA route from 0 to 100, the deep-dive library and the channels worth following.",
+    "tabs": {
+      "route": "Route 0–100",
+      "deep": "Go deeper",
+      "channel": "Channels & courses"
+    },
+    "rule": "Rule: watch the video → do 10 exercises by hand → tick ✓. No exercises, it doesn’t count.",
+    "progress": "{done} of {total} done",
+    "next": "Your next study step",
+    "open": "Open",
+    "search": "Search",
+    "searchHint": "Search link: paste the exact link once you find it.",
+    "setLink": "Save link",
+    "notes": "My notes",
+    "notesPh": "What I understood, what was hard…",
+    "markDone": "Mark as done",
+    "done": "Done",
+    "doneToast": "One more step on the route!",
+    "deepHint": "When a route topic hooks you or gets stuck, come here: climb from level 1 (intuition) to 5 (challenge) within the same topic.",
+    "allTopics": "All topics",
+    "allLevels": "All levels",
+    "allLangs": "ES and EN",
+    "empty": "No library yet. Import your library CSVs in More → Import data.",
+    "goImport": "Import",
+    "phaseDone": "{done}/{total}",
+    "hideDone": "Hide done",
+    "finished": "Route complete! On to mock exams."
   }
 }
