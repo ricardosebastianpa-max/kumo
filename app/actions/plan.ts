@@ -10,6 +10,7 @@ import { audit } from "@/lib/server/audit";
 import { planWeek } from "@/lib/domain/scheduler";
 import { dateInZone, zonedToUtc } from "@/lib/domain/time";
 import { addDays } from "@/lib/domain/calendar";
+import { open, seal } from "@/lib/server/secrets";
 
 const refresh = () => revalidatePath("/app", "layout");
 async function ctxFor(module: Module, action: "edit" | "approve" | "comment" | "view" = "edit") {
@@ -180,17 +181,50 @@ export async function saveEssay(id: string, raw: { title?: string; prompt?: stri
 }
 
 /* ── AI copilot (Anthropic API; off without a key) ──────────────────── */
-async function claude(system: string, user: string): Promise<string | null> {
-  const key = process.env.ANTHROPIC_API_KEY;
-  if (!key) return null;
+type AiCfg = { provider: "anthropic" | "openrouter"; key: string; model: string };
+/** Key from the workspace settings (entered in the app, encrypted) or, as a fallback, the server env. */
+async function aiConfig(ws: string): Promise<AiCfg | null> {
+  const [w] = await db.select({ settings: s.workspace.settings }).from(s.workspace).where(eq(s.workspace.id, ws));
+  const ai = (w?.settings as { ai?: { provider: AiCfg["provider"]; key: string; model?: string } } | undefined)?.ai;
+  if (ai?.key) { const k = open(ai.key); if (k) return { provider: ai.provider, key: k, model: ai.model || (ai.provider === "openrouter" ? "anthropic/claude-sonnet-4.5" : "claude-sonnet-5-5") }; }
+  if (process.env.ANTHROPIC_API_KEY) return { provider: "anthropic", key: process.env.ANTHROPIC_API_KEY, model: process.env.KUMO_AI_MODEL ?? "claude-sonnet-5-5" };
+  return null;
+}
+async function claude(ws: string, system: string, user: string): Promise<string | null> {
+  const cfg = await aiConfig(ws);
+  if (!cfg) return null;
+  if (cfg.provider === "openrouter") {
+    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST", headers: { "content-type": "application/json", authorization: `Bearer ${cfg.key}`, "X-Title": "Kumo" },
+      body: JSON.stringify({ model: cfg.model, max_tokens: 900, messages: [{ role: "system", content: system }, { role: "user", content: user }] }),
+    });
+    if (!res.ok) throw new Error(`ai ${res.status}`);
+    const j = (await res.json()) as { choices?: { message?: { content?: string } }[] };
+    return j.choices?.[0]?.message?.content ?? "";
+  }
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
-    headers: { "content-type": "application/json", "x-api-key": key, "anthropic-version": "2023-06-01" },
-    body: JSON.stringify({ model: process.env.KUMO_AI_MODEL ?? "claude-sonnet-5-5", max_tokens: 900, system, messages: [{ role: "user", content: user }] }),
+    headers: { "content-type": "application/json", "x-api-key": cfg.key, "anthropic-version": "2023-06-01" },
+    body: JSON.stringify({ model: cfg.model, max_tokens: 900, system, messages: [{ role: "user", content: user }] }),
   });
   if (!res.ok) throw new Error(`ai ${res.status}`);
   const j = (await res.json()) as { content?: { type: string; text?: string }[] };
   return j.content?.filter((c) => c.type === "text").map((c) => c.text).join("\n") ?? "";
+}
+/** Owner-only: store (encrypted) or clear the AI key. The key never travels back to the browser. */
+export async function saveAiKey(raw: { provider: "anthropic" | "openrouter"; key: string; model?: string } | null) {
+  const ctx = await ctxFor("settings", "edit");
+  assertCan(ctx.actor, "manage", { workspaceId: ctx.workspace.id, module: "settings" });
+  const [w] = await db.select({ settings: s.workspace.settings }).from(s.workspace).where(eq(s.workspace.id, ctx.workspace.id));
+  const settings = { ...(w?.settings ?? {}) } as Record<string, unknown>;
+  if (!raw) delete settings.ai;
+  else {
+    const v = z.object({ provider: z.enum(["anthropic", "openrouter"]), key: z.string().trim().min(20).max(300), model: z.string().trim().max(120).optional() }).parse(raw);
+    settings.ai = { provider: v.provider, key: seal(v.key), model: v.model || undefined, last4: v.key.slice(-4) };
+  }
+  await db.update(s.workspace).set({ settings }).where(eq(s.workspace.id, ctx.workspace.id));
+  await audit({ workspaceId: ctx.workspace.id, actorId: ctx.user.id, action: "update", resourceType: "workspace", resourceId: ctx.workspace.id, meta: { ai: raw ? raw.provider : "removed" } });
+  revalidatePath("/app", "layout");
 }
 export async function askCopilot(question: string): Promise<{ ok: boolean; text?: string; off?: boolean }> {
   const ctx = await requireWorkspace();
@@ -211,7 +245,7 @@ export async function askCopilot(question: string): Promise<{ ok: boolean; text?
   };
   const system = "Eres Kumo, copiloto calmado y directo de un estudiante que aplica a universidades y becas. Responde en el idioma de la pregunta, en 3–8 frases o una lista corta. Usa SOLO los datos JSON dados; si algo no está, dilo y sugiere verificarlo en la fuente. Prioriza por plazo y prioridad. Nunca culpes; propone el siguiente paso concreto con tiempo estimado. No inventes fechas ni cifras.";
   try {
-    const text = await claude(system, `Datos:\n${JSON.stringify(data)}\n\nPregunta: ${z.string().trim().min(1).max(1000).parse(question)}`);
+    const text = await claude(ws, system, `Datos:\n${JSON.stringify(data)}\n\nPregunta: ${z.string().trim().min(1).max(1000).parse(question)}`);
     return text === null ? { ok: false, off: true } : { ok: true, text };
   } catch { return { ok: false }; }
 }
@@ -221,7 +255,7 @@ export async function coachEssay(id: string): Promise<{ ok: boolean; text?: stri
   if (!e) return { ok: false };
   const system = "Eres un coach de ensayos de admisión. NO reescribas el texto ni des frases para copiar. Señala: claridad, especificidad, voz propia, mostrar vs. contar, clichés y lo que sobra. Haz 3–5 preguntas que ayuden al estudiante a profundizar. Recuerda que todo debe ser verdadero y verificable. Responde en el idioma del ensayo, breve y con viñetas.";
   try {
-    const text = await claude(system, `Consigna: ${e.prompt ?? "(sin consigna)"}\nLímite: ${e.wordLimit ?? "—"} palabras\n\nEnsayo:\n${e.body}`);
+    const text = await claude(ctx.workspace.id, system, `Consigna: ${e.prompt ?? "(sin consigna)"}\nLímite: ${e.wordLimit ?? "—"} palabras\n\nEnsayo:\n${e.body}`);
     return text === null ? { ok: false, off: true } : { ok: true, text };
   } catch { return { ok: false }; }
 }

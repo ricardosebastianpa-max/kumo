@@ -37,7 +37,7 @@ export function AppsView({ apps: initial, canEdit }: { apps: App[]; canEdit: boo
       {missing.length > 0 && (
         <details className="rounded-[var(--radius-card)] border border-line bg-card p-4">
           <summary className="min-h-10 cursor-pointer content-center font-display text-xl">{t("missing")} <span className="font-sans text-sm text-mute">· {missing.length}</span></summary>
-          <ul className="mt-3 grid gap-1.5 text-sm">{missing.slice(0, 40).map(({ a, i }) => { const b = blockedBy(a, i); return <li key={i.id} className="flex gap-2"><span className="font-semibold">{a.title}:</span><span>{i.label}</span>{b.length ? <span className="text-mute">({t("blocked", { by: b.join(", ") })})</span> : null}</li>; })}</ul>
+          <ul className="mt-3 grid gap-1.5 text-sm">{missing.slice(0, 40).map(({ a, i }) => { const b = blockedBy(a, i); return <li key={i.id} className="flex gap-2"><span className="font-medium">{a.title}:</span><span>{i.label}</span>{b.length ? <span className="text-mute">({t("blocked", { by: b.join(", ") })})</span> : null}</li>; })}</ul>
         </details>
       )}
       {apps.map((a) => {
@@ -58,7 +58,7 @@ export function AppsView({ apps: initial, canEdit }: { apps: App[]; canEdit: boo
                   <span className={`text-sm ${i.done ? "text-mute line-through" : ""}`}>{i.label}{b.length && !i.done ? <span className="block text-xs text-mute">{t("blocked", { by: b.join(", ") })}</span> : null}</span>
                 </li>); })}
             </ul>
-            {pct === 100 && a.status === "preparing" && <p className="font-semibold text-[var(--conf-confirmed)]">{t("allDone")}</p>}
+            {pct === 100 && a.status === "preparing" && <p className="font-medium text-[var(--conf-confirmed)]">{t("allDone")}</p>}
             {canEdit && <AppExtras a={a} onPatch={(p) => patch(a, p)} onAdd={(label) => start(async () => { await addAppItem(a.id, label); })} />}
           </Card>
         );
@@ -77,7 +77,7 @@ function AppExtras({ a, onPatch, onAdd }: { a: App; onPatch: (p: Partial<App>) =
         <input value={step} onChange={(e) => setStep(e.target.value)} placeholder={t("addItem")} aria-label={t("addItem")} className={`${inputCls} min-h-11 text-sm`} />
         <button type="submit" aria-label={t("addItem")} className="grid size-11 shrink-0 place-items-center rounded-xl border border-line hover:bg-paper-2"><Plus size={18} aria-hidden /></button>
       </form>
-      <details><summary className="min-h-10 cursor-pointer content-center text-sm font-semibold text-ink-2">{t("portal")} · {t("appNumber")} · {t("notes")}</summary>
+      <details><summary className="min-h-10 cursor-pointer content-center text-sm font-medium text-ink-2">{t("portal")} · {t("appNumber")} · {t("notes")}</summary>
         <div className="mt-2 grid gap-2 sm:grid-cols-2">
           <input value={f.portalUrl} onChange={(e) => setF({ ...f, portalUrl: e.target.value })} placeholder={t("portal")} aria-label={t("portal")} className={`${inputCls} min-h-11 text-sm`} />
           <input value={f.portalUser} onChange={(e) => setF({ ...f, portalUser: e.target.value })} placeholder={t("portalUser")} aria-label={t("portalUser")} autoComplete="off" className={`${inputCls} min-h-11 text-sm`} />

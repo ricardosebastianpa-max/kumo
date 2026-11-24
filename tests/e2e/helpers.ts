@@ -25,7 +25,7 @@ export async function studentWithData(browser: Browser, name = "Ricardo") {
   await page.getByRole("button", { name: "Continuar" }).click();
   await page.getByLabel(/tu espacio/i).fill("Universidad 2027");
   await page.getByRole("button", { name: /crear mi espacio/i }).click();
-  await expect(page.getByRole("heading", { level: 1, name: new RegExp(name) })).toBeVisible();
+  await expect(page.getByText(new RegExp(`, ${name}$`))).toBeVisible();
   await page.goto("/app/import");
   await page.getByTestId("pack-input").setInputFiles(PRIVATE ? readdirSync(DATA).filter((f) => f.endsWith(".json")).map((f) => join(DATA, f)) : ["seed/demo-pack.json"]);
   await page.getByRole("button", { name: "Importar ahora" }).click();

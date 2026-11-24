@@ -25,7 +25,7 @@ export function OnboardingForm({ defaultName }: { defaultName: string }) {
       <div className="grid gap-3">
         <div className="flex items-center justify-between">
           <Kumo state={kumo[step]} size={72} className="text-ink transition-transform" />
-          <p className="text-sm font-semibold text-mute" aria-live="polite">{t("step", { n: step + 1, total })}</p>
+          <p className="text-sm font-medium text-mute" aria-live="polite">{t("step", { n: step + 1, total })}</p>
         </div>
         <div className="h-1.5 overflow-hidden rounded-full bg-paper-2" role="progressbar" aria-valuemin={1} aria-valuemax={total} aria-valuenow={step + 1}>
           <div className="h-full rounded-full bg-[var(--lacquer)] transition-[width] duration-300 ease-out" style={{ width: `${((step + 1) / total) * 100}%` }} />

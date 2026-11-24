@@ -39,8 +39,8 @@ export function ImportFlow() {
   if (phase === "done") return (
     <Card className="grid justify-items-start gap-4 p-6 enter" role="status">
       <Kumo state="celebrating" size={96} className="text-ink" />
-      <p className="text-xl font-semibold">{t("done")}</p>
-      <a href="/app" className="font-semibold underline underline-offset-4">{tc("continue")}</a>
+      <p className="text-xl font-medium">{t("done")}</p>
+      <a href="/app" className="font-medium underline underline-offset-4">{tc("continue")}</a>
     </Card>
   );
   return (
@@ -61,7 +61,7 @@ export function ImportFlow() {
           <h2 className="text-2xl">{t("previewTitle")}</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
-              <thead><tr className="text-mute"><th className="py-2 font-semibold">{t("entity")}</th><th className="py-2 text-right font-semibold">{t("create")}</th><th className="py-2 text-right font-semibold">{t("update")}</th><th className="py-2 text-right font-semibold">{t("unchanged")}</th></tr></thead>
+              <thead><tr className="text-mute"><th className="py-2 font-medium">{t("entity")}</th><th className="py-2 text-right font-medium">{t("create")}</th><th className="py-2 text-right font-medium">{t("update")}</th><th className="py-2 text-right font-medium">{t("unchanged")}</th></tr></thead>
               <tbody>
                 {Object.entries(preview.preview).map(([k, v]) => (
                   <tr key={k} className="border-t border-line"><td className="py-2">{t.has(`entities.${k}`) ? t(`entities.${k}`) : k}</td><td className="py-2 text-right tabular-nums">{v.create}</td><td className="py-2 text-right tabular-nums">{v.update}</td><td className="py-2 text-right tabular-nums text-mute">{v.unchanged}</td></tr>
@@ -69,7 +69,7 @@ export function ImportFlow() {
               </tbody>
             </table>
           </div>
-          {preview.unresolved.length > 0 && <details><summary className="cursor-pointer font-semibold">{t("unresolved")} ({preview.unresolved.length})</summary><ul className="mt-2 text-sm text-mute">{preview.unresolved.map((u) => <li key={u}>{u}</li>)}</ul></details>}
+          {preview.unresolved.length > 0 && <details><summary className="cursor-pointer font-medium">{t("unresolved")} ({preview.unresolved.length})</summary><ul className="mt-2 text-sm text-mute">{preview.unresolved.map((u) => <li key={u}>{u}</li>)}</ul></details>}
           <Button type="button" size="lg" onClick={commit} disabled={phase === "importing"} className="justify-self-start">{phase === "importing" ? t("importing") : t("confirm")}</Button>
         </Card>
       )}

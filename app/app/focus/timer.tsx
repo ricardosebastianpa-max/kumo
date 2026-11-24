@@ -31,7 +31,7 @@ export function FocusTimer({ subjects, initial }: { subjects: string[]; initial:
       {!running && !elapsed && (
         <div className="grid w-full max-w-sm gap-2">
           <select value={subject} onChange={(e) => setSubject(e.target.value)} aria-label={t("subject")} className={inputCls}>{subjects.map((x) => <option key={x}>{x}</option>)}</select>
-          <div role="radiogroup" aria-label="min" className="flex justify-center gap-2">{[25, 50, 90].map((m) => <button key={m} type="button" role="radio" aria-checked={goal === m} onClick={() => setGoal(m)} className={`min-h-11 rounded-xl border px-4 font-semibold ${goal === m ? "border-[var(--ink)] bg-brand text-brand-ink" : "border-line"}`}>{t("minutes", { m })}</button>)}</div>
+          <div role="radiogroup" aria-label="min" className="flex justify-center gap-2">{[25, 50, 90].map((m) => <button key={m} type="button" role="radio" aria-checked={goal === m} onClick={() => setGoal(m)} className={`min-h-11 rounded-xl border px-4 font-medium ${goal === m ? "border-[var(--ink)] bg-brand text-brand-ink" : "border-line"}`}>{t("minutes", { m })}</button>)}</div>
         </div>
       )}
       <p className="font-display text-[clamp(4.5rem,18vw,9rem)] leading-none tabular-nums" aria-live="off" role="timer">{mm}:{ss}</p>

@@ -46,7 +46,7 @@ export function EventSheet({ id, onClose, userTz }: { id: string | null; onClose
     toast({ text: t("deleted"), action: { label: tt("undo"), run: () => start(async () => { await restoreEvent(eid); router.refresh(); }) } });
   });
   const fmtAt = (at: Date | string) => new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", hour: "numeric", minute: "2-digit", timeZone: userTz }).format(new Date(at));
-  const lbl = "grid gap-1 text-sm font-semibold text-ink-2";
+  const lbl = "grid gap-1 text-sm font-medium text-ink-2";
   const ro = !d?.canEdit;
 
   return (
@@ -55,14 +55,14 @@ export function EventSheet({ id, onClose, userTz }: { id: string | null; onClose
       <div className="grid gap-5 p-5 sm:p-6">
         <div className="flex items-start justify-between gap-3">
           <h2 id="ev-title" className="text-2xl leading-tight">{d?.event.title ?? tc("loading")}</h2>
-          <button type="button" onClick={() => ref.current?.close()} className="min-h-11 shrink-0 rounded-xl px-3 text-sm font-semibold text-ink-2 hover:bg-paper-2">{t("close")}</button>
+          <button type="button" onClick={() => ref.current?.close()} className="min-h-11 shrink-0 rounded-xl px-3 text-sm font-medium text-ink-2 hover:bg-paper-2">{t("close")}</button>
         </div>
         {d && (
           <>
             <div className="flex flex-wrap items-center gap-2">
               <ConfidenceBadge level={d.event.confidence} label={tc(`confidence.${d.event.confidence}`)} />
-              <span className="rounded-full bg-paper-2 px-2.5 py-1 text-xs font-semibold">{tk(d.event.kind as never)}</span>
-              {d.institution && <Link href={`/app/universities/${d.institution.slug}`} className="rounded-full bg-paper-2 px-2.5 py-1 text-xs font-semibold underline-offset-2 hover:underline">{d.institution.name}</Link>}
+              <span className="rounded-full bg-paper-2 px-2.5 py-1 text-xs font-medium">{tk(d.event.kind as never)}</span>
+              {d.institution && <Link href={`/app/universities/${d.institution.slug}`} className="rounded-full bg-paper-2 px-2.5 py-1 text-xs font-medium underline-offset-2 hover:underline">{d.institution.name}</Link>}
               {ro && <span className="text-xs text-mute">{t("readOnly")}</span>}
             </div>
             {!d.event.allDay && d.event.timezone !== userTz && (
@@ -93,16 +93,16 @@ export function EventSheet({ id, onClose, userTz }: { id: string | null; onClose
               )}
             </form>
             <section className="grid gap-2">
-              <h3 className="font-sans text-sm font-semibold text-mute">{t("source")}</h3>
+              <h3 className="font-sans text-sm font-medium text-mute">{t("source")}</h3>
               {d.sources.length ? d.sources.map((s, i) => (
-                <p key={i} className="text-sm">{s.url ? <a href={s.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2">{s.title}</a> : <span className="font-semibold">{s.title}</span>} · {tc(`confidence.${s.confidence}`)}</p>
+                <p key={i} className="text-sm">{s.url ? <a href={s.url} target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-2">{s.title}</a> : <span className="font-medium">{s.title}</span>} · {tc(`confidence.${s.confidence}`)}</p>
               )) : <p className="text-sm text-mute">{d.event.notes && /fuente|source/i.test(d.event.notes) ? d.event.notes : t("noSource")}</p>}
             </section>
             <section className="grid gap-2" data-testid="ev-history">
-              <h3 className="font-sans text-sm font-semibold text-mute">{t("history")}</h3>
+              <h3 className="font-sans text-sm font-medium text-mute">{t("history")}</h3>
               {d.history.length ? (
                 <ol className="grid gap-1.5 text-sm">
-                  {d.history.map((h, i) => <li key={i}><span className="font-semibold">{h.who ?? "Kumo"}</span> {t.has(`actions.${h.action}`) ? t(`actions.${h.action}` as never) : h.action}{h.fields.length ? ` ${h.fields.map((f) => (f === "startsAt" ? t("date").toLowerCase() : f)).join(", ")}` : ""} · <span className="text-mute">{fmtAt(h.at)}</span></li>)}
+                  {d.history.map((h, i) => <li key={i}><span className="font-medium">{h.who ?? "Kumo"}</span> {t.has(`actions.${h.action}`) ? t(`actions.${h.action}` as never) : h.action}{h.fields.length ? ` ${h.fields.map((f) => (f === "startsAt" ? t("date").toLowerCase() : f)).join(", ")}` : ""} · <span className="text-mute">{fmtAt(h.at)}</span></li>)}
                 </ol>
               ) : <p className="text-sm text-mute">{t("historyEmpty")}</p>}
             </section>

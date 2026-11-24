@@ -15,12 +15,12 @@ export function InviteForm({ preview }: { preview: Preview }) {
     <Card className="grid gap-5 p-6">
       <form action={action} className="grid gap-4">
         <fieldset className="grid gap-2">
-          <legend className="mb-1 text-sm font-semibold text-ink-2">{t("role")}</legend>
+          <legend className="mb-1 text-sm font-medium text-ink-2">{t("role")}</legend>
           <div className="grid grid-cols-2 gap-2">
             {(["guardian", "mentor"] as const).map((r) => (
               <label key={r} className={`grid min-h-14 cursor-pointer content-center rounded-xl border px-4 py-3 ${role === r ? "border-[var(--ink)] bg-paper-2" : "border-line"}`}>
                 <input type="radio" name="role" value={r} checked={role === r} onChange={() => setRole(r)} className="sr-only" />
-                <span className="font-semibold">{tc(`roles.${r}`)}</span>
+                <span className="font-medium">{tc(`roles.${r}`)}</span>
               </label>
             ))}
           </div>
@@ -33,13 +33,13 @@ export function InviteForm({ preview }: { preview: Preview }) {
           <textarea id="inv-msg" name="message" rows={2} placeholder={t("messagePlaceholder")} className={`${inputCls} py-3`} />
         </Field>
         <div className="rounded-xl bg-paper-2 p-4 text-sm">
-          <p className="mb-2 font-semibold">{t("previewTitle")}</p>
+          <p className="mb-2 font-medium">{t("previewTitle")}</p>
           <p><span className="text-mute">{t("canSee")}:</span> {p.see.join(", ")}</p>
           {p.approve.length > 0 && <p><span className="text-mute">{t("canApprove")}:</span> {p.approve.join(", ")}</p>}
           <p><span className="text-mute">{t("never")}:</span> {t("neverList")}</p>
         </div>
         <Button type="submit" size="lg" disabled={pending} className="justify-self-start">{pending ? t("sending") : t("send")}</Button>
-        {state?.sent ? <p role="status" className="font-semibold text-[var(--conf-confirmed)]">{state.sent}</p> : null}
+        {state?.sent ? <p role="status" className="font-medium text-[var(--conf-confirmed)]">{state.sent}</p> : null}
         {state?.link ? <ShareLink link={state.link} /> : null}
       </form>
     </Card>
@@ -62,7 +62,7 @@ export function ShareLink({ link, compact = false }: { link: string; compact?: b
         <Button type="button" variant="secondary" onClick={async () => { try { await navigator.clipboard.writeText(link); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch { /* clipboard blocked: the field stays selectable */ } }}>
           {copied ? t("copied") : t("copy")}
         </Button>
-        <a href={wa} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-xl border border-line bg-card px-4 text-[0.9375rem] font-semibold hover:bg-paper-2">{t("whatsapp")}</a>
+        <a href={wa} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-xl border border-line bg-card px-4 text-[0.9375rem] font-medium hover:bg-paper-2">{t("whatsapp")}</a>
       </div>
     </div>
   );

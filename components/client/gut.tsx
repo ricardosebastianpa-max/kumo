@@ -21,7 +21,7 @@ export function Gut({ value, onChange, size = 18 }: { value: number | null; onCh
           </button>
         ))}
       </div>
-      <p className="text-sm font-semibold text-ink-2" aria-live="polite">{label}</p>
+      <p className="text-sm font-medium text-ink-2" aria-live="polite">{label}</p>
     </div>
   );
 }

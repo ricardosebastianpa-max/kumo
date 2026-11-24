@@ -179,7 +179,7 @@
     "signInFirst": "Sign in with {email} to accept.",
     "wrongEmail": "This invitation is for {email}. Sign in with that email.",
     "expired": "This invitation is no longer valid. Ask for a new one.",
-    "accepted": "Done! You now have access.",
+    "accepted": "Done. You now have access.",
     "emailSubject": "{inviter} invites you to follow their journey on Kumo",
     "emailBody": "{inviter} invites you as {role}. You will see their progress, upcoming deadlines and anything they need from you.",
     "emailCta": "View the invitation"
@@ -262,7 +262,12 @@
     "emptyTitle": "All calm",
     "emptyBody": "No dates yet. Import your data or capture your first deadline.",
     "allClear": "Nothing urgent in the next 30 days.",
-    "why": "{priority} priority"
+    "why": "{priority} priority",
+    "dateTitle": "{date}",
+    "ticketTo": "Destination",
+    "ticketWhen": "Date",
+    "ticketType": "Type",
+    "ticketLeft": "Left"
   },
   "calendar": {
     "title": "Calendar",
@@ -556,7 +561,7 @@
     "notesPh": "What I understood, what was hard…",
     "markDone": "Mark as done",
     "done": "Done",
-    "doneToast": "One more step on the route!",
+    "doneToast": "One more step on the route.",
     "deepHint": "When a route topic hooks you or gets stuck, come here: climb from level 1 (intuition) to 5 (challenge) within the same topic.",
     "allTopics": "All topics",
     "allLevels": "All levels",
@@ -565,7 +570,7 @@
     "goImport": "Import",
     "phaseDone": "{done}/{total}",
     "hideDone": "Hide done",
-    "finished": "Route complete! On to mock exams."
+    "finished": "Route complete. On to mock exams."
   },
   "apps": {
     "title": "Applications",
@@ -574,7 +579,7 @@
     "missing": "What’s left before submitting?",
     "blocked": "Blocked by: {by}",
     "progress": "{done}/{total} ready",
-    "allDone": "All set to submit!",
+    "allDone": "All set to submit.",
     "status": "Status",
     "portal": "Portal (URL)",
     "portalUser": "Portal username (never the password)",
@@ -594,7 +599,7 @@
       "accepted": "Accepted",
       "declined": "Declined"
     },
-    "celebrate": "Application submitted! Kumo is proud."
+    "celebrate": "Application submitted. Kumo is proud."
   },
   "docs": {
     "title": "Documents",
@@ -640,7 +645,7 @@
     "publicSent": "I’ve sent it",
     "publicWriting": "I’m writing it",
     "publicNote": "Message (optional)",
-    "publicThanks": "Thank you! We’ve let {student} know."
+    "publicThanks": "Thank you. We’ve let {student} know."
   },
   "family": {
     "title": "Family view",
@@ -744,8 +749,19 @@
     "ask": "Ask",
     "placeholder": "E.g. which universities suit me if I score 80 on the CSCA?",
     "thinking": "Thinking…",
-    "off": "The copilot turns on once you add ANTHROPIC_API_KEY in Vercel (Settings → Environment Variables).",
-    "error": "I couldn’t answer right now. Try again shortly."
+    "off": "Connect your key above to turn on the copilot and essay coach.",
+    "error": "I couldn’t answer right now. Try again shortly.",
+    "keyTitle": "Connect your AI",
+    "keyLead": "Paste your Anthropic or OpenRouter key. It’s stored encrypted in your space and never shown again.",
+    "provider": "Provider",
+    "key": "API key",
+    "model": "Model (optional)",
+    "modelHint": "OpenRouter: e.g. anthropic/claude-sonnet-4.5 · Anthropic: claude-sonnet-5-5",
+    "connect": "Connect",
+    "connected": "Connected: {provider}{last4}",
+    "remove": "Disconnect",
+    "savedKey": "Done, your AI is connected.",
+    "envOn": "Connected with the server key."
   },
   "calm": {
     "button": "I feel overwhelmed",

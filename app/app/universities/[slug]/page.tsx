@@ -50,7 +50,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
 
   return (
     <div className="grid max-w-4xl gap-6 pt-2">
-      <Link href="/app/universities" className="min-h-11 content-center text-sm font-semibold text-ink-2 hover:underline">← {t("back")}</Link>
+      <Link href="/app/universities" className="min-h-11 content-center text-sm font-medium text-ink-2 hover:underline">← {t("back")}</Link>
       <Cover src={en.cover} seed={i.slug} category={r?.category} alt={i.name} className="-mx-4 aspect-[21/9] sm:mx-0 sm:rounded-[28px]" />
       <header className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
         <div className="grid gap-2">
@@ -70,7 +70,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
           <div className="grid gap-3">
             {(["prestige", "fit", "finance", "climate_city"] as const).map((k) => (
               <div key={k} className="grid gap-1">
-                <div className="flex justify-between text-sm"><span className="font-semibold">{t(`parts.${k}`)}{k === "prestige" && (det.scoring?.tierPointsOverride != null || det.scoring?.rankPointsOverride != null) ? <span className="ml-2 font-normal text-mute">({t("manual")})</span> : null}</span><span className="tabular-nums text-ink-2">{r.parts[k].toFixed(1)} / {W[k] ?? 0}</span></div>
+                <div className="flex justify-between text-sm"><span className="font-medium">{t(`parts.${k}`)}{k === "prestige" && (det.scoring?.tierPointsOverride != null || det.scoring?.rankPointsOverride != null) ? <span className="ml-2 font-normal text-mute">({t("manual")})</span> : null}</span><span className="tabular-nums text-ink-2">{r.parts[k].toFixed(1)} / {W[k] ?? 0}</span></div>
                 <div className="h-2 overflow-hidden rounded-full bg-paper-2"><div className="h-full rounded-full bg-[var(--ink)]" style={{ width: `${(r.parts[k] / (W[k] || 1)) * 100}%` }} /></div>
               </div>
             ))}
@@ -80,7 +80,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
             <div><p className="text-sm text-mute">{t("netCost")}</p><p className="font-display text-2xl tabular-nums">{money(r.netCost.expected)}</p></div>
             <div><p className="text-sm text-mute">{t("admission")}</p><p className="font-display text-2xl tabular-nums">{(i.admission as { low?: number })?.low ?? "—"}–{(i.admission as { high?: number })?.high ?? "—"}%</p></div>
             <div><p className="text-sm text-mute">{t("affordability")}</p>
-              <ul className="mt-1 grid gap-1 text-sm">{Object.entries(r.affordability).map(([k, v]) => { const b = budgets.find((x) => x.key === k); return <li key={k} className="flex justify-between gap-2"><span>{t("scenario", { key: k })}{b ? <span className="text-mute"> · {money(b.amountPerYear)}</span> : null}</span><span className="font-semibold tabular-nums">{Math.round(v * 100)}%</span></li>; })}</ul>
+              <ul className="mt-1 grid gap-1 text-sm">{Object.entries(r.affordability).map(([k, v]) => { const b = budgets.find((x) => x.key === k); return <li key={k} className="flex justify-between gap-2"><span>{t("scenario", { key: k })}{b ? <span className="text-mute"> · {money(b.amountPerYear)}</span> : null}</span><span className="font-medium tabular-nums">{Math.round(v * 100)}%</span></li>; })}</ul>
             </div>
           </div>
         </Card>
@@ -92,7 +92,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
         {events.length > 0 && (
           <Card className="grid content-start gap-3 p-6"><h2 className="text-xl">{t("deadlines")}</h2>
             <ul className="grid gap-2">{events.map((e) => { const w = fmtWhen(e, tz, locale); return (
-              <li key={e.id}><Link href={`/app/calendar?e=${e.id}`} className="grid gap-0.5 rounded-lg hover:underline"><span className="font-semibold">{e.title}</span><span className="text-sm text-mute">{tk(e.kind as never)} · {w.main}{w.original ? ` (${w.original})` : ""} · {tc(`confidence.${e.confidence}`)}</span></Link></li>); })}</ul>
+              <li key={e.id}><Link href={`/app/calendar?e=${e.id}`} className="grid gap-0.5 rounded-lg hover:underline"><span className="font-medium">{e.title}</span><span className="text-sm text-mute">{tk(e.kind as never)} · {w.main}{w.original ? ` (${w.original})` : ""} · {tc(`confidence.${e.confidence}`)}</span></Link></li>); })}</ul>
           </Card>
         )}
         {(det.requirements || det.duolingo) && (
@@ -105,7 +105,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
         )}
         {schs.length > 0 && (
           <Card className="grid content-start gap-3 p-6"><h2 className="text-xl">{t("scholarshipsHere")}</h2>
-            {schs.map((x) => <Link key={x.id} href={`/app/scholarships/${x.slug}`} className="grid gap-1 hover:underline"><span className="font-semibold">{(x.coverage as { summary?: string } | null)?.summary ?? x.name}</span></Link>)}
+            {schs.map((x) => <Link key={x.id} href={`/app/scholarships/${x.slug}`} className="grid gap-1 hover:underline"><span className="font-medium">{(x.coverage as { summary?: string } | null)?.summary ?? x.name}</span></Link>)}
           </Card>
         )}
       </div>
@@ -115,7 +115,7 @@ export default async function UniversityPage({ params }: { params: Promise<{ slu
       <Facts kind="institution" refId={i.id} canEdit={canEdit} initial={{ custom: (det as { custom?: { label: string; value: string }[] }).custom ?? [], links: (det as { links?: { label: string; url: string }[] }).links ?? [] }} />
 
       <Card className="grid gap-2 p-6"><h2 className="text-xl">{t("sources")}</h2>
-        {sources.length ? sources.map((x, k) => <p key={k} className="text-sm">{x.url ? <a href={x.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2">{x.title}</a> : x.title} · {tc(`confidence.${x.confidence}`)}</p>) : <p className="text-sm text-mute">—</p>}
+        {sources.length ? sources.map((x, k) => <p key={k} className="text-sm">{x.url ? <a href={x.url} target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-2">{x.title}</a> : x.title} · {tc(`confidence.${x.confidence}`)}</p>) : <p className="text-sm text-mute">—</p>}
         {history.length > 0 && <ul className="mt-2 grid gap-1 text-sm text-mute">{history.map((h, k) => <li key={k}>{h.who ?? "Kumo"} · {Object.keys(h.diff ?? {}).join(", ")} · {new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", hour: "numeric", minute: "2-digit", timeZone: tz }).format(h.at)}</li>)}</ul>}
       </Card>
 

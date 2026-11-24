@@ -27,7 +27,7 @@ const [, start] = useTransition();
         <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} className="grid min-w-0 flex-1 gap-1 text-left">
           <span className="flex flex-wrap items-baseline gap-x-2">
             {r.kind === "route" && <span className="font-display text-sm tabular-nums text-mute">#{r.position}</span>}
-            <span className={`font-semibold leading-snug ${r.done ? "text-mute line-through" : ""}`}>{r.kind === "route" && r.topic ? r.topic : r.title}</span>
+            <span className={`font-medium leading-snug ${r.done ? "text-mute line-through" : ""}`}>{r.kind === "route" && r.topic ? r.topic : r.title}</span>
           </span>
           <span className="text-sm text-ink-2">{r.kind === "route" ? r.title : null}{r.kind === "route" && r.source ? " · " : null}{r.source}{r.type ? ` · ${r.type}` : ""}{r.lang ? ` · ${r.lang}` : ""}{showLevel && r.level ? ` · ${r.level}` : ""}</span>
           {r.focus && <span className="text-sm text-mute">{r.focus}</span>}
@@ -39,7 +39,7 @@ const [, start] = useTransition();
       </div>
       {open && canEdit && (
         <div className="grid gap-2 border-t border-line p-3 sm:p-4">
-          <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("notes")}
+          <label className="grid gap-1 text-sm font-medium text-ink-2">{t("notes")}
             <textarea rows={2} value={notes} onChange={(e) => setNotes(e.target.value)} onBlur={() => notes !== (r.notes ?? "") && start(async () => { await saveStudy(r.id, { notes: notes || null }); patch(r.id, { notes }); })} placeholder={t("notesPh")} className={`${inputCls} py-2 font-normal`} />
           </label>
           {r.urlIsSearch && (
@@ -92,14 +92,14 @@ export function StudyView({ rows, tab, canEdit }: { rows: StudyRow[]; tab: Tab; 
       <div className="grid gap-2"><h1 className="text-4xl">{t("title")}</h1><p className="text-lg text-ink-2">{t("lead")}</p></div>
       <div role="tablist" aria-label={t("title")} className="flex w-fit flex-wrap rounded-2xl border border-line bg-card p-1">
         {(["route", "deep", "channel"] as const).filter((k) => byKind(k).length).map((k) => (
-          <Link key={k} role="tab" aria-selected={tab === k} href={`/app/study?tab=${k}`} className={`min-h-11 content-center rounded-xl px-4 font-semibold ${tab === k ? "bg-brand text-brand-ink" : "text-ink-2 hover:bg-paper-2"}`}>{t(`tabs.${k}`)}</Link>
+          <Link key={k} role="tab" aria-selected={tab === k} href={`/app/study?tab=${k}`} className={`min-h-11 content-center rounded-xl px-4 font-medium ${tab === k ? "bg-brand text-brand-ink" : "text-ink-2 hover:bg-paper-2"}`}>{t(`tabs.${k}`)}</Link>
         ))}
       </div>
 
       {tab === "route" && route.length > 0 && (
         <>
           <section className="grid gap-3 rounded-[var(--radius-card)] border border-line bg-card p-5" aria-label={t("progress", { done: doneN, total: route.length })}>
-            <div className="flex items-end justify-between gap-3"><p className="font-display text-5xl leading-none tabular-nums">{pct}%</p><p className="text-sm font-semibold text-ink-2" data-testid="route-progress">{t("progress", { done: doneN, total: route.length })}</p></div>
+            <div className="flex items-end justify-between gap-3"><p className="font-display text-5xl leading-none tabular-nums">{pct}%</p><p className="text-sm font-medium text-ink-2" data-testid="route-progress">{t("progress", { done: doneN, total: route.length })}</p></div>
             <div className="h-2.5 overflow-hidden rounded-full bg-paper-2" role="progressbar" aria-valuemin={0} aria-valuemax={route.length} aria-valuenow={doneN}><div className="h-full rounded-full bg-[var(--conf-confirmed)] transition-[width] duration-500" style={{ width: `${pct}%` }} /></div>
             <p className="text-sm text-mute">{next ? t("rule") : t("finished")}</p>
           </section>
@@ -107,7 +107,7 @@ export function StudyView({ rows, tab, canEdit }: { rows: StudyRow[]; tab: Tab; 
             const d = list.filter((r) => r.done).length;
             return (
               <details key={ph} open={list.includes(next!) || undefined} className="group grid gap-2">
-                <summary className="flex min-h-12 cursor-pointer items-center justify-between gap-3 rounded-2xl px-2 font-display text-xl">{ph}<span className="font-sans text-sm font-semibold text-mute">{t("phaseDone", { done: d, total: list.length })}</span></summary>
+                <summary className="flex min-h-12 cursor-pointer items-center justify-between gap-3 rounded-2xl px-2 font-display text-xl">{ph}<span className="font-sans text-sm font-medium text-mute">{t("phaseDone", { done: d, total: list.length })}</span></summary>
                 <ul className="mt-2 grid gap-2">{list.map((r) => row(r))}</ul>
               </details>
             );
@@ -123,7 +123,7 @@ export function StudyView({ rows, tab, canEdit }: { rows: StudyRow[]; tab: Tab; 
             <select value={level} onChange={(e) => setLevel(e.target.value)} aria-label={t("allLevels")} className={inputCls}><option value="">{t("allLevels")}</option>{levels.map((x) => <option key={x}>{x}</option>)}</select>
             <select value={lang} onChange={(e) => setLang(e.target.value)} aria-label={t("allLangs")} className={inputCls}><option value="">{t("allLangs")}</option><option value="ES">ES</option><option value="EN">EN</option></select>
           </div>
-          <label className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink-2"><input type="checkbox" checked={hideDone} onChange={(e) => setHideDone(e.target.checked)} className="size-5 accent-[var(--ink)]" />{t("hideDone")}</label>
+          <label className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-ink-2"><input type="checkbox" checked={hideDone} onChange={(e) => setHideDone(e.target.checked)} className="size-5 accent-[var(--ink)]" />{t("hideDone")}</label>
           {[...new Set(deepShown.map((r) => r.topic))].map((tp) => (
             <section key={tp ?? "—"} className="grid gap-2"><h2 className="text-xl">{tp}</h2>
               <ul className="grid gap-2">{deepShown.filter((r) => r.topic === tp).sort((a, b) => (a.level ?? "").localeCompare(b.level ?? "")).map((r) => row(r, true))}</ul>
@@ -136,7 +136,7 @@ export function StudyView({ rows, tab, canEdit }: { rows: StudyRow[]; tab: Tab; 
         <ul className="grid gap-3 sm:grid-cols-2">
           {byKind("channel").map((r) => (
             <li key={r.id}><a href={r.url ?? "#"} target="_blank" rel="noopener noreferrer" className="grid h-full gap-1 rounded-2xl border border-line bg-card p-4 hover:bg-paper-2">
-              <span className="flex items-center justify-between gap-2 font-semibold">{r.title}<span className="rounded-full bg-paper-2 px-2 py-0.5 text-xs">{r.lang}</span></span>
+              <span className="flex items-center justify-between gap-2 font-medium">{r.title}<span className="rounded-full bg-paper-2 px-2 py-0.5 text-xs">{r.lang}</span></span>
               <span className="text-sm text-mute">{r.topic}</span><span className="text-sm text-ink-2">{r.focus}</span>
             </a></li>
           ))}

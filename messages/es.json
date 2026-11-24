@@ -179,7 +179,7 @@
     "signInFirst": "Entra con {email} para aceptar.",
     "wrongEmail": "Esta invitación es para {email}. Entra con ese correo.",
     "expired": "Esta invitación ya no es válida. Pide una nueva.",
-    "accepted": "¡Listo! Ya tienes acceso.",
+    "accepted": "Listo. Ya tienes acceso.",
     "emailSubject": "{inviter} te invita a acompañar su camino en Kumo",
     "emailBody": "{inviter} te invita como {role}. Verás su avance, los próximos plazos y lo que necesite de ti.",
     "emailCta": "Ver la invitación"
@@ -262,7 +262,12 @@
     "emptyTitle": "Todo en calma",
     "emptyBody": "Aún no hay fechas. Importa tus datos o captura tu primer plazo.",
     "allClear": "No hay nada urgente en los próximos 30 días.",
-    "why": "Prioridad {priority}"
+    "why": "Prioridad {priority}",
+    "dateTitle": "{date}",
+    "ticketTo": "Destino",
+    "ticketWhen": "Fecha",
+    "ticketType": "Tipo",
+    "ticketLeft": "Faltan"
   },
   "calendar": {
     "title": "Calendario",
@@ -556,7 +561,7 @@
     "notesPh": "Qué entendí, qué me costó…",
     "markDone": "Marcar como hecho",
     "done": "Hecho",
-    "doneToast": "¡Un paso más en la ruta!",
+    "doneToast": "Un paso más en la ruta.",
     "deepHint": "Cuando un tema de la ruta te enganche o se te atore, ven aquí: sube de nivel 1 (intuición) a 5 (reto) dentro del mismo tema.",
     "allTopics": "Todos los temas",
     "allLevels": "Todos los niveles",
@@ -565,7 +570,7 @@
     "goImport": "Importar",
     "phaseDone": "{done}/{total}",
     "hideDone": "Ocultar hechos",
-    "finished": "¡Ruta completa! A los simulacros."
+    "finished": "Ruta completa. A los simulacros."
   },
   "apps": {
     "title": "Solicitudes",
@@ -574,7 +579,7 @@
     "missing": "¿Qué me falta para enviar?",
     "blocked": "Bloqueado por: {by}",
     "progress": "{done}/{total} listos",
-    "allDone": "¡Todo listo para enviar!",
+    "allDone": "Todo listo para enviar.",
     "status": "Estado",
     "portal": "Portal (URL)",
     "portalUser": "Usuario del portal (nunca la contraseña)",
@@ -594,7 +599,7 @@
       "accepted": "Aceptada",
       "declined": "Declinada"
     },
-    "celebrate": "¡Solicitud enviada! Kumo está orgullosa."
+    "celebrate": "Solicitud enviada. Kumo está orgullosa."
   },
   "docs": {
     "title": "Documentos",
@@ -640,7 +645,7 @@
     "publicSent": "Ya la envié",
     "publicWriting": "La estoy escribiendo",
     "publicNote": "Mensaje (opcional)",
-    "publicThanks": "¡Gracias! Le avisamos a {student}."
+    "publicThanks": "Gracias. Le avisamos a {student}."
   },
   "family": {
     "title": "Panel familiar",
@@ -744,8 +749,19 @@
     "ask": "Pregunta",
     "placeholder": "Ej.: ¿qué universidades me convienen si saco 80 en el CSCA?",
     "thinking": "Pensando…",
-    "off": "El copiloto se activa cuando agregues ANTHROPIC_API_KEY en Vercel (Settings → Environment Variables).",
-    "error": "No pude responder ahora. Intenta en un momento."
+    "off": "Conecta tu clave arriba para activar el copiloto y el coach de ensayos.",
+    "error": "No pude responder ahora. Intenta en un momento.",
+    "keyTitle": "Conecta tu IA",
+    "keyLead": "Pega tu clave de Anthropic o de OpenRouter. Se guarda cifrada en tu espacio y nunca vuelve a mostrarse.",
+    "provider": "Proveedor",
+    "key": "Clave API",
+    "model": "Modelo (opcional)",
+    "modelHint": "OpenRouter: p. ej. anthropic/claude-sonnet-4.5 · Anthropic: claude-sonnet-5-5",
+    "connect": "Conectar",
+    "connected": "Conectado: {provider}{last4}",
+    "remove": "Desconectar",
+    "savedKey": "Listo, tu IA está conectada.",
+    "envOn": "Conectado con la clave del servidor."
   },
   "calm": {
     "button": "Me siento abrumado",

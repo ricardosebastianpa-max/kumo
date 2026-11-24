@@ -36,8 +36,8 @@ export default async function Members() {
       <Card className="divide-y divide-[var(--line)]">
         {members.map(({ m, u }) => (
           <div key={m.id} className="flex items-center justify-between gap-3 p-4">
-            <div className="min-w-0"><p className="truncate font-semibold">{u.name}{u.id === ctx.user.id ? ` · ${t("you")}` : ""}</p><p className="truncate text-sm text-mute">{u.email}</p></div>
-            <span className="shrink-0 rounded-full bg-paper-2 px-3 py-1 text-sm font-semibold">{tc(`roles.${m.role}`)}</span>
+            <div className="min-w-0"><p className="truncate font-medium">{u.name}{u.id === ctx.user.id ? ` · ${t("you")}` : ""}</p><p className="truncate text-sm text-mute">{u.email}</p></div>
+            <span className="shrink-0 rounded-full bg-paper-2 px-3 py-1 text-sm font-medium">{tc(`roles.${m.role}`)}</span>
           </div>
         ))}
       </Card>
@@ -47,7 +47,7 @@ export default async function Members() {
             {pending.map((p) => (
               <div key={p.id} className="grid gap-3 p-4">
                 <div className="flex items-center justify-between gap-3">
-                  <div className="min-w-0"><p className="truncate font-semibold">{p.email}</p><p className="text-sm text-mute">{tc(`roles.${p.role}`)}</p></div>
+                  <div className="min-w-0"><p className="truncate font-medium">{p.email}</p><p className="text-sm text-mute">{tc(`roles.${p.role}`)}</p></div>
                   <RevokeButton id={p.id} label={t("revoke")} />
                 </div>
                 <ShareLink link={`${origin}/invite/${p.token}`} compact />

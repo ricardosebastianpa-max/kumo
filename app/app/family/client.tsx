@@ -21,9 +21,9 @@ export function FamilyClient({ expenses, messages, canApprove, canRequest }: { e
         {exps.length === 0 ? <p className="text-sm text-mute">{t("noExpenses")}</p> : (
           <ul className="grid gap-2">{exps.map((e) => (
             <li key={e.id} className="flex flex-wrap items-center justify-between gap-2" data-testid="expense">
-              <span><span className="font-semibold">{e.label}</span> · {money(e.amount, e.currency)}</span>
+              <span><span className="font-medium">{e.label}</span> · {money(e.amount, e.currency)}</span>
               {e.status === "pending" && canApprove ? <span className="flex gap-2"><Button onClick={() => decide(e, true)}>{t("approve")}</Button><Button variant="secondary" onClick={() => decide(e, false)}>{t("reject")}</Button></span>
-                : <span className="text-sm font-semibold text-ink-2">{t(`statuses.${e.status}` as "statuses.pending")}</span>}
+                : <span className="text-sm font-medium text-ink-2">{t(`statuses.${e.status}` as "statuses.pending")}</span>}
             </li>))}</ul>)}
         {canRequest && <form className="grid gap-2 border-t border-line pt-3 sm:grid-cols-[1fr_120px_90px_auto]" onSubmit={(e) => { e.preventDefault(); const n = Number(f.amount); if (!f.label.trim() || !(n > 0)) return; start(() => requestExpense(f.label.trim(), n, f.currency)); setExps((xs) => [{ id: String(Date.now()), label: f.label, amount: n, currency: f.currency, status: "pending" }, ...xs]); setF({ ...f, label: "", amount: "" }); }}>
           <input value={f.label} onChange={(e) => setF({ ...f, label: e.target.value })} placeholder={t("label")} aria-label={t("label")} className={`${inputCls} min-h-11`} />

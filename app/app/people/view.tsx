@@ -16,12 +16,12 @@ export function RecsView({ recs, canEdit }: { recs: Rec[]; canEdit: boolean }) {
       <ul className="grid gap-3">
         {recs.map((r) => (
           <li key={r.id}><Card className="grid gap-2 p-4">
-            <div className="flex flex-wrap items-center justify-between gap-2"><div><p className="font-semibold">{r.name}</p><p className="text-sm text-mute">{[r.role, r.dueOn].filter(Boolean).join(" · ")}</p></div>
+            <div className="flex flex-wrap items-center justify-between gap-2"><div><p className="font-medium">{r.name}</p><p className="text-sm text-mute">{[r.role, r.dueOn].filter(Boolean).join(" · ")}</p></div>
               <select disabled={!canEdit} defaultValue={r.status} onChange={(e) => start(() => saveRecommender(r.id, { name: r.name, status: e.target.value as never }))} aria-label={r.name} className={`${inputCls} min-h-11 w-auto text-sm`}>{ST.map((st) => <option key={st} value={st}>{t(`statuses.${st}`)}</option>)}</select></div>
             {r.ask && <p className="text-sm text-ink-2">{r.ask}</p>}
             {r.replyNote && <p className="rounded-xl bg-paper-2 p-2 text-sm">{t("reply", { note: r.replyNote })}</p>}
             {r.link && <div className="flex flex-wrap items-center gap-2"><input readOnly value={r.link} onFocus={(e) => e.currentTarget.select()} aria-label={t("link")} className={`${inputCls} min-h-11 flex-1 font-mono text-xs`} />
-              <a href={`https://wa.me/?text=${encodeURIComponent(`${r.ask ?? ""} ${r.link}`)}`} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-xl border border-line px-3 text-sm font-semibold">{t("whatsapp")}</a></div>}
+              <a href={`https://wa.me/?text=${encodeURIComponent(`${r.ask ?? ""} ${r.link}`)}`} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-xl border border-line px-3 text-sm font-medium">{t("whatsapp")}</a></div>}
           </Card></li>
         ))}
       </ul>

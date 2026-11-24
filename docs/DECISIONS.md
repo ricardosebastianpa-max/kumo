@@ -79,3 +79,9 @@ The "Ruta 0–100", "Profundizar" and "Canales y cursos" sheets import through t
 - Scoring model editor saves a new version (old ones kept, `is_active` flag); live preview runs the same pure scoring in the browser.
 - AI copilot and essay coach call the Anthropic Messages API only when `ANTHROPIC_API_KEY` is set (`KUMO_AI_MODEL` optional). Read-only: answers from a JSON snapshot of the workspace; the coach never rewrites.
 - Deferred: spaced-repetition flashcards, the visual "Camino", offline PWA cache, push notifications, Google sign-in.
+
+## ADR-025 AI key entered in the app (Anthropic or OpenRouter)
+The owner pastes a key in Copiloto. It is stored in `workspace.settings.ai`, encrypted with AES-256-GCM (key derived from `BETTER_AUTH_SECRET`), only the last 4 characters are kept for display, and it never returns to the browser. OpenRouter uses its OpenAI-compatible chat endpoint; Anthropic uses the Messages API. Server env `ANTHROPIC_API_KEY` remains a fallback.
+
+## ADR-026 Unslop pass (skill by @heydamir, CC BY 4.0)
+Direction: calm, exact, a little warm; world = paper, ink and travel (a study desk and a boarding pass to university). Warm neutral ramp with hairlines, one lacquer accent, grain texture and looping float removed, no hover lifts, weights 400–500, no exclamation marks, title = today's date (greeting as secondary line). Moment: Today's "most important" item is a boarding pass with large countdown numerals and a perforation. Signature: a folded paper corner, only on that one item. App shell: 248 px sidebar with logo, content up to 1440 px.

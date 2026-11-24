@@ -36,9 +36,9 @@ export function SchTable({ rows, canList }: { rows: SchRow[]; canList: boolean }
         </select>
       </div>
       <div className="flex flex-wrap gap-2">
-        <button type="button" onClick={() => { setScope(""); setCountry(""); }} aria-pressed={!scope && !country} className={`min-h-10 rounded-full border px-3 text-sm font-semibold ${!scope ? "border-[var(--ink)] bg-paper-2" : "border-line"}`}>{t("allCategories")}</button>
-        {SCOPES.map((sc) => <button key={sc} type="button" onClick={() => setScope(scope === sc ? "" : sc)} aria-pressed={scope === sc} className={`min-h-10 rounded-full border px-3 text-sm font-semibold ${scope === sc ? "border-[var(--ink)] bg-paper-2" : "border-line"}`}>{t(`scopes.${sc}`)}</button>)}
-        <label className="ml-auto inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-ink-2"><input type="checkbox" checked={upcoming} onChange={(e) => setUpcoming(e.target.checked)} className="size-5 accent-[var(--ink)]" />{t("upcomingOnly")}</label>
+        <button type="button" onClick={() => { setScope(""); setCountry(""); }} aria-pressed={!scope && !country} className={`min-h-10 rounded-full border px-3 text-sm font-medium ${!scope ? "border-[var(--ink)] bg-paper-2" : "border-line"}`}>{t("allCategories")}</button>
+        {SCOPES.map((sc) => <button key={sc} type="button" onClick={() => setScope(scope === sc ? "" : sc)} aria-pressed={scope === sc} className={`min-h-10 rounded-full border px-3 text-sm font-medium ${scope === sc ? "border-[var(--ink)] bg-paper-2" : "border-line"}`}>{t(`scopes.${sc}`)}</button>)}
+        <label className="ml-auto inline-flex min-h-10 items-center gap-2 text-sm font-medium text-ink-2"><input type="checkbox" checked={upcoming} onChange={(e) => setUpcoming(e.target.checked)} className="size-5 accent-[var(--ink)]" />{t("upcomingOnly")}</label>
       </div>
       <p className="text-sm text-mute" aria-live="polite">{t("count", { n: shown.length, total: rows.length })}</p>
       {shown.length === 0 ? <p className="rounded-2xl border border-line bg-card p-6">{t("noMatch")}</p> : (
@@ -47,8 +47,8 @@ export function SchTable({ rows, canList }: { rows: SchRow[]; canList: boolean }
             <li key={r.slug} className="relative">
               {canList && <span className="absolute left-3 top-1/2 -translate-y-1/2"><ShortlistToggle kind="scholarship" refId={r.id} stage={r.stage} compact /></span>}
               <Link href={`/app/scholarships/${r.slug}`} className={`grid gap-1 rounded-2xl border border-line bg-card p-4 hover:bg-paper-2 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-4 ${canList ? "pl-16" : ""}`}>
-                <span className="grid min-w-0 gap-1"><span className="font-semibold leading-snug">{r.name}</span>{r.coverage ? <span className="line-clamp-1 text-sm text-ink-2">{r.coverage}</span> : null}<span className="text-xs text-mute">{[r.country, r.scope && t.has(`scopes.${r.scope}`) ? t(`scopes.${r.scope}` as "scopes.private") : r.scope].filter(Boolean).join(" · ")}</span></span>
-                <span className="flex items-center gap-2 sm:justify-end"><span className="text-sm font-semibold tabular-nums">{r.deadline ? fmt(r.deadline) : <span className="font-normal text-mute">{t("noDeadline")}</span>}</span><ConfidenceBadge level={r.confidence} label={tc(`confidence.${r.confidence}`)} /></span>
+                <span className="grid min-w-0 gap-1"><span className="font-medium leading-snug">{r.name}</span>{r.coverage ? <span className="line-clamp-1 text-sm text-ink-2">{r.coverage}</span> : null}<span className="text-xs text-mute">{[r.country, r.scope && t.has(`scopes.${r.scope}`) ? t(`scopes.${r.scope}` as "scopes.private") : r.scope].filter(Boolean).join(" · ")}</span></span>
+                <span className="flex items-center gap-2 sm:justify-end"><span className="text-sm font-medium tabular-nums">{r.deadline ? fmt(r.deadline) : <span className="font-normal text-mute">{t("noDeadline")}</span>}</span><ConfidenceBadge level={r.confidence} label={tc(`confidence.${r.confidence}`)} /></span>
               </Link>
             </li>
           ))}
