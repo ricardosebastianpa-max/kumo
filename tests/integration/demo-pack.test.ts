@@ -28,8 +28,15 @@ describe("demo pack (fictional, runs in CI)", async () => {
       expect(r.total).toBeGreaterThan(0); expect(r.total).toBeLessThanOrEqual(100); expect(r.category).not.toBeNull();
     }
   });
+  it("createWorkspace survives concurrent creation with the same name", async () => {
+    const ids = [`c1-${Date.now()}`, `c2-${Date.now()}`, `c3-${Date.now()}`];
+    await db.insert(s.user).values(ids.map((id) => ({ id, name: id, email: `${id}@example.test` })));
+    const ws2 = await Promise.all(ids.map((id) => createWorkspace(db, id, { name: "Mismo nombre" })));
+    expect(new Set(ws2.map((w) => w.slug)).size).toBe(3);
+  });
   it("unknown relation becomes a tag", async () => {
     const tags = await db.select().from(s.tag).where(eq(s.tag.workspaceId, ws));
     expect(tags.map((t) => t.slug)).toContain("documents");
   });
 });
+

@@ -21,6 +21,9 @@
   --cat-target: #2563EB;
   --cat-safety: #0F766E;
 
+  /* Calendar kinds */
+  --k-deadline: #C93B3B; --k-exam: #6D4AC9; --k-registration: #2563EB; --k-window: #0F766E; --k-task: #14213D;
+  --k-milestone: #9A6B00; --k-interview: #B45309; --k-study_block: #0E7490; --k-personal: #6B7280; --k-event: #475569;
   /* Confidence */
   --conf-confirmed: #0F766E;
   --conf-estimated: #B45309;
@@ -43,12 +46,16 @@
     --line: #26304A; --brand: #F2EEE6; --brand-ink: #0E1422; --lacquer: #E36363; --lacquer-soft: #3A1E24; --focus: #7AA2FF;
     --cat-dream: #E0B44A; --cat-reach: #F08A5D; --cat-target: #7AA2FF; --cat-safety: #4FC1B0;
     --conf-confirmed: #4FC1B0; --conf-estimated: #F0B45D; --conf-unverified: #F08A5D;
+    --k-deadline: #F08080; --k-exam: #B69CFF; --k-registration: #7AA2FF; --k-window: #4FC1B0; --k-task: #F2EEE6;
+    --k-milestone: #E0B44A; --k-interview: #F0B45D; --k-study_block: #5FC6DA; --k-personal: #9AA0AE; --k-event: #B8C0CF;
     --shadow-1: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.6);
     --shadow-2: 0 2px 4px rgba(0,0,0,.3), 0 24px 48px -24px rgba(0,0,0,.7);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
+  --k-deadline: #F08080; --k-exam: #B69CFF; --k-registration: #7AA2FF; --k-window: #4FC1B0; --k-task: #F2EEE6;
+  --k-milestone: #E0B44A; --k-interview: #F0B45D; --k-study_block: #5FC6DA; --k-personal: #9AA0AE; --k-event: #B8C0CF;
   --paper: #0E1422; --paper-2: #141B2D; --card: #18203A; --ink: #F2EEE6; --ink-2: #C9C6BE; --mute: #9AA0AE;
   --line: #26304A; --brand: #F2EEE6; --brand-ink: #0E1422; --lacquer: #E36363; --lacquer-soft: #3A1E24; --focus: #7AA2FF;
   --cat-dream: #E0B44A; --cat-reach: #F08A5D; --cat-target: #7AA2FF; --cat-safety: #4FC1B0;
@@ -88,7 +95,7 @@ body::before {
   content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .5;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.13 0 0 0 0 0.24 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-body > * { position: relative; z-index: 1; }
+@layer base { body > * { position: relative; z-index: 1; } }
 
 h1, h2, h3, .font-display { font-family: var(--font-serif); font-optical-sizing: auto; letter-spacing: -0.015em; font-weight: 500; }
 :focus-visible { outline: 2.5px solid var(--focus); outline-offset: 2px; }

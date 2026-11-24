@@ -40,3 +40,18 @@ Geist (npm `geist`) and Fraunces (Fontsource woff2 via `next/font/local`), `disp
 
 ## ADR-013 Email is optional: password sign-in + shareable invite links (owner decision, supersedes part of ADR-004)
 The owner chose not to set up an email provider. Sign-in is email + password (Better Auth, min 8 chars, rate-limited). Invitations produce a link the student copies or sends via WhatsApp; the invitee creates an account on that link and must use the invited email. If `RESEND_API_KEY` is ever set, magic links and invitation emails turn on automatically with no code change. Password reset needs email, so until then a forgotten password is reset by the owner from the database (documented in README); revisit with Google sign-in in Phase 1.
+
+## ADR-014 Calendar and tables are built in-house (not FullCalendar / TanStack)
+**Context.** Spec suggests FullCalendar and TanStack Table; the JS budget is < 170 KB first load. **Decision.** Month / week / agenda / year views and the catalog lists are small purpose-built components (native HTML5 drag & drop, keyboard alternative via the event sheet). **Consequences.** /app/calendar ships at ~128 KB first load. Resize-to-extend and time-grid dragging are not built; revisit with Schedule-X if study blocks (Phase 3) need them.
+
+## ADR-015 Imported tasks stay events; completion lives on `event.completed_at`
+The seed models personal tasks as dated events. Rather than duplicating them into `task`, events of kind `task`/`milestone` can be completed (optimistic UI + undo, audited). The `task` table remains for Phase 2–3 checklists with dependencies.
+
+## ADR-016 Natural-language capture is deterministic and local
+`lib/domain/nl-date.ts` parses Spanish and English dates, times, relative phrases and zone hints ("hora de Pekín") with no network or AI. The preview always shows what was understood and every field is editable before saving.
+
+## ADR-017 Today ranking
+Urgency = priority weight (8/4/2/1) ÷ (1 + days/3); overdue open items count double. One main item, two secondary. Calm alerts: estimated dates due within 21 days (verify at source), tasks left over from the last 14 days, and 3+ high/critical items inside any 3-day window.
+
+## ADR-018 ICS feed by secret token
+`/api/ics/{token}.ics` per workspace, rotatable by the owner. All-day items use `VALUE=DATE` in their own zone; estimated dates are `STATUS:TENTATIVE` with a prefix. Google Calendar polls subscribed feeds on its own schedule (typically hours).

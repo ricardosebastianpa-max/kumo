@@ -316,6 +316,7 @@ export const event = pgTable("event", {
   tags: jsonb("tags").$type<string[]>().notNull().default([]),
   reminders: jsonb("reminders").$type<number[]>(), // days before; null = policy by priority
   externalKey: text("external_key"), // idempotency for imports
+  completedAt: timestamp("completed_at", { withTimezone: true }), // for kind=task/milestone
   ...owned,
 }, (t) => [index("event_ws_start").on(t.workspaceId, t.startsAt), uniqueIndex("event_ws_extkey").on(t.workspaceId, t.externalKey)]);
 

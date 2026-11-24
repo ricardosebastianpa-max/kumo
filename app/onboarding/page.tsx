@@ -8,5 +8,5 @@ export default async function Onboarding() {
   const ctx = await getContext();
   if (!ctx) redirect("/login");
   if (ctx.workspace) redirect("/app");
-  return <main id="main" className="mx-auto grid min-h-dvh max-w-md content-center px-4 py-10"><OnboardingForm defaultName={ctx.user.name && !ctx.user.name.includes("@") ? ctx.user.name : ""} /></main>;
+  return <main id="main" className="mx-auto grid min-h-dvh max-w-md content-center px-4 py-10"><OnboardingForm defaultName="" /></main>;
 }

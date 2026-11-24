@@ -4,11 +4,11 @@ Rule: no moment without a screen, a data model, an action, a reminder and a guar
 
 | # | Moment | Screen | Data | Action | Reminder | Guardian view | Status |
 |---|---|---|---|---|---|---|---|
-| 1 | Discover options | Explore (catalog) | institution, program, scholarship | save to list | – | read-only list | ⬜ P1 |
-| 2 | Understand requirements | Institution sheet | program.requirements, source | mark met / missing | verify estimated | read | ⬜ P1 |
+| 1 | Discover options | Universidades / Becas | institution, program, scholarship | search, filter, open sheet | – | read-only | ✅ P1 |
+| 2 | Understand requirements | Institution page | details.requirements, source | edit inputs (audited) | Today “verify” alert | read | 🟡 P1 (met/missing tracking P2) |
 | 3 | Balanced list | List builder | target_list_item, score_snapshot | set category | imbalance alert | read + comment | 🟡 data imported · UI P4 |
 | 4 | Real budget | Finance | budget_scenario, fx_rate | edit scenarios | – | read + approve | 🟡 data imported · UI P4 |
-| 5 | Register for exams | Today / Calendar | exam_session (reg. window) | "I registered" | 7/3/1 days before close | sees deadline | 🟡 data + Home "next up" · P1 |
+| 5 | Register for exams | Today / Calendar | exam_session, event | mark task done, edit date | Today ranking + ICS in phone calendar | sees deadline | ✅ P1 (push reminders P6) |
 | 6 | Study | Study | study_goal, study_plan | focus timer | daily block | weekly hours | ⬜ P3 |
 | 7 | Sit the exam | Today (calm routine) | event kind=exam | checklist | day before + same day | sees date | ⬜ P1/P6 |
 | 8 | Receive score, recalculate | Study → Decision | practice_test, triggers | enter score | – | sees result | ⬜ P4 |
@@ -29,4 +29,4 @@ Rule: no moment without a screen, a data model, an action, a reminder and a guar
 | 23 | Arrival | Pre-departure | event | countdown | – | sees countdown | ⬜ P6 |
 | 24 | First 30 days | Pre-departure | task template | checklist | – | – | ⬜ P6 |
 
-Phase 0 covers the foundation every row depends on: identity, roles and `can()`, workspace, audit log, provenance (source / confidence), the seed importer, and the guardian invitation.
+Phase 1 adds Today, the calendar (month/week/agenda/year, drag & drop, dual zones, layers), quick capture, catalogs with score breakdown and the ICS feed. Phase 0 covers the foundation every row depends on: identity, roles and `can()`, workspace, audit log, provenance (source / confidence), the seed importer, and the guardian invitation.
