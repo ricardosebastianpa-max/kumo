@@ -25,7 +25,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
     <ToastProvider>
       <div className="lg:grid lg:min-h-dvh lg:grid-cols-[248px_1fr]">
         <aside className="hidden border-r border-line lg:block">
-          <div className="sticky top-0 grid gap-6 px-4 py-6">
+          <div className="sticky top-0 grid max-h-dvh gap-6 overflow-y-auto px-4 py-6">
             <div className="grid gap-1 px-2">{brand}<p className="truncate text-sm text-mute">{ctx.workspace.name}</p></div>
             <AppNav part="desktop" />
           </div>

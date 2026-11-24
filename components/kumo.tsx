@@ -1,53 +1,47 @@
 /**
- * Kumo, the paper crane. Flat origami facets in ink + paper with a lacquer-red accent.
- * Five states change posture subtly; all share one silhouette so it reads as the same character.
+ * Kumo, the paper crane, in the friendly style: chunky rounded shapes, a thick soft outline,
+ * sky-blue wings, coral crest, a shiny eye and blush. Five states share one silhouette.
  */
 export type KumoState = "awake" | "focused" | "celebrating" | "resting" | "cheering";
 
-const WING: Record<KumoState, string> = {
-  awake: "rotate(0)", focused: "rotate(6 60 58)", celebrating: "rotate(-18 60 58)", resting: "rotate(14 60 58)", cheering: "rotate(-10 60 58)",
-};
+const WING: Record<KumoState, number> = { awake: 0, focused: 6, celebrating: -22, resting: 14, cheering: -12 };
+const O = "#2B2A33"; // outline
 
 export function Kumo({ state = "awake", size = 96, title, className }: { state?: KumoState; size?: number; title?: string; className?: string }) {
   const sleeping = state === "resting";
+  const w = WING[state];
   return (
-    <svg viewBox="0 0 120 100" width={size} height={(size * 100) / 120} role={title ? "img" : undefined} aria-hidden={title ? undefined : true} aria-label={title} className={className}>
+    <svg viewBox="0 0 120 104" width={size} height={(size * 104) / 120} role={title ? "img" : undefined} aria-hidden={title ? undefined : true} aria-label={title} className={className}>
       {title ? <title>{title}</title> : null}
-      {/* ground shadow */}
-      <ellipse cx="60" cy="92" rx={sleeping ? 30 : 24} ry="3" fill="currentColor" opacity=".08" />
-      <g transform={state === "celebrating" ? "translate(0 -6)" : sleeping ? "translate(0 4)" : undefined}>
+      <ellipse cx="62" cy="98" rx={sleeping ? 30 : 26} ry="4" fill={O} opacity=".12" />
+      <g transform={state === "celebrating" ? "translate(0 -6)" : sleeping ? "translate(0 4)" : undefined} strokeLinejoin="round" strokeLinecap="round">
         {/* tail */}
-        <path d="M60 60 L108 30 L84 66 Z" fill="var(--paper-2)" stroke="var(--ink)" strokeWidth="1.6" strokeLinejoin="round" />
-        {/* body */}
-        <path d="M30 66 L60 60 L84 66 L60 80 Z" fill="var(--card)" stroke="var(--ink)" strokeWidth="1.6" strokeLinejoin="round" />
-        <path d="M60 60 L60 80" stroke="var(--ink)" strokeWidth="1" opacity=".35" />
+        <path d="M66 62 Q92 40 110 30 Q100 56 88 70 Z" fill="#E3F3FE" stroke={O} strokeWidth="3.5" />
         {/* far wing */}
-        <g transform={WING[state]}>
-          <path d="M60 58 L44 14 L72 50 Z" fill="var(--paper-2)" stroke="var(--ink)" strokeWidth="1.6" strokeLinejoin="round" />
-        </g>
+        <g transform={`rotate(${w} 62 58)`}><path d="M62 58 Q52 30 48 14 Q70 30 78 52 Z" fill="#9AD3FA" stroke={O} strokeWidth="3.5" /></g>
+        {/* body: a round folded paper belly */}
+        <path d="M28 68 Q44 54 66 58 Q90 62 88 72 Q76 90 54 88 Q34 86 28 68 Z" fill="#FFFFFF" stroke={O} strokeWidth="3.5" />
+        <path d="M58 60 Q60 74 56 86" fill="none" stroke={O} strokeWidth="2" opacity=".25" />
         {/* near wing */}
-        <g transform={WING[state]}>
-          <path d="M52 62 L20 26 L66 54 Z" fill="var(--card)" stroke="var(--ink)" strokeWidth="1.6" strokeLinejoin="round" />
-          <path d="M52 62 L34 40" stroke="var(--ink)" strokeWidth="1" opacity=".3" />
-        </g>
+        <g transform={`rotate(${w} 56 62)`}><path d="M56 64 Q30 46 18 26 Q46 34 70 56 Z" fill="var(--sky, #3FA9F5)" stroke={O} strokeWidth="3.5" /></g>
         {/* neck + head */}
-        <path d={sleeping ? "M36 66 L22 60 L18 66 L30 68 Z" : "M36 66 L16 30 L22 32 L42 64 Z"} fill="var(--card)" stroke="var(--ink)" strokeWidth="1.6" strokeLinejoin="round" />
-        <path d={sleeping ? "M18 66 L10 68 L18 62 Z" : "M16 30 L8 34 L18 26 Z"} fill="var(--lacquer)" stroke="var(--ink)" strokeWidth="1.4" strokeLinejoin="round" />
-        {/* eye */}
+        <path d={sleeping ? "M36 70 Q28 64 20 64 Q16 70 24 74 Q32 76 38 74 Z" : "M38 68 Q30 52 22 34 Q20 26 28 26 Q36 28 46 64 Z"} fill="#FFFFFF" stroke={O} strokeWidth="3.5" />
+        {/* crest / beak */}
+        <path d={sleeping ? "M20 64 L10 68 L20 70 Z" : "M24 28 L12 31 L24 35 Z"} fill="var(--brand, #D64232)" stroke={O} strokeWidth="3" />
         {sleeping ? (
-          <path d="M20 64 q2 1.4 4 0" stroke="var(--ink)" strokeWidth="1.3" fill="none" strokeLinecap="round" />
+          <path d="M24 67 q3 2 6 0" stroke={O} strokeWidth="2.5" fill="none" />
         ) : (
-          <circle cx={state === "focused" ? 19.5 : 19} cy="31" r="1.4" fill="var(--ink)" />
+          <g className="blink"><circle cx={state === "focused" ? 30 : 29} cy="32" r="3.6" fill={O} /><circle cx={state === "focused" ? 31 : 30} cy="30.6" r="1.2" fill="#fff" /></g>
         )}
+        <circle cx={sleeping ? 30 : 34} cy={sleeping ? 72 : 40} r="3" fill="#FF8FA3" opacity=".75" />
       </g>
-      {state === "celebrating" ? (
-        <g fill="var(--lacquer)">
-          <rect x="94" y="12" width="4" height="4" rx="1" transform="rotate(20 96 14)" />
-          <rect x="102" y="44" width="3" height="3" rx="1" opacity=".7" />
-          <circle cx="12" cy="14" r="2" opacity=".6" />
+      {state === "celebrating" || state === "cheering" ? (
+        <g>
+          <circle cx="98" cy="14" r="4" fill="var(--sun, #FFC93C)" /><circle cx="108" cy="46" r="3" fill="var(--leaf, #3DBE6B)" />
+          <rect x="10" y="8" width="6" height="6" rx="1.5" fill="var(--brand, #D64232)" transform="rotate(20 13 11)" />
         </g>
       ) : null}
-      {sleeping ? <text x="88" y="22" fontSize="11" fill="var(--mute)" fontFamily="var(--font-serif)">z</text> : null}
+      {sleeping ? <text x="88" y="22" fontSize="14" fontWeight="900" fill="var(--sky, #3FA9F5)">z</text> : null}
     </svg>
   );
 }

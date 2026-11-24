@@ -28,11 +28,17 @@ export default async function More() {
   return (
     <div className="grid max-w-xl gap-6 pt-2">
       <h1 className="text-4xl">{(await getTranslations("more"))("title")}</h1>
-      <Card className="divide-y divide-[var(--line)]">
-        {links.map(({ href, label, icon: Icon }) => (
-          <Link key={href} href={href} className="flex min-h-14 items-center gap-3 px-4 font-bold hover:bg-paper-2"><Icon size={20} aria-hidden className="text-ink-2" />{label}</Link>
-        ))}
-      </Card>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        {links.map(({ href, label, icon: Icon }, k) => {
+          const c = ["var(--sky)", "#4FB3BF", "#FF8FA3", "#FF6F91", "#FF9F43", "var(--leaf)", "#7C6CF2", "#A570FF", "var(--brand)", "#8D99AE", "var(--sun)", "#4FB3BF"][k % 12];
+          return (
+            <Link key={href} href={href} className="btn3d grid min-h-28 content-between gap-3 rounded-3xl border-2 border-line bg-card p-4">
+              <span className="grid size-11 place-items-center rounded-2xl" style={{ background: `color-mix(in srgb, ${c} 18%, transparent)` }}><Icon size={24} strokeWidth={2.25} aria-hidden style={{ color: c }} /></span>
+              <span className="font-extrabold leading-tight">{label}</span>
+            </Link>
+          );
+        })}
+      </div>
       <Card className="flex items-center justify-between gap-3 p-4"><span className="font-bold">{tc("language")}</span><LocaleSwitch /></Card>
       <Card className="flex items-center justify-between gap-3 p-4"><span className="text-sm text-mute">{ctx.user.email}</span><SignOut label={tc("signOut")} /></Card>
     </div>

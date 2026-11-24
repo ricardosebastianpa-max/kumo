@@ -213,7 +213,13 @@
     "model": "Scoring model",
     "essays": "Essays",
     "copilot": "Copilot",
-    "export": "Export my data"
+    "export": "Export my data",
+    "groups": {
+      "main": "Main",
+      "process": "Process",
+      "studyG": "Study",
+      "familyG": "Family & settings"
+    }
   },
   "kinds": {
     "deadline": "Deadline",
@@ -267,7 +273,32 @@
     "ticketTo": "Destination",
     "ticketWhen": "Date",
     "ticketType": "Type",
-    "ticketLeft": "Left"
+    "ticketLeft": "Left",
+    "streak": "{n, plural, =0 {Start your streak} one {# day in a row} other {# days in a row}}",
+    "streakLabel": "Streak",
+    "routeLabel": "CSCA route",
+    "appsLabel": "Applications",
+    "nextLabel": "Next deadline",
+    "nextNone": "Nothing close",
+    "inDaysShort": "{n, plural, =0 {today} one {tomorrow} other {in # days}}",
+    "path": "Your path",
+    "stations": {
+      "explore": "Explore",
+      "list": "List",
+      "exams": "Exams",
+      "writing": "Writing",
+      "submit": "Submit",
+      "results": "Results",
+      "decide": "Decide",
+      "depart": "Depart"
+    },
+    "here": "You are here",
+    "week": "Your week",
+    "say": {
+      "main": "Today’s thing: {title}",
+      "calm": "Nothing urgent today. A good day to move at your pace."
+    },
+    "appsActive": "{n, plural, =0 {none} one {# in progress} other {# in progress}}"
   },
   "calendar": {
     "title": "Calendar",

@@ -30,7 +30,7 @@ const ActionSchema = z.discriminatedUnion("type", [
 
 /** One copilot turn: answers from a workspace snapshot and returns UI actions (navigation is applied
  *  directly by the client; anything that writes is shown as a button the student confirms). */
-export async function copilotTurn(history: { role: "user" | "assistant"; content: string }[], path: string): Promise<{ ok: boolean; off?: boolean; text?: string; actions?: CopilotAction[] }> {
+export async function copilotTurn(history: { role: "user" | "assistant"; content: string }[], path: string): Promise<{ ok: boolean; off?: boolean; error?: string; text?: string; actions?: CopilotAction[] }> {
   const ctx = await requireWorkspace();
   const ws = ctx.workspace.id, tz = ctx.user.timezone || ctx.workspace.timezone, now = new Date();
   const h = z.array(z.object({ role: z.enum(["user", "assistant"]), content: z.string().max(4000) })).max(20).parse(history);
@@ -58,7 +58,8 @@ Máximo 1 navigate y 3 acciones en total. Usa solo slugs, ids y países que exis
 ${ROUTES}`;
   const convo = h.map((m) => `${m.role === "user" ? "Estudiante" : "Kumo"}: ${m.content}`).join("\n");
   let raw: string | null;
-  try { raw = await askModel(ws, system, `Datos de la app (JSON):\n${JSON.stringify(snapshot)}\n\nConversación:\n${convo}`); } catch { return { ok: false }; }
+  try { raw = await askModel(ws, system, `Datos de la app (JSON):\n${JSON.stringify(snapshot)}\n\nConversación:\n${convo}`); }
+  catch (e) { const msg = e instanceof Error ? e.message : String(e); console.error("[copilot]", msg); return { ok: false, error: msg.replace(/sk-[\w-]+/g, "sk-…") }; }
   if (raw === null) return { ok: false, off: true };
   const m = raw.match(/\{[\s\S]*\}/);
   try {

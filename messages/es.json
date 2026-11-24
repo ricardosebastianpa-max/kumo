@@ -213,7 +213,13 @@
     "model": "Modelo de puntaje",
     "essays": "Ensayos",
     "copilot": "Copiloto",
-    "export": "Exportar mis datos"
+    "export": "Exportar mis datos",
+    "groups": {
+      "main": "Principal",
+      "process": "Proceso",
+      "studyG": "Estudio",
+      "familyG": "Familia y ajustes"
+    }
   },
   "kinds": {
     "deadline": "Plazo",
@@ -267,7 +273,32 @@
     "ticketTo": "Destino",
     "ticketWhen": "Fecha",
     "ticketType": "Tipo",
-    "ticketLeft": "Faltan"
+    "ticketLeft": "Faltan",
+    "streak": "{n, plural, =0 {Empieza tu racha} one {# día seguido} other {# días seguidos}}",
+    "streakLabel": "Racha",
+    "routeLabel": "Ruta CSCA",
+    "appsLabel": "Solicitudes",
+    "nextLabel": "Próximo plazo",
+    "nextNone": "Sin plazos cerca",
+    "inDaysShort": "{n, plural, =0 {hoy} one {mañana} other {en # días}}",
+    "path": "Tu camino",
+    "stations": {
+      "explore": "Explorar",
+      "list": "Lista",
+      "exams": "Exámenes",
+      "writing": "Escritura",
+      "submit": "Envíos",
+      "results": "Resultados",
+      "decide": "Decisión",
+      "depart": "Partida"
+    },
+    "here": "Estás aquí",
+    "week": "Tu semana",
+    "say": {
+      "main": "Hoy toca: {title}",
+      "calm": "Hoy no hay nada urgente. Buen día para avanzar a tu ritmo."
+    },
+    "appsActive": "{n, plural, =0 {ninguna} one {# en marcha} other {# en marcha}}"
   },
   "calendar": {
     "title": "Calendario",

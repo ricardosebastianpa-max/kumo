@@ -38,7 +38,7 @@ export function CopilotBubble({ aiOn, timezone }: { aiOn: boolean; timezone: str
     setMsgs(history); setQ("");
     start(async () => {
       const r = await copilotTurn(history.map(({ role, content }) => ({ role, content })), path);
-      if (!r.ok) { setMsgs((m) => [...m, { role: "assistant", content: r.off ? L.off : L.error }]); return; }
+      if (!r.ok) { setMsgs((m) => [...m, { role: "assistant", content: r.off ? L.off : `${L.error}${r.error ? `\n\n(${r.error})` : ""}` }]); return; }
       const nav = r.actions?.find((a) => a.type === "navigate") as Extract<CopilotAction, { type: "navigate" }> | undefined;
       setMsgs((m) => [...m, { role: "assistant", content: r.text ?? "", actions: r.actions?.filter((a) => a.type !== "navigate") }]);
       if (nav) { router.push(nav.path); toast({ text: `${L.went} ${nav.label ?? nav.path}` }); }
