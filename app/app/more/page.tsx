@@ -16,7 +16,7 @@ export default async function More() {
     { href: "/app/documents", label: t("documents"), icon: FileText },
     { href: "/app/people", label: t("people"), icon: UserRoundPen },
     { href: "/app/family", label: t("family"), icon: HeartHandshake },
-    { href: "/app/study", label: t("study"), icon: BookOpen },
+    { href: "/app/csca", label: t("study"), icon: BookOpen },
     { href: "/app/progress", label: t("progress"), icon: TrendingUp },
     { href: "/app/focus", label: t("focus"), icon: Timer },
     { href: "/app/essays", label: t("essays"), icon: NotebookPen },

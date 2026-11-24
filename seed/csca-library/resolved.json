@@ -1,0 +1,1581 @@
+{
+ "route:1": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dGQcftXDhRp9fMmmbQPagZe",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dGQcftXDhRp9fMmmbQPagZe",
+  "title": "Conviértete en el mejor en matemáticas",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:2": {
+  "kind": "video",
+  "id": "g25yIlEEwrs",
+  "url": "https://www.youtube.com/watch?v=g25yIlEEwrs",
+  "title": "Cómo dividir números enteros",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:3": {
+  "kind": "video",
+  "id": "FDsKgfcy5h8",
+  "url": "https://www.youtube.com/watch?v=FDsKgfcy5h8",
+  "title": "Suma y resta de números enteros | Método 1 Debo y Tengo",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:4": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dGQcftXDhRp9fMmmbQPagZe",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dGQcftXDhRp9fMmmbQPagZe",
+  "title": "Conviértete en el mejor en matemáticas",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:5": {
+  "kind": "video",
+  "id": "9xCbQMdQ2S4",
+  "url": "https://www.youtube.com/watch?v=9xCbQMdQ2S4",
+  "title": "Operaciones con paréntesis | suma y resta | Ejemplo 1",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:6": {
+  "kind": "video",
+  "id": "LgMptyzudXU",
+  "url": "https://www.youtube.com/watch?v=LgMptyzudXU",
+  "title": "Si te parecen dificiles las fracciones debes ver este video",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:7": {
+  "kind": "video",
+  "id": "fae6X1jg3nE",
+  "url": "https://www.youtube.com/watch?v=fae6X1jg3nE",
+  "title": "Números decimales Introducción",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:8": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dE48tg5rvN5UyO8pxXNv61L",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dE48tg5rvN5UyO8pxXNv61L",
+  "title": "Interés simple y compuesto (Curso COMPLETO)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:9": {
+  "kind": "video",
+  "id": "tA94S33kxm8",
+  "url": "https://www.youtube.com/watch?v=tA94S33kxm8",
+  "title": "Propiedades de la potenciación | Todas las propiedades",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:10": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "title": "Ecuaciones con valor absoluto (Curso completo)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:11": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dF1AI1j1G-0U8P-xvmTUn1V",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dF1AI1j1G-0U8P-xvmTUn1V",
+  "title": "Grados y Radianes (Curso COMPLETO)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:12": {
+  "kind": "web",
+  "url": "https://es.khanacademy.org/",
+  "matched": true
+ },
+ "route:13": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dGSJYCRn7tD1mVatw3MrdIm",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dGSJYCRn7tD1mVatw3MrdIm",
+  "title": "Conceptos básicos de Álgebra (Curso COMPLETO)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:14": {
+  "kind": "video",
+  "id": "tA94S33kxm8",
+  "url": "https://www.youtube.com/watch?v=tA94S33kxm8",
+  "title": "Propiedades de la potenciación | Todas las propiedades",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:15": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dFg5siUF95eWxutWE-Zloro",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dFg5siUF95eWxutWE-Zloro",
+  "title": "Cocientes notables",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:16": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dGfGMTx3uJ_v1Q9ccLbZYNp",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dGfGMTx3uJ_v1Q9ccLbZYNp",
+  "title": "Divisibilidad MCM y MCD (Curso COMPLETO)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:17": {
+  "kind": "video",
+  "id": "gpBEUnFBhGc",
+  "url": "https://www.youtube.com/watch?v=gpBEUnFBhGc",
+  "title": "División de polinomios | Ejemplo 1",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:18": {
+  "kind": "video",
+  "id": "HgeQpdmPbeU",
+  "url": "https://www.youtube.com/watch?v=HgeQpdmPbeU",
+  "title": "Suma y resta de fracciones algebraicas | Ejemplo 1",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:19": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "title": "Ecuaciones con valor absoluto (Curso completo)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:20": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "title": "Ecuaciones con valor absoluto (Curso completo)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:21": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "title": "Ecuaciones con valor absoluto (Curso completo)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:22": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "title": "Ecuaciones con valor absoluto (Curso completo)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:23": {
+  "kind": "web",
+  "url": "https://es.khanacademy.org/",
+  "matched": true
+ },
+ "route:24": {
+  "kind": "playlist",
+  "id": "PLWAO501cT1-wkPqkREeIfJArXHTAN7ZFK",
+  "url": "https://www.youtube.com/playlist?list=PLWAO501cT1-wkPqkREeIfJArXHTAN7ZFK",
+  "title": "Problemas de Conjuntos para Universidad",
+  "channel": "Profe AlexZ",
+  "matched": true
+ },
+ "route:25": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "title": "Ecuaciones con valor absoluto (Curso completo)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:26": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "title": "Ecuaciones con valor absoluto (Curso completo)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:27": {
+  "kind": "video",
+  "id": "Ll7xfe3HoZE",
+  "url": "https://www.youtube.com/watch?v=Ll7xfe3HoZE",
+  "title": "Qué es función | Concepto de función",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:28": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dFVzWQZ-USBpIJ7Ygdwh3O3",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dFVzWQZ-USBpIJ7Ygdwh3O3",
+  "title": "Integrales por sustitución o cambio de variable (Curso Completo)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:29": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "title": "Ecuaciones con valor absoluto (Curso completo)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:30": {
+  "kind": "playlist",
+  "id": "PLEOOqneIzdOUJRyOE9TvD30gQOCWUBsF9",
+  "url": "https://www.youtube.com/playlist?list=PLEOOqneIzdOUJRyOE9TvD30gQOCWUBsF9",
+  "title": "Logaritmos y exponentes",
+  "channel": "Profe Alex Arreaga",
+  "matched": true
+ },
+ "route:31": {
+  "kind": "video",
+  "id": "WGu8-C-mwhU",
+  "url": "https://www.youtube.com/watch?v=WGu8-C-mwhU",
+  "title": "Suma de ángulos | Sistema sexagesimal | Grados minutos y segundos",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:32": {
+  "kind": "video",
+  "id": "2UbdPiqAiHY",
+  "url": "https://www.youtube.com/watch?v=2UbdPiqAiHY",
+  "title": "Teorema de Pitágoras | Encontrar la hipotenusa",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:33": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dF1AI1j1G-0U8P-xvmTUn1V",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dF1AI1j1G-0U8P-xvmTUn1V",
+  "title": "Grados y Radianes (Curso COMPLETO)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:34": {
+  "kind": "video",
+  "id": "7pUi5lvLf7c",
+  "url": "https://www.youtube.com/watch?v=7pUi5lvLf7c",
+  "title": "¿Qué son las razones trigonométricas?  @MatematicasprofeAlex",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:35": {
+  "kind": "playlist",
+  "id": "PLjNObCn3syMjUtPukN5BP3PJRq4Rowtel",
+  "url": "https://www.youtube.com/playlist?list=PLjNObCn3syMjUtPukN5BP3PJRq4Rowtel",
+  "title": "Derivadas trigonométricas",
+  "channel": "Alex Loya",
+  "matched": true
+ },
+ "route:36": {
+  "kind": "playlist",
+  "id": "PLjNObCn3syMjUtPukN5BP3PJRq4Rowtel",
+  "url": "https://www.youtube.com/playlist?list=PLjNObCn3syMjUtPukN5BP3PJRq4Rowtel",
+  "title": "Derivadas trigonométricas",
+  "channel": "Alex Loya",
+  "matched": true
+ },
+ "route:37": {
+  "kind": "video",
+  "id": "ZTRETZaSx0s",
+  "url": "https://www.youtube.com/watch?v=ZTRETZaSx0s",
+  "title": "Ecuaciones trigonométricas | Introducción",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:38": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dE48tg5rvN5UyO8pxXNv61L",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dE48tg5rvN5UyO8pxXNv61L",
+  "title": "Interés simple y compuesto (Curso COMPLETO)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:39": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dFQgY_DB9RsuTvD8KYsUwRs",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dFQgY_DB9RsuTvD8KYsUwRs",
+  "title": "Área bajo la curva",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:40": {
+  "kind": "playlist",
+  "id": "PLjNObCn3syMjUtPukN5BP3PJRq4Rowtel",
+  "url": "https://www.youtube.com/playlist?list=PLjNObCn3syMjUtPukN5BP3PJRq4Rowtel",
+  "title": "Derivadas trigonométricas",
+  "channel": "Alex Loya",
+  "matched": true
+ },
+ "route:41": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "title": "Ecuaciones con valor absoluto (Curso completo)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:42": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dF1AI1j1G-0U8P-xvmTUn1V",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dF1AI1j1G-0U8P-xvmTUn1V",
+  "title": "Grados y Radianes (Curso COMPLETO)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:43": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dExwFNtMpEjg1zruVHw5p9x",
+  "title": "Ecuaciones con valor absoluto (Curso completo)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:44": {
+  "kind": "playlist",
+  "id": "PLEOOqneIzdOWgWbiKURNW77jqg44Z5fvg",
+  "url": "https://www.youtube.com/playlist?list=PLEOOqneIzdOWgWbiKURNW77jqg44Z5fvg",
+  "title": "Figuras cónicas",
+  "channel": "Profe Alex Arreaga",
+  "matched": true
+ },
+ "route:45": {
+  "kind": "playlist",
+  "id": "PLEOOqneIzdOWgWbiKURNW77jqg44Z5fvg",
+  "url": "https://www.youtube.com/playlist?list=PLEOOqneIzdOWgWbiKURNW77jqg44Z5fvg",
+  "title": "Figuras cónicas",
+  "channel": "Profe Alex Arreaga",
+  "matched": true
+ },
+ "route:46": {
+  "kind": "video",
+  "id": "IrTeyyzerjI",
+  "url": "https://www.youtube.com/watch?v=IrTeyyzerjI",
+  "title": "Vectores Introducción | Qué es un vector y sus características",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:47": {
+  "kind": "video",
+  "id": "nudZJB-wQGk",
+  "url": "https://www.youtube.com/watch?v=nudZJB-wQGk",
+  "title": "Suma y resta de números complejos | Ejemplo 1",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:48": {
+  "kind": "web",
+  "url": "https://www.geogebra.org/3d?lang=es",
+  "matched": true
+ },
+ "route:49": {
+  "kind": "web",
+  "url": "https://es.khanacademy.org/",
+  "matched": true
+ },
+ "route:50": {
+  "kind": "video",
+  "id": "dfxCsCZ1c3A",
+  "url": "https://www.youtube.com/watch?v=dfxCsCZ1c3A",
+  "title": "Medidas de tendencia central | Media, Mediana y Moda",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:51": {
+  "kind": "playlist",
+  "id": "PLpignz5ekImcKOVZkD7Lrol5Ps8FmyuVz",
+  "url": "https://www.youtube.com/playlist?list=PLpignz5ekImcKOVZkD7Lrol5Ps8FmyuVz",
+  "title": "Matemáticas",
+  "channel": "Alex Gil",
+  "matched": true
+ },
+ "route:52": {
+  "kind": "video",
+  "id": "pko0dqQidnI",
+  "url": "https://www.youtube.com/watch?v=pko0dqQidnI",
+  "title": "Probabilidad Condicional | Introducción",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:53": {
+  "kind": "web",
+  "url": "https://es.khanacademy.org/",
+  "matched": true
+ },
+ "route:54": {
+  "kind": "web",
+  "url": "https://phet.colorado.edu/es/",
+  "matched": true
+ },
+ "route:55": {
+  "kind": "playlist",
+  "id": "PLEOOqneIzdOXJvCzJT9aCT9wo1IsO7r4U",
+  "url": "https://www.youtube.com/playlist?list=PLEOOqneIzdOXJvCzJT9aCT9wo1IsO7r4U",
+  "title": "Cinemática lineal",
+  "channel": "Profe Alex Arreaga",
+  "matched": true
+ },
+ "route:56": {
+  "kind": "playlist",
+  "id": "PLjzMZ4hgTPIZFrTeD6MUcbikxcB8p1G7k",
+  "url": "https://www.youtube.com/playlist?list=PLjzMZ4hgTPIZFrTeD6MUcbikxcB8p1G7k",
+  "title": "Vol",
+  "channel": "alex flores",
+  "matched": true
+ },
+ "route:57": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dGw6-SNfPnucKg85KrOC5g0",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dGw6-SNfPnucKg85KrOC5g0",
+  "title": "Videos recomendados!",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "route:58": {
+  "kind": "playlist",
+  "id": "PLRenu6lMxFiKpM1_p_4pa6NrCF-uQisJU",
+  "url": "https://www.youtube.com/playlist?list=PLRenu6lMxFiKpM1_p_4pa6NrCF-uQisJU",
+  "title": "Matemáticas por el profesor Sergio llanos",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "route:59": {
+  "kind": "playlist",
+  "id": "PLRenu6lMxFiK1sG5rtv7eaLQOyEAzPo4I",
+  "url": "https://www.youtube.com/playlist?list=PLRenu6lMxFiK1sG5rtv7eaLQOyEAzPo4I",
+  "title": "Mecánica clásica por Sergio Llanos",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "route:60": {
+  "kind": "web",
+  "url": "https://es.khanacademy.org/",
+  "matched": true
+ },
+ "route:61": {
+  "kind": "playlist",
+  "id": "PLRenu6lMxFiIJMEQ2PEo3Y2J6j7rKiWRj",
+  "url": "https://www.youtube.com/playlist?list=PLRenu6lMxFiIJMEQ2PEo3Y2J6j7rKiWRj",
+  "title": "Sonido por Sergio Llanos",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "route:62": {
+  "kind": "video",
+  "id": "wyRVx20RA50",
+  "url": "https://www.youtube.com/watch?v=wyRVx20RA50",
+  "title": "Potencial Eléctrico - curso Completo | Electrostática",
+  "channel": "Física Matemáticas Profe William",
+  "matched": true
+ },
+ "route:63": {
+  "kind": "playlist",
+  "id": "PLRenu6lMxFiIwYhEBhOu168oYN_-Yzl4p",
+  "url": "https://www.youtube.com/playlist?list=PLRenu6lMxFiIwYhEBhOu168oYN_-Yzl4p",
+  "title": "Electricidad y Magnetismo por Sergio Llanos",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "route:64": {
+  "kind": "video",
+  "id": "la4Mrq0icYk",
+  "url": "https://www.youtube.com/watch?v=la4Mrq0icYk",
+  "title": "LEY DE FARADAY DESDE CERO ⚡ Cómo generar electricidad con un imán",
+  "channel": "Matemáticas con Juan",
+  "matched": true
+ },
+ "route:65": {
+  "kind": "playlist",
+  "id": "PLunRFUHsCA1zbM4xjLI3LkPh6XqaE23GS",
+  "url": "https://www.youtube.com/playlist?list=PLunRFUHsCA1zbM4xjLI3LkPh6XqaE23GS",
+  "title": "CAMPO MAGNETICO trucos y ejercicios resueltos [ + Inducción Magnética ]",
+  "channel": "profesor10demates",
+  "matched": false
+ },
+ "route:66": {
+  "kind": "video",
+  "id": "o7EYlnhRBIc",
+  "url": "https://www.youtube.com/watch?v=o7EYlnhRBIc",
+  "title": "ECUACIÓN DE ESTADO de los Gases Ideales",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "route:67": {
+  "kind": "video",
+  "id": "UuCyk-uLrCA",
+  "url": "https://www.youtube.com/watch?v=UuCyk-uLrCA",
+  "title": "TEORÍA CINÉTICO-MOLECULAR DE LOS GASES | Química-Física",
+  "channel": "Breaking Vlad",
+  "matched": true
+ },
+ "route:68": {
+  "kind": "playlist",
+  "id": "PLRenu6lMxFiI8ddk8G8MJESkeD4uP3Idm",
+  "url": "https://www.youtube.com/playlist?list=PLRenu6lMxFiI8ddk8G8MJESkeD4uP3Idm",
+  "title": "Termodinámica por Sergio Llanos",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "route:69": {
+  "kind": "playlist",
+  "id": "PLRenu6lMxFiLrTg99dnfOnWMp_P34p15r",
+  "url": "https://www.youtube.com/playlist?list=PLRenu6lMxFiLrTg99dnfOnWMp_P34p15r",
+  "title": "La Luz por Sergio Llanos",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "route:70": {
+  "kind": "video",
+  "id": "Y9ScxCemsPM",
+  "url": "https://www.youtube.com/watch?v=Y9ScxCemsPM",
+  "title": "Este Experimento te Dejará LOCO | La Doble Rendija",
+  "channel": "QuantumFracture",
+  "matched": true
+ },
+ "route:71": {
+  "kind": "video",
+  "id": "cedeKWAKcbQ",
+  "url": "https://www.youtube.com/watch?v=cedeKWAKcbQ",
+  "title": "Resolución de problema de doble ranura de Young  | Ondas de luz | Física | Khan Academy en Español",
+  "channel": "KhanAcademyEspañol",
+  "matched": true
+ },
+ "route:72": {
+  "kind": "video",
+  "id": "_rYKbbCoZow",
+  "url": "https://www.youtube.com/watch?v=_rYKbbCoZow",
+  "title": "FISICA Efecto fotoelectrico BACHILLERATO energia cinetica trabajo extraccion",
+  "channel": "unicoos",
+  "matched": true
+ },
+ "route:73": {
+  "kind": "video",
+  "id": "w-DwH-KIqiU",
+  "url": "https://www.youtube.com/watch?v=w-DwH-KIqiU",
+  "title": "Física 7.05 Efecto Fotoeléctrico: cómo resolver todos los ejercicios. Esquema general. Ejemplo.",
+  "channel": "Física Explicada",
+  "matched": true
+ },
+ "route:74": {
+  "kind": "video",
+  "id": "QZh-PCcveuw",
+  "url": "https://www.youtube.com/watch?v=QZh-PCcveuw",
+  "title": "👉EXPLICACIÓN COMPLETA (y sencilla) del MODELO Atómico de Bohr",
+  "channel": "Aprueba con Jorge",
+  "matched": true
+ },
+ "route:75": {
+  "kind": "video",
+  "id": "e3m8KYEW7n8",
+  "url": "https://www.youtube.com/watch?v=e3m8KYEW7n8",
+  "title": "FISICA Cuantica -Ecuacion de RYDBERG BACHILLERATO longitud de onda",
+  "channel": "unicoos",
+  "matched": true
+ },
+ "route:76": {
+  "kind": "video",
+  "id": "XCvrSLo6qf8",
+  "url": "https://www.youtube.com/watch?v=XCvrSLo6qf8",
+  "title": "FISICA NUCLEAR Periodo de semidesintegracion BACHILLERATO",
+  "channel": "unicoos",
+  "matched": true
+ },
+ "route:77": {
+  "kind": "web",
+  "url": "https://www.csca.cn/",
+  "matched": true
+ },
+ "route:78": {
+  "kind": "playlist",
+  "id": "PL0o_zxa4K1BU5sTWZ2YxFhpXwsnMfMke7",
+  "url": "https://www.youtube.com/playlist?list=PL0o_zxa4K1BU5sTWZ2YxFhpXwsnMfMke7",
+  "title": "New Precalculus Video Playlist",
+  "channel": "The Organic Chemistry Tutor",
+  "matched": true
+ },
+ "route:79": {
+  "kind": "playlist",
+  "id": "PL0o_zxa4K1BVCB8iCVCGOES9pEF6byTMT",
+  "url": "https://www.youtube.com/playlist?list=PL0o_zxa4K1BVCB8iCVCGOES9pEF6byTMT",
+  "title": "New Trigonometry Playlist",
+  "channel": "The Organic Chemistry Tutor",
+  "matched": true
+ },
+ "route:80": {
+  "kind": "playlist",
+  "id": "PL0o_zxa4K1BVsziIRdfv4Hl4UIqDZhXWV",
+  "url": "https://www.youtube.com/playlist?list=PL0o_zxa4K1BVsziIRdfv4Hl4UIqDZhXWV",
+  "title": "Statistics",
+  "channel": "The Organic Chemistry Tutor",
+  "matched": true
+ },
+ "route:81": {
+  "kind": "web",
+  "url": "https://es.khanacademy.org/",
+  "matched": true
+ },
+ "route:82": {
+  "kind": "web",
+  "url": "https://es.khanacademy.org/",
+  "matched": true
+ },
+ "route:83": {
+  "kind": "web",
+  "url": "https://es.khanacademy.org/",
+  "matched": true
+ },
+ "route:84": {
+  "kind": "web",
+  "url": "https://www.csca.cn/",
+  "matched": true
+ },
+ "route:85": {
+  "kind": "playlist",
+  "id": "PL7GvdHmBnBosT57gMBYaDWtQ7PXobkbhV",
+  "url": "https://www.youtube.com/playlist?list=PL7GvdHmBnBosT57gMBYaDWtQ7PXobkbhV",
+  "title": "Preguntas REALES que han venido en el examen para la UAM",
+  "channel": "Scienza Educación",
+  "matched": false
+ },
+ "deep:aritmetica-y-bases-math-basic-introduction-the-organic-chemistry-tutor": {
+  "kind": "playlist",
+  "id": "PL0o_zxa4K1BXr49VZTEyUS5-G8fz0Pt1v",
+  "url": "https://www.youtube.com/playlist?list=PL0o_zxa4K1BXr49VZTEyUS5-G8fz0Pt1v",
+  "title": "Math - Basic Introduction - Playlist",
+  "channel": "The Organic Chemistry Tutor",
+  "matched": true
+ },
+ "deep:aritmetica-y-bases-fractions-and-mixed-numbers-the-organic-chemistry-tutor": {
+  "kind": "playlist",
+  "id": "PL0o_zxa4K1BXacPNb33YSOBXUA_PWZ8bf",
+  "url": "https://www.youtube.com/playlist?list=PL0o_zxa4K1BXacPNb33YSOBXUA_PWZ8bf",
+  "title": "Fractions and Mixed Numbers",
+  "channel": "The Organic Chemistry Tutor",
+  "matched": true
+ },
+ "deep:aritmetica-y-bases-percentages-playlist-the-organic-chemistry-tutor": {
+  "kind": "playlist",
+  "id": "PL0o_zxa4K1BXWS3L0IqFwKk8Rr9dcVXPw",
+  "url": "https://www.youtube.com/playlist?list=PL0o_zxa4K1BXWS3L0IqFwKk8Rr9dcVXPw",
+  "title": "Percentages Playlist",
+  "channel": "The Organic Chemistry Tutor",
+  "matched": true
+ },
+ "deep:aritmetica-y-bases-numeros-racionales-profe-alex": {
+  "kind": "video",
+  "id": "kYyDc0XRUeg",
+  "url": "https://www.youtube.com/watch?v=kYyDc0XRUeg",
+  "title": "Introducción a los números racionales | fracciones positivas o negativas",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "deep:aritmetica-y-bases-numeros-enteros-y-racionales-unicoos": {
+  "kind": "playlist",
+  "id": "PLOa7j0qx0jgO2AJfQISgGezjbaYuz537_",
+  "url": "https://www.youtube.com/playlist?list=PLOa7j0qx0jgO2AJfQISgGezjbaYuz537_",
+  "title": "Números enteros y racionales - MATEMATICAS",
+  "channel": "unicoos",
+  "matched": true
+ },
+ "deep:aritmetica-y-bases-los-numeros-enteros-prof-sergio-llanos": {
+  "kind": "video",
+  "id": "8BNMViU-s5A",
+  "url": "https://www.youtube.com/watch?v=8BNMViU-s5A",
+  "title": "Los Números Enteros (en vivo) #QuedateEnCasa y Estudia #Conmigo",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "deep:aritmetica-y-bases-calculadora-cientifica-profe-alex": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dH4R34MO0B12DJwFRY90bLO",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dH4R34MO0B12DJwFRY90bLO",
+  "title": "Calculadora científica",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "deep:aritmetica-y-bases-retos-para-pensar-recordar-y-aprender-profe-alex": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dFewV-ldmrMyDKzBupBmMmz",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dFewV-ldmrMyDKzBupBmMmz",
+  "title": "Retos para pensar, recordar y aprender",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "deep:algebra-new-algebra-playlist-the-organic-chemistry-tutor": {
+  "kind": "playlist",
+  "id": "PL0o_zxa4K1BUeF2o-MlNpbRiS-oE2Kn6J",
+  "url": "https://www.youtube.com/playlist?list=PL0o_zxa4K1BUeF2o-MlNpbRiS-oE2Kn6J",
+  "title": "New Algebra Playlist",
+  "channel": "The Organic Chemistry Tutor",
+  "matched": true
+ },
+ "deep:algebra-linear-equations-and-slope-the-organic-chemistry-tutor": {
+  "kind": "playlist",
+  "id": "PL0o_zxa4K1BVzbQjmhQxe5eQwuFQx2oV_",
+  "url": "https://www.youtube.com/playlist?list=PL0o_zxa4K1BVzbQjmhQxe5eQwuFQx2oV_",
+  "title": "Linear Equations and Slope Playlist",
+  "channel": "The Organic Chemistry Tutor",
+  "matched": true
+ },
+ "deep:algebra-sistemas-de-ecuaciones-3x3-profe-alex": {
+  "kind": "video",
+  "id": "bNZ_7qzgPrI",
+  "url": "https://www.youtube.com/watch?v=bNZ_7qzgPrI",
+  "title": "Solución de un sistema de 3x3 | Método de Reducción - Eliminación 1  @MatematicasprofeAlex",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "deep:algebra-cocientes-notables-profe-alex": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dFg5siUF95eWxutWE-Zloro",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dFg5siUF95eWxutWE-Zloro",
+  "title": "Cocientes notables",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "deep:algebra-matematicas-por-el-profesor-sergio-llanos-prof-sergio-llanos": {
+  "kind": "playlist",
+  "id": "PLRenu6lMxFiKpM1_p_4pa6NrCF-uQisJU",
+  "url": "https://www.youtube.com/playlist?list=PLRenu6lMxFiKpM1_p_4pa6NrCF-uQisJU",
+  "title": "Matemáticas por el profesor Sergio llanos",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "deep:algebra-paul-s-online-notes-algebra-calculus-i-paul-dawkins-lamar-university": {
+  "kind": "web",
+  "url": "https://tutorial.math.lamar.edu/",
+  "matched": true
+ },
+ "deep:algebra-alcumus-art-of-problem-solving-aops": {
+  "kind": "web",
+  "url": "https://artofproblemsolving.com/alcumus",
+  "matched": true
+ },
+ "deep:funciones-exponenciales-logaritmos-precalculo-2ed-cap-1-funciones-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:funciones-exponenciales-logaritmos-precalculo-2ed-cap-4-exponenciales-y-logaritmicas-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:funciones-exponenciales-logaritmos-precalculus-college-algebra-trigonometry-professor-leonard": {
+  "kind": "video",
+  "id": "9OOrhA2iKak",
+  "url": "https://www.youtube.com/watch?v=9OOrhA2iKak",
+  "title": "Intro to Precalculus (Precalculus - College Algebra 1)",
+  "channel": "Professor Leonard",
+  "matched": true
+ },
+ "deep:funciones-exponenciales-logaritmos-lockdown-math-3blue1brown": {
+  "kind": "playlist",
+  "id": "PLZHQObOWTQDP5CVelJJ1bNDouqrAhVPev",
+  "url": "https://www.youtube.com/playlist?list=PLZHQObOWTQDP5CVelJJ1bNDouqrAhVPev",
+  "title": "Lockdown math",
+  "channel": "3Blue1Brown",
+  "matched": true
+ },
+ "deep:funciones-exponenciales-logaritmos-khan-academy-en-espanol-precalculo-khan-academy": {
+  "kind": "web",
+  "url": "https://es.khanacademy.org/",
+  "matched": true
+ },
+ "deep:trigonometria-precalculo-2ed-cap-5-funciones-trigonometricas-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:trigonometria-precalculo-2ed-cap-7-identidades-y-ecuaciones-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:trigonometria-precalculo-2ed-cap-8-ley-de-senos-vectores-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:trigonometria-triangulos-curso-completo-profe-alex": {
+  "kind": "video",
+  "id": "NQx89V_J4eI",
+  "url": "https://www.youtube.com/watch?v=NQx89V_J4eI",
+  "title": "Propiedades fundamentales de los triángulos",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "deep:trigonometria-eddie-woo-canal-eddie-woo": {
+  "kind": "playlist",
+  "id": "PLJFkl3HZfR64",
+  "url": "https://www.youtube.com/playlist?list=PLJFkl3HZfR64",
+  "title": "2026 Summer Travel",
+  "channel": "Eddie Woo Wanderlust",
+  "matched": true
+ },
+ "deep:sucesiones-limites-derivadas-essence-of-calculus-3blue1brown": {
+  "kind": "video",
+  "id": "WUvTyaaNkzM",
+  "url": "https://www.youtube.com/watch?v=WUvTyaaNkzM",
+  "title": "The essence of calculus",
+  "channel": "3Blue1Brown",
+  "matched": true
+ },
+ "deep:sucesiones-limites-derivadas-precalculo-2ed-cap-11-sucesiones-y-probabilidad-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:sucesiones-limites-derivadas-precalculo-2ed-cap-12-introduccion-al-calculo-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:sucesiones-limites-derivadas-calculus-1-full-length-videos-professor-leonard": {
+  "kind": "playlist",
+  "id": "PLl-Np5U6u5E54PygbTaBsSzpSmVQVeJHq",
+  "url": "https://www.youtube.com/playlist?list=PLl-Np5U6u5E54PygbTaBsSzpSmVQVeJHq",
+  "title": "Calculus 1 Video Lectures",
+  "channel": "Math with Professor V",
+  "matched": true
+ },
+ "deep:sucesiones-limites-derivadas-calculus-1-derivatives-test-review-the-organic-chemistry-tutor": {
+  "kind": "playlist",
+  "id": "PL0o_zxa4K1BXb1arH6tkSV8xTI99OR2XD",
+  "url": "https://www.youtube.com/playlist?list=PL0o_zxa4K1BXb1arH6tkSV8xTI99OR2XD",
+  "title": "Calculus 1 - Derivatives Test Review",
+  "channel": "The Organic Chemistry Tutor",
+  "matched": true
+ },
+ "deep:sucesiones-limites-derivadas-calculus-limits-test-review-the-organic-chemistry-tutor": {
+  "kind": "playlist",
+  "id": "PL0o_zxa4K1BXXDYmpXlwz3umLs_VGaTe8",
+  "url": "https://www.youtube.com/playlist?list=PL0o_zxa4K1BXXDYmpXlwz3umLs_VGaTe8",
+  "title": "Calculus - Limits Test Review",
+  "channel": "The Organic Chemistry Tutor",
+  "matched": true
+ },
+ "deep:sucesiones-limites-derivadas-blackpenredpen-canal-blackpenredpen": {
+  "kind": "video",
+  "id": "xW76ZHtxmTo",
+  "url": "https://www.youtube.com/watch?v=xW76ZHtxmTo",
+  "title": "the last question on a Harvard-MIT Math Tournament!",
+  "channel": "blackpenredpen",
+  "matched": true
+ },
+ "deep:sucesiones-limites-derivadas-asintotas-continuidad-y-derivabilidad-unicoos": {
+  "kind": "playlist",
+  "id": "PLOa7j0qx0jgM7HkBk1H7J1a4RAm3WC6_w",
+  "url": "https://www.youtube.com/playlist?list=PLOa7j0qx0jgM7HkBk1H7J1a4RAm3WC6_w",
+  "title": "Asíntotas, continuidad y derivabilidad - MATEMÁTICAS",
+  "channel": "unicoos",
+  "matched": true
+ },
+ "deep:geometria-analitica-vectores-complejos-precalculo-2ed-cap-10-conicas-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:geometria-analitica-vectores-complejos-precalculo-2ed-cap-3-incluye-complejos-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:geometria-analitica-vectores-complejos-essence-of-linear-algebra-3blue1brown": {
+  "kind": "video",
+  "id": "kYB8IZa5AuE",
+  "url": "https://www.youtube.com/watch?v=kYB8IZa5AuE",
+  "title": "Linear transformations and matrices | Chapter 3, Essence of linear algebra",
+  "channel": "3Blue1Brown",
+  "matched": true
+ },
+ "deep:geometria-analitica-vectores-complejos-e-i-in-3-14-minutes-3blue1brown": {
+  "kind": "video",
+  "id": "v0YEaeIClKY",
+  "url": "https://www.youtube.com/watch?v=v0YEaeIClKY",
+  "title": "e^(iπ) in 3.14 minutes, using dynamics | DE5",
+  "channel": "3Blue1Brown",
+  "matched": true
+ },
+ "deep:geometria-analitica-vectores-complejos-geogebra-3d-geogebra": {
+  "kind": "web",
+  "url": "https://www.geogebra.org/3d?lang=es",
+  "matched": true
+ },
+ "deep:geometria-analitica-vectores-complejos-desmos-calculadora-grafica-desmos": {
+  "kind": "web",
+  "url": "https://www.desmos.com/calculator?lang=es",
+  "matched": true
+ },
+ "deep:geometria-analitica-vectores-complejos-mates-mike-canal-mates-mike": {
+  "kind": "playlist",
+  "id": "PL8Zitp9-nYhsnn5knG6cPSx8n1TuXotri",
+  "url": "https://www.youtube.com/playlist?list=PL8Zitp9-nYhsnn5knG6cPSx8n1TuXotri",
+  "title": "Curiosidades Matemáticas",
+  "channel": "Mates Mike",
+  "matched": true
+ },
+ "deep:probabilidad-y-estadistica-introduccion-a-la-estadistica-cap-2-estadistica-descriptiva-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:probabilidad-y-estadistica-introduccion-a-la-estadistica-cap-3-probabilidad-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:probabilidad-y-estadistica-introduccion-a-la-estadistica-cap-6-distribucion-normal-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:probabilidad-y-estadistica-crash-course-statistics-crashcourse": {
+  "kind": "video",
+  "id": "sxQaBpKfDRk",
+  "url": "https://www.youtube.com/watch?v=sxQaBpKfDRk",
+  "title": "What Is Statistics: Crash Course Statistics #1",
+  "channel": "CrashCourse",
+  "matched": true
+ },
+ "deep:probabilidad-y-estadistica-but-what-is-the-central-limit-theorem-3blue1brown": {
+  "kind": "playlist",
+  "id": "PLmUbQTm6HpXpKQ3gyCgfZcOQB1u10PhZk",
+  "url": "https://www.youtube.com/playlist?list=PLmUbQTm6HpXpKQ3gyCgfZcOQB1u10PhZk",
+  "title": "\"But what is the Central Limit Theorem?\" by 3Blue1Brown, ...",
+  "channel": "skeetums",
+  "matched": false
+ },
+ "deep:probabilidad-y-estadistica-why-is-in-the-normal-distribution-3blue1brown": {
+  "kind": "video",
+  "id": "cy8r7WSuT1I",
+  "url": "https://www.youtube.com/watch?v=cy8r7WSuT1I",
+  "title": "Why π is in the normal distribution (beyond integral tricks)",
+  "channel": "3Blue1Brown",
+  "matched": true
+ },
+ "deep:probabilidad-y-estadistica-probabilidad-condicional-y-teorema-de-bayes-profe-alex": {
+  "kind": "video",
+  "id": "bDfCURXoKkU",
+  "url": "https://www.youtube.com/watch?v=bDfCURXoKkU",
+  "title": "Teorema de Bayes | Introducción",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "deep:probabilidad-y-estadistica-tabla-de-frecuencias-profe-alex": {
+  "kind": "video",
+  "id": "cyXenZEbGz4",
+  "url": "https://www.youtube.com/watch?v=cyXenZEbGz4",
+  "title": "Tablas de frecuencia | Ejemplo 1",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "deep:practica-tipo-examen-mate-preuniversitario-curso-completo-profe-alex": {
+  "kind": "playlist",
+  "id": "PLeySRPnY35dGSJYCRn7tD1mVatw3MrdIm",
+  "url": "https://www.youtube.com/playlist?list=PLeySRPnY35dGSJYCRn7tD1mVatw3MrdIm",
+  "title": "Conceptos básicos de Álgebra (Curso COMPLETO)",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "deep:practica-tipo-examen-mate-preparacion-para-el-examen-de-admision-profe-alex": {
+  "kind": "video",
+  "id": "l_iAHU1liiU",
+  "url": "https://www.youtube.com/watch?v=l_iAHU1liiU",
+  "title": "Consejos para prepararte para tu examen de admisión",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "deep:practica-tipo-examen-mate-preguntas-de-ingreso-a-la-universidad-saber-11-prof-sergio-llanos": {
+  "kind": "playlist",
+  "id": "PLRenu6lMxFiKn0hsVMsIcuHc4Jv7B-uxu",
+  "url": "https://www.youtube.com/playlist?list=PLRenu6lMxFiKn0hsVMsIcuHc4Jv7B-uxu",
+  "title": "Preguntas Ingreso a la Universidad Saber 11 Icfes",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "deep:practica-tipo-examen-mate-sat-math-the-organic-chemistry-tutor": {
+  "kind": "playlist",
+  "id": "PL0o_zxa4K1BWLRgHW2i8diQ359U5FbKnI",
+  "url": "https://www.youtube.com/playlist?list=PL0o_zxa4K1BWLRgHW2i8diQ359U5FbKnI",
+  "title": "SAT Math",
+  "channel": "The Organic Chemistry Tutor",
+  "matched": true
+ },
+ "deep:practica-tipo-examen-mate-retos-matematicos-prof-sergio-llanos": {
+  "kind": "playlist",
+  "id": "PLRenu6lMxFiJahnPJikftz4jeACuT3lvs",
+  "url": "https://www.youtube.com/playlist?list=PLRenu6lMxFiJahnPJikftz4jeACuT3lvs",
+  "title": "Retos Matematicos",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "deep:practica-tipo-examen-mate-test-de-inteligencia-profe-alex": {
+  "kind": "video",
+  "id": "fK9-fgukhQ4",
+  "url": "https://www.youtube.com/watch?v=fK9-fgukhQ4",
+  "title": "Test de inteligencia | Nivel 1",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "deep:fisica-todo-el-temario-new-physics-video-playlist-the-organic-chemistry-tutor": {
+  "kind": "playlist",
+  "id": "PL0o_zxa4K1BU6wPPLDsoTj1_wEf0LSNeR",
+  "url": "https://www.youtube.com/playlist?list=PL0o_zxa4K1BU6wPPLDsoTj1_wEf0LSNeR",
+  "title": "New Physics Video Playlist",
+  "channel": "The Organic Chemistry Tutor",
+  "matched": true
+ },
+ "deep:fisica-todo-el-temario-crash-course-physics-crashcourse": {
+  "kind": "video",
+  "id": "OoO5d5P0Jn4",
+  "url": "https://www.youtube.com/watch?v=OoO5d5P0Jn4",
+  "title": "Crash Course Physics Preview",
+  "channel": "CrashCourse",
+  "matched": true
+ },
+ "deep:fisica-todo-el-temario-ap-physics-1-review-of-all-topics-flipping-physics": {
+  "kind": "video",
+  "id": "l3SMlNjFhmg",
+  "url": "https://www.youtube.com/watch?v=l3SMlNjFhmg",
+  "title": "AP Physics 1 Exam Cram: Full Curriculum in 30 Minutes",
+  "channel": "Flipping Physics",
+  "matched": true
+ },
+ "deep:fisica-todo-el-temario-the-physics-classroom-tutorials-the-physics-classroom": {
+  "kind": "web",
+  "url": "https://www.physicsclassroom.com/",
+  "matched": true
+ },
+ "deep:fisica-todo-el-temario-fisicalab-fisicalab": {
+  "kind": "web",
+  "url": "https://www.fisicalab.com/",
+  "matched": true
+ },
+ "deep:fisica-todo-el-temario-fisica-universitaria-vol-1-mecanica-ondas-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:fisica-todo-el-temario-fisica-universitaria-vol-2-termo-electromagnetismo-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:fisica-todo-el-temario-fisica-universitaria-vol-3-optica-moderna-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:mecanica-fu-vol-1-cap-5-leyes-de-newton-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:mecanica-fu-vol-1-cap-8-energia-potencial-y-conservacion-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:mecanica-fu-vol-1-cap-9-momento-lineal-y-choques-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:mecanica-fu-vol-1-cap-13-gravitacion-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:mecanica-fu-vol-1-cap-15-oscilaciones-mas-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:mecanica-fu-vol-1-cap-16-ondas-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:mecanica-8-01x-mit-physics-i-classical-mechanics-walter-lewin-mit": {
+  "kind": "playlist",
+  "id": "PLyQSN7X0ro203puVhQsmCj9qhlFQ-As8e",
+  "url": "https://www.youtube.com/playlist?list=PLyQSN7X0ro203puVhQsmCj9qhlFQ-As8e",
+  "title": "8.01x - MIT Physics I: Classical Mechanics",
+  "channel": "Lectures by Walter Lewin. They will make you ♥ Physics.",
+  "matched": true
+ },
+ "deep:mecanica-mit-8-01sc-classical-mechanics-curso-completo-mit-opencourseware": {
+  "kind": "web",
+  "url": "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/",
+  "matched": true
+ },
+ "deep:mecanica-estatica-primera-ley-de-newton-fisica-matematicas-profe-william": {
+  "kind": "video",
+  "id": "FyfzKyKdrmY",
+  "url": "https://www.youtube.com/watch?v=FyfzKyKdrmY",
+  "title": "Curso Completo de Estática desde cero | Primera ley de Newton",
+  "channel": "Física Matemáticas Profe William",
+  "matched": true
+ },
+ "deep:mecanica-curso-de-dinamica-por-sergio-llanos-prof-sergio-llanos": {
+  "kind": "playlist",
+  "id": "PLRenu6lMxFiLWEvW10xbBBg0T0-Qnlh-v",
+  "url": "https://www.youtube.com/playlist?list=PLRenu6lMxFiLWEvW10xbBBg0T0-Qnlh-v",
+  "title": "Mecánica de Fluidos por Sergio Llanos",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "deep:mecanica-curso-de-estatica-por-sergio-llanos-prof-sergio-llanos": {
+  "kind": "playlist",
+  "id": "PLRenu6lMxFiLWEvW10xbBBg0T0-Qnlh-v",
+  "url": "https://www.youtube.com/playlist?list=PLRenu6lMxFiLWEvW10xbBBg0T0-Qnlh-v",
+  "title": "Mecánica de Fluidos por Sergio Llanos",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "deep:electromagnetismo-fu-vol-2-cap-5-cargas-y-campos-electricos-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:electromagnetismo-fu-vol-2-cap-7-potencial-electrico-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:electromagnetismo-fu-vol-2-cap-10-circuitos-de-corriente-continua-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:electromagnetismo-fu-vol-2-cap-11-fuerzas-magneticas-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:electromagnetismo-fu-vol-2-cap-13-induccion-electromagnetica-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:electromagnetismo-8-02x-mit-physics-ii-electricity-and-magnetism-walter-lewin-mit": {
+  "kind": "video",
+  "id": "Zu2gomaDqnM",
+  "url": "https://www.youtube.com/watch?v=Zu2gomaDqnM",
+  "title": "8.02x - Lección 3 - Flujo eléctrico, Ley de Gauss, Ejemplos",
+  "channel": "Lectures by Walter Lewin. They will make you ♥ Physics.",
+  "matched": true
+ },
+ "deep:electromagnetismo-ley-de-coulomb-y-campo-electrico-explicandote": {
+  "kind": "playlist",
+  "id": "PLunRFUHsCA1wnOUjaPSWY8UVT6MqanGxD",
+  "url": "https://www.youtube.com/playlist?list=PLunRFUHsCA1wnOUjaPSWY8UVT6MqanGxD",
+  "title": "ley de coulomb Campo electrico , electroestática , Bachillerato Universidad [ Ejercicios resueltos ] paso a paso",
+  "channel": "profesor10demates",
+  "matched": false
+ },
+ "deep:electromagnetismo-induccion-faraday-y-lenz-7-problemas-resueltos-matematicas-con-juan": {
+  "kind": "video",
+  "id": "s1Si79nHaZI",
+  "url": "https://www.youtube.com/watch?v=s1Si79nHaZI",
+  "title": "Inducción electromagnética, ley de Faraday y ley de Lenz ⚡ 7 problemas resueltos",
+  "channel": "Matemáticas con Juan",
+  "matched": true
+ },
+ "deep:electromagnetismo-induccion-electromagnetica-ley-de-faraday-lenz-juanma-fisica": {
+  "kind": "video",
+  "id": "DfJCQZOyR4w",
+  "url": "https://www.youtube.com/watch?v=DfJCQZOyR4w",
+  "title": "5- Inducción electromagnética: Ley de Faraday - Lenz",
+  "channel": "JUANMA FÍSICA",
+  "matched": true
+ },
+ "deep:electromagnetismo-induccion-electromagnetica-faraday-y-lenz-es-ciencia": {
+  "kind": "video",
+  "id": "nZjNWgRmIdY",
+  "url": "https://www.youtube.com/watch?v=nZjNWgRmIdY",
+  "title": "Inducción Electromagnética, Ley de Faraday y Ley de Lenz",
+  "channel": "Es Ciencia ",
+  "matched": true
+ },
+ "deep:electromagnetismo-electronic-circuits-the-organic-chemistry-tutor": {
+  "kind": "playlist",
+  "id": "PL0o_zxa4K1BV9E-N8tSExU1djL6slnjbL",
+  "url": "https://www.youtube.com/playlist?list=PL0o_zxa4K1BV9E-N8tSExU1djL6slnjbL",
+  "title": "Electronic Circuits",
+  "channel": "The Organic Chemistry Tutor",
+  "matched": true
+ },
+ "deep:termodinamica-fu-vol-2-cap-2-teoria-cinetica-de-los-gases-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:termodinamica-fu-vol-2-cap-3-primera-ley-de-la-termodinamica-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:termodinamica-ley-de-los-gases-ideales-formula-y-problema-susi-profe": {
+  "kind": "playlist",
+  "id": "PLunRFUHsCA1yRlBybJDW9sWh8SuUKHI0U",
+  "url": "https://www.youtube.com/playlist?list=PLunRFUHsCA1yRlBybJDW9sWh8SuUKHI0U",
+  "title": "LEYES DE LOS GASES TRUCOS Y EJERCICIOS",
+  "channel": "profesor10demates",
+  "matched": false
+ },
+ "deep:termodinamica-teoria-cinetico-molecular-y-leyes-de-los-gases-el-profesor-dave-lo-explica": {
+  "kind": "video",
+  "id": "HJK4a3-OT2c",
+  "url": "https://www.youtube.com/watch?v=HJK4a3-OT2c",
+  "title": "La Teoría Cinética Molecular y las Leyes de los Gases Ideales | El profesor Dave lo Explica",
+  "channel": "El Profesor Dave lo Explica",
+  "matched": true
+ },
+ "deep:optica-fu-vol-3-cap-3-interferencia-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:optica-fu-vol-3-cap-4-difraccion-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:optica-problemas-de-interferencia-y-doble-rendija-de-young-science-for-you": {
+  "kind": "video",
+  "id": "1RZRvo6x66g",
+  "url": "https://www.youtube.com/watch?v=1RZRvo6x66g",
+  "title": "Problemas resueltos de interferencia y experimento de doble rendija o ranura de Young.",
+  "channel": "Science For You",
+  "matched": true
+ },
+ "deep:optica-interferencia-experiencia-de-young-antonioprofe": {
+  "kind": "video",
+  "id": "YGTlx_3V_nE",
+  "url": "https://www.youtube.com/watch?v=YGTlx_3V_nE",
+  "title": "Ondas electromagnéticas 5. Interferencia. Experiencia de Young de la doble rendija. Física 2 bachill",
+  "channel": "AntonioProfe",
+  "matched": true
+ },
+ "deep:optica-doble-ranura-de-young-parte-1-khan-academy-en-espanol": {
+  "kind": "web",
+  "url": "https://es.khanacademy.org/",
+  "matched": true
+ },
+ "deep:fisica-moderna-fu-vol-3-cap-6-fotones-y-ondas-de-materia-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:fisica-moderna-fu-vol-3-cap-10-fisica-nuclear-openstax-gratis": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "deep:fisica-moderna-hipotesis-de-planck-muy-facil-fisica-explicada": {
+  "kind": "video",
+  "id": "ijHwiF-RU6w",
+  "url": "https://www.youtube.com/watch?v=ijHwiF-RU6w",
+  "title": "Física 7.01 Hipótesis de Planck muy fácil. Catástrofe ultravioleta, cuerpo negro, consecuencias.",
+  "channel": "Física Explicada",
+  "matched": true
+ },
+ "deep:fisica-moderna-ecuacion-de-rydberg-explicacion-y-ejercicio-javier-valdes-gomez": {
+  "kind": "playlist",
+  "id": "PL-HZes6NcWk-dKHYxCZlgJUwu5sG3PhZa",
+  "url": "https://www.youtube.com/playlist?list=PL-HZes6NcWk-dKHYxCZlgJUwu5sG3PhZa",
+  "title": "Modelos atómicos",
+  "channel": "Javier Valdés Gómez",
+  "matched": true
+ },
+ "deep:fisica-moderna-ley-exponencial-de-la-desintegracion-radiactiva-fisica-explicada": {
+  "kind": "playlist",
+  "id": "PLEOMVJLucfWmf43_bizbUOW2R59OuDqp_",
+  "url": "https://www.youtube.com/playlist?list=PLEOMVJLucfWmf43_bizbUOW2R59OuDqp_",
+  "title": "8 Física Nuclear",
+  "channel": "Física Explicada",
+  "matched": true
+ },
+ "deep:fisica-moderna-desintegracion-radiactiva-ejercicios-resueltos-profesor10demates": {
+  "kind": "video",
+  "id": "gfwp-A6Vm68",
+  "url": "https://www.youtube.com/watch?v=gfwp-A6Vm68",
+  "title": "Ley de DESINTEGRACIÓN RADIACTIVA Ejercicios resueltos  [ Física nuclear 2 bachillerato Universidad ]",
+  "channel": "profesor10demates",
+  "matched": true
+ },
+ "deep:fisica-moderna-fisica-relativista-masa-longitud-y-tiempo-unicoos": {
+  "kind": "video",
+  "id": "H8cAHG5gljY",
+  "url": "https://www.youtube.com/watch?v=H8cAHG5gljY",
+  "title": "FISICA RELATIVISTA Masa, Longitud, Tiempo BACHILLERATO relatividad",
+  "channel": "unicoos",
+  "matched": true
+ },
+ "deep:para-que-te-vuele-la-cabeza-quantumfracture-canal-quantumfracture": {
+  "kind": "playlist",
+  "id": "PLOPFAg4mOJ10rS1Sg9AWA6YA9A54v7XKK",
+  "url": "https://www.youtube.com/playlist?list=PLOPFAg4mOJ10rS1Sg9AWA6YA9A54v7XKK",
+  "title": "Cuántica",
+  "channel": "QuantumFracture",
+  "matched": true
+ },
+ "deep:para-que-te-vuele-la-cabeza-date-un-voltio-canal-date-un-voltio": {
+  "kind": "playlist",
+  "id": "PL4i0d8i6gL3JSelloDf9-C2LU0p3iOjUY",
+  "url": "https://www.youtube.com/playlist?list=PL4i0d8i6gL3JSelloDf9-C2LU0p3iOjUY",
+  "title": "Estudios, exámenes y cositas buenas😉 by Javier Santaolalla",
+  "channel": "Date un Vlog",
+  "matched": true
+ },
+ "deep:para-que-te-vuele-la-cabeza-derivando-canal-eduardo-saenz-de-cabezon": {
+  "kind": "playlist",
+  "id": "PL80nAzsAnPYw689dyQUPi5imi37zhZxnk",
+  "url": "https://www.youtube.com/playlist?list=PL80nAzsAnPYw689dyQUPi5imi37zhZxnk",
+  "title": "Matemáticas",
+  "channel": "JesusMaria Perdiguero",
+  "matched": false
+ },
+ "deep:para-que-te-vuele-la-cabeza-veritasium-canal-veritasium": {
+  "kind": "playlist",
+  "id": "PLkahZjV5wKe_Yh-7VFrP1bxJOtkVzdqeB",
+  "url": "https://www.youtube.com/playlist?list=PLkahZjV5wKe_Yh-7VFrP1bxJOtkVzdqeB",
+  "title": "Fascinating Stories",
+  "channel": "Veritasium",
+  "matched": true
+ },
+ "deep:para-que-te-vuele-la-cabeza-mathologer-canal-burkard-polster": {
+  "kind": "video",
+  "id": "c9nUAXUSuII",
+  "url": "https://www.youtube.com/watch?v=c9nUAXUSuII",
+  "title": "Liouville's number, the easiest transcendental and its clones (corrected reupload)",
+  "channel": "Mathologer",
+  "matched": false
+ },
+ "channel:matematicas-profe-alex": {
+  "kind": "channel",
+  "id": "UCanMxWvOoiwtjLYm08Bo8QQ",
+  "url": "https://www.youtube.com/channel/UCanMxWvOoiwtjLYm08Bo8QQ",
+  "title": "Matemáticas profe Alex",
+  "channel": "Matemáticas profe Alex",
+  "matched": true
+ },
+ "channel:prof-sergio-llanos": {
+  "kind": "channel",
+  "id": "UCAqH9DWIpnFG7YXfyw6DdQw",
+  "url": "https://www.youtube.com/channel/UCAqH9DWIpnFG7YXfyw6DdQw",
+  "title": "Profesor Sergio Llanos",
+  "channel": "Profesor Sergio Llanos",
+  "matched": true
+ },
+ "channel:julioprofe": {
+  "kind": "channel",
+  "id": "UCIkCzk3ezlAxX5r2OFlHLaQ",
+  "url": "https://www.youtube.com/channel/UCIkCzk3ezlAxX5r2OFlHLaQ",
+  "title": "julioprofe",
+  "channel": "julioprofe",
+  "matched": true
+ },
+ "channel:matematicas-con-juan": {
+  "kind": "channel",
+  "id": "UCb40x1kRqrq7---i14VaA-A",
+  "url": "https://www.youtube.com/channel/UCb40x1kRqrq7---i14VaA-A",
+  "title": "Matemáticas con Juan",
+  "channel": "Matemáticas con Juan",
+  "matched": true
+ },
+ "channel:matemovil": {
+  "kind": "channel",
+  "id": "UCvTyXJuQyAqG2UxzI8jtc2g",
+  "url": "https://www.youtube.com/channel/UCvTyXJuQyAqG2UxzI8jtc2g",
+  "title": "Matemóvil",
+  "channel": "Matemóvil",
+  "matched": true
+ },
+ "channel:academia-internet": {
+  "kind": "channel",
+  "id": "UCJok4N-aJSFTl63LJ16o9VQ",
+  "url": "https://www.youtube.com/channel/UCJok4N-aJSFTl63LJ16o9VQ",
+  "title": "Academia Internet",
+  "channel": "Academia Internet",
+  "matched": true
+ },
+ "channel:math2me": {
+  "kind": "channel",
+  "id": "UCB34YbuG6ThXJzJsDAII5Dw",
+  "url": "https://www.youtube.com/channel/UCB34YbuG6ThXJzJsDAII5Dw",
+  "title": "math2me",
+  "channel": "math2me",
+  "matched": true
+ },
+ "channel:khanacademyespanol": {
+  "kind": "web",
+  "url": "https://es.khanacademy.org/",
+  "matched": true
+ },
+ "channel:fisica-explicada": {
+  "kind": "channel",
+  "id": "UCZaWvpavEs2opYhhhD9U3Og",
+  "url": "https://www.youtube.com/channel/UCZaWvpavEs2opYhhhD9U3Og",
+  "title": "Física Explicada",
+  "channel": "Física Explicada",
+  "matched": true
+ },
+ "channel:date-un-voltio": {
+  "kind": "channel",
+  "id": "UCns-8DssCBba7M4nu7wk7Aw",
+  "url": "https://www.youtube.com/channel/UCns-8DssCBba7M4nu7wk7Aw",
+  "title": "Date un Voltio",
+  "channel": "Date un Voltio",
+  "matched": true
+ },
+ "channel:derivando": {
+  "kind": "channel",
+  "id": "UCH-Z8ya93m7_RD02WsCSZYA",
+  "url": "https://www.youtube.com/channel/UCH-Z8ya93m7_RD02WsCSZYA",
+  "title": "Derivando",
+  "channel": "Derivando",
+  "matched": true
+ },
+ "channel:mates-mike": {
+  "kind": "channel",
+  "id": "UC-_kZ3UZBsnCWJEVr8ysMww",
+  "url": "https://www.youtube.com/channel/UC-_kZ3UZBsnCWJEVr8ysMww",
+  "title": "Mates Mike",
+  "channel": "Mates Mike",
+  "matched": true
+ },
+ "channel:professor-leonard": {
+  "kind": "channel",
+  "id": "UCoHhuummRZaIVX7bD4t2czg",
+  "url": "https://www.youtube.com/channel/UCoHhuummRZaIVX7bD4t2czg",
+  "title": "Professor Leonard",
+  "channel": "Professor Leonard",
+  "matched": true
+ },
+ "channel:3blue1brown": {
+  "kind": "channel",
+  "id": "UCYO_jab_esuFRV4b17AJtAw",
+  "url": "https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw",
+  "title": "3Blue1Brown",
+  "channel": "3Blue1Brown",
+  "matched": true
+ },
+ "channel:eddie-woo": {
+  "kind": "channel",
+  "id": "UCq0EGvLTyy-LLT1oUSO_0FQ",
+  "url": "https://www.youtube.com/channel/UCq0EGvLTyy-LLT1oUSO_0FQ",
+  "title": "Eddie Woo",
+  "channel": "Eddie Woo",
+  "matched": true
+ },
+ "channel:blackpenredpen": {
+  "kind": "channel",
+  "id": "UC_SvYP0k05UKiJ_2ndB02IA",
+  "url": "https://www.youtube.com/channel/UC_SvYP0k05UKiJ_2ndB02IA",
+  "title": "blackpenredpen",
+  "channel": "blackpenredpen",
+  "matched": true
+ },
+ "channel:mathologer": {
+  "kind": "channel",
+  "id": "UC1_uAIS3r8Vu6JjXWvastJg",
+  "url": "https://www.youtube.com/channel/UC1_uAIS3r8Vu6JjXWvastJg",
+  "title": "Mathologer",
+  "channel": "Mathologer",
+  "matched": true
+ },
+ "channel:flipping-physics": {
+  "kind": "channel",
+  "id": "UCYqACVYl0c0BhlVN6X2HIMg",
+  "url": "https://www.youtube.com/channel/UCYqACVYl0c0BhlVN6X2HIMg",
+  "title": "Flipping Physics",
+  "channel": "Flipping Physics",
+  "matched": true
+ },
+ "channel:michel-van-biezen": {
+  "kind": "channel",
+  "id": "UCiGxYawhEp4QyFcX0R60YdQ",
+  "url": "https://www.youtube.com/channel/UCiGxYawhEp4QyFcX0R60YdQ",
+  "title": "Michel van Biezen",
+  "channel": "Michel van Biezen",
+  "matched": true
+ },
+ "channel:walter-lewin-mit-8-01-y-8-02": {
+  "kind": "channel",
+  "id": "UCiEHVhv0SBMpP75JbzJShqw",
+  "url": "https://www.youtube.com/channel/UCiEHVhv0SBMpP75JbzJShqw",
+  "title": "Lectures by Walter Lewin. They will make you ♥ Physics.",
+  "channel": "Lectures by Walter Lewin. They will make you ♥ Physics.",
+  "matched": true
+ },
+ "channel:crashcourse": {
+  "kind": "channel",
+  "id": "UCX6b17PVsYBQ0ip5gyeme-Q",
+  "url": "https://www.youtube.com/channel/UCX6b17PVsYBQ0ip5gyeme-Q",
+  "title": "CrashCourse",
+  "channel": "CrashCourse",
+  "matched": true
+ },
+ "channel:veritasium": {
+  "kind": "channel",
+  "id": "UCXtxgWwk55kVJo9lCCZRdmg",
+  "url": "https://www.youtube.com/channel/UCXtxgWwk55kVJo9lCCZRdmg",
+  "title": "Veritasium en español",
+  "channel": "Veritasium en español",
+  "matched": true
+ },
+ "channel:openstax-en-espanol": {
+  "kind": "web",
+  "url": "https://openstax.org/subjects/espa%C3%B1ol",
+  "matched": true
+ },
+ "channel:fisicalab": {
+  "kind": "web",
+  "url": "https://www.fisicalab.com/",
+  "matched": true
+ },
+ "channel:khan-academy": {
+  "kind": "web",
+  "url": "https://es.khanacademy.org/",
+  "matched": true
+ },
+ "channel:paul-s-online-notes": {
+  "kind": "web",
+  "url": "https://tutorial.math.lamar.edu/",
+  "matched": true
+ },
+ "channel:the-physics-classroom": {
+  "kind": "web",
+  "url": "https://www.physicsclassroom.com/",
+  "matched": true
+ },
+ "channel:mit-opencourseware-8-01sc": {
+  "kind": "web",
+  "url": "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/",
+  "matched": true
+ },
+ "channel:aops-alcumus": {
+  "kind": "web",
+  "url": "https://artofproblemsolving.com/alcumus",
+  "matched": true
+ },
+ "channel:phet": {
+  "kind": "web",
+  "url": "https://phet.colorado.edu/es/",
+  "matched": true
+ },
+ "channel:desmos-geogebra": {
+  "kind": "web",
+  "url": "https://www.desmos.com/calculator?lang=es",
+  "matched": true
+ }
+}

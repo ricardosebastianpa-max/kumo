@@ -29,5 +29,5 @@ export async function saveStudy(id: string, raw: z.input<typeof Patch>) {
   const v = Patch.parse(raw);
   await db.update(s.studyResource).set({ ...(v.notes !== undefined && { notes: v.notes }), ...(v.url && { url: v.url, urlIsSearch: false }) }).where(eq(s.studyResource.id, id));
   await audit({ workspaceId: ctx.workspace.id, actorId: ctx.user.id, action: "update", resourceType: "study_resource", resourceId: id, meta: { fields: Object.keys(v) } });
-  revalidatePath("/app/study");
+  revalidatePath("/app/csca");
 }

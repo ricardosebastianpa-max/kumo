@@ -91,3 +91,6 @@ Nunito (rounded sans, self-hosted) for everything, heavy weights for headings, b
 
 ## ADR-028 Floating copilot that acts
 A happy cloud face in the bottom-right corner opens a chat on every screen. Each turn sends a compact snapshot (universities with id/slug/score/category/tuition, scholarship countries, next dates, list) and returns strict JSON `{reply, actions}`. `navigate` actions (validated against `/app/...` paths) run immediately, so the copilot can search and filter (Explore pages read `q`, `cat`, `sort`, `mode`, `country`, `scope`, `upcoming` from the URL). Writes (`shortlist`, `task`) appear as buttons the student confirms. Works with the in-app Anthropic or OpenRouter key.
+
+## ADR-029 CSCA module with hard-wired videos
+The study sheets exported to CSV had lost their hyperlinks, so resources pointed at searches. The owner's Excel carries the real links (224 of 226). `scripts/build-csca-data.ts` merges them (YouTube search resolution only fills the 2 gaps) into `lib/csca/data.ts`, committed, so the module needs no import and never searches at runtime. `/app/csca` replaces `/app/study`: Chinese-themed (lacquer red, gold, xiangyun clouds, lanterns, phase numerals 第一阶段…, a 完成 seal for finished steps), with a click-to-load `youtube-nocookie` player for videos and playlists. Progress (done/notes) stays in `study_resource`, created on first visit.

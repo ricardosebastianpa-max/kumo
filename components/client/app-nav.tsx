@@ -7,7 +7,7 @@ import { BookOpen, Bot, CalendarDays, ClipboardCheck, Compass, FileText, Gauge, 
 const GROUPS = [
   { key: "main", items: [{ href: "/app", key: "today", icon: Sun, exact: true }, { href: "/app/calendar", key: "calendar", icon: CalendarDays }, { href: "/app/list", key: "list", icon: Heart, also: ["/app/compare"] }, { href: "/app/universities", key: "explore", icon: Compass, also: ["/app/scholarships"] }] },
   { key: "process", items: [{ href: "/app/applications", key: "applications", icon: ClipboardCheck }, { href: "/app/documents", key: "documents", icon: FileText }, { href: "/app/people", key: "people", icon: UserRoundPen }, { href: "/app/essays", key: "essays", icon: NotebookPen }] },
-  { key: "studyG", items: [{ href: "/app/study", key: "study", icon: BookOpen }, { href: "/app/progress", key: "progress", icon: TrendingUp }, { href: "/app/focus", key: "focus", icon: Timer }] },
+  { key: "studyG", items: [{ href: "/app/csca", key: "study", icon: BookOpen, also: ["/app/study"] }, { href: "/app/progress", key: "progress", icon: TrendingUp }, { href: "/app/focus", key: "focus", icon: Timer }] },
   { key: "familyG", items: [{ href: "/app/family", key: "family", icon: HeartHandshake }, { href: "/app/copilot", key: "copilot", icon: Bot }, { href: "/app/model", key: "model", icon: Gauge }, { href: "/app/more", key: "more", icon: MoreHorizontal }] },
 ] as const;
 export const NAV_COLORS: Record<string, string> = { documents: "#4FB3BF", people: "#FF8FA3", essays: "#7C6CF2", progress: "var(--leaf)", focus: "#FF9F43", family: "#FF6F91", copilot: "var(--sky)", model: "#8D99AE" };
@@ -18,7 +18,7 @@ const ITEMS = [
   { href: "/app/list", key: "list", icon: Heart, also: ["/app/compare"] },
   { href: "/app/universities", key: "explore", icon: Compass, also: ["/app/scholarships"] },
   { href: "/app/applications", key: "applications", icon: ClipboardCheck, desktopOnly: true },
-  { href: "/app/study", key: "study", icon: BookOpen, desktopOnly: true, also: ["/app/progress", "/app/focus"] },
+  { href: "/app/csca", key: "study", icon: BookOpen, desktopOnly: true },
   { href: "/app/more", key: "more", icon: MoreHorizontal },
 ] as const;
 

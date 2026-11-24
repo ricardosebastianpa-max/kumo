@@ -15,6 +15,7 @@ import { Kumo } from "@/components/kumo";
 import { ButtonLink, Card, ConfidenceBadge } from "@/components/ui";
 import { DoneButton } from "@/components/client/done-button";
 import { CalmButton } from "@/components/client/calm";
+import { cscaProgress } from "@/lib/server/csca";
 
 export default async function Today() {
   const ctx = await requireWorkspace();
@@ -25,6 +26,7 @@ export default async function Today() {
   const now = new Date();
   const canView = can(ctx.actor, "view", { workspaceId: ws, module: "calendar" });
   const canEdit = can(ctx.actor, "edit", { workspaceId: ws, module: "calendar" });
+  await cscaProgress(ws, ctx.user.id);
   const [rows, [routeNext]] = await Promise.all([
     canView ? db.select().from(s.event).where(and(eq(s.event.workspaceId, ws), isNull(s.event.deletedAt), gte(s.event.startsAt, new Date(now.getTime() - 15 * 864e5)), lte(s.event.startsAt, new Date(now.getTime() + 32 * 864e5)))).orderBy(asc(s.event.startsAt)) : Promise.resolve([]),
     can(ctx.actor, "view", { workspaceId: ws, module: "study" }) ? db.select().from(s.studyResource).where(and(eq(s.studyResource.workspaceId, ws), eq(s.studyResource.kind, "route"), eq(s.studyResource.done, false), isNull(s.studyResource.deletedAt))).orderBy(asc(s.studyResource.position)).limit(1) : Promise.resolve([]),
@@ -104,7 +106,7 @@ export default async function Today() {
   const byDay = new Map<string, TodayItem[]>(); for (const i of items) { const d = dateInZone(i.startsAt, i.allDay ? i.timezone : tz); (byDay.get(d) ?? byDay.set(d, []).get(d)!).push(i); }
   const tiles = [
     { icon: Flame, color: "#FF9F43", label: t("streakLabel"), value: String(streak), sub: t("streak", { n: streak }), href: "/app/progress" },
-    { icon: BookOpen, color: "var(--sky)", label: t("routeLabel"), value: routeAll.length ? `${Math.round((routeDone / routeAll.length) * 100)}%` : "—", sub: routeAll.length ? `${routeDone}/${routeAll.length}` : "", href: "/app/study", pct: routeAll.length ? routeDone / routeAll.length : 0 },
+    { icon: BookOpen, color: "var(--sky)", label: t("routeLabel"), value: routeAll.length ? `${Math.round((routeDone / routeAll.length) * 100)}%` : "—", sub: routeAll.length ? `${routeDone}/${routeAll.length}` : "", href: "/app/csca", pct: routeAll.length ? routeDone / routeAll.length : 0 },
     { icon: ClipboardCheck, color: "#A570FF", label: t("appsLabel"), value: String(appsActive), sub: t("appsActive", { n: appsActive }), href: "/app/applications" },
     { icon: Hourglass, color: "var(--brand)", label: t("nextLabel"), value: nextDl ? String(daysUntil(nextDl, now, tz)) : "—", sub: nextDl ? nextDl.title : t("nextNone"), href: nextDl ? `/app/calendar?e=${nextDl.id}` : "/app/calendar" },
   ];
@@ -242,7 +244,7 @@ export default async function Today() {
             ) : <p className="text-ink-2">{t("agendaEmpty")}</p>}
           </section>
           {routeNext && (
-            <Link href="/app/study" className="grid gap-1 rounded-2xl border border-line bg-card p-5 transition-colors hover:bg-paper-2/60" data-testid="today-study">
+            <Link href={`/app/csca?k=route:${routeNext.position}`} className="grid gap-1 rounded-2xl border border-line bg-card p-5 transition-colors hover:bg-paper-2/60" data-testid="today-study">
               <span className="flex items-center gap-2 text-sm font-bold text-ink-2"><BookOpen size={16} strokeWidth={1.5} aria-hidden />{ts("next")}</span>
               <span className="font-bold">#{routeNext.position} · {routeNext.topic ?? routeNext.title}</span>
               <span className="truncate text-sm text-mute">{routeNext.title}{routeNext.source ? ` · ${routeNext.source}` : ""}</span>
